@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cj086k3dbo275"
-path="res://.godot/imported/Bat.png-ec2c80e151303885b30514934501a2a5.ctex"
+uid="uid://c6tsqgpwfs4bk"
+path="res://.godot/imported/Demon.png-fad410a824713908e016d3acaf7b5460.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Monsters/Bat.png"
-dest_files=["res://.godot/imported/Bat.png-ec2c80e151303885b30514934501a2a5.ctex"]
+source_file="res://Assets/Enemies/Demon.png"
+dest_files=["res://.godot/imported/Demon.png-fad410a824713908e016d3acaf7b5460.ctex"]
 
 [params]
 

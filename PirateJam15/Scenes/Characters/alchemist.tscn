@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://co4uv0apipk4j"]
 
-[ext_resource type="Script" path="res://Scenes/Characters/alchemist.gd" id="1_a6gd3"]
+[ext_resource type="Script" path="res://Scripts/Characters/alchemist.gd" id="1_a6gd3"]
 [ext_resource type="Texture2D" uid="uid://b48tvg73682g7" path="res://Assets/Characters/Alchemist.png" id="2_2xvm3"]
-[ext_resource type="PackedScene" uid="uid://bpvtclx8jqbhg" path="res://Scenes/Actions/interactable.tscn" id="3_pmxlb"]
+[ext_resource type="PackedScene" uid="uid://bpvtclx8jqbhg" path="res://Scenes/Components/interactable.tscn" id="3_7nyq2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_heftq"]
 atlas = ExtResource("2_2xvm3")
@@ -41,6 +41,7 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_o36yt"]
+radius = 0.4
 
 [node name="Alchemist" type="CharacterBody3D"]
 script = ExtResource("1_a6gd3")
@@ -55,6 +56,6 @@ autoplay = "default"
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_o36yt")
 
-[node name="Interactable" parent="." instance=ExtResource("3_pmxlb")]
+[node name="Interactable" parent="." instance=ExtResource("3_7nyq2")]
 
 [connection signal="interacted_with" from="Interactable" to="." method="_on_interactable_interacted_with"]
