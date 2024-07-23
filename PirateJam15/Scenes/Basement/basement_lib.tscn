@@ -1,0 +1,37 @@
+[gd_scene load_steps=12 format=3 uid="uid://6mhqkfalnhqx"]
+
+[ext_resource type="PackedScene" uid="uid://cjk8xwlg48bfx" path="res://Scenes/Basement/Blocks/bsmt_block1.tscn" id="1_3f1y8"]
+[ext_resource type="PackedScene" uid="uid://db03kqumv4cn5" path="res://Scenes/Basement/Blocks/bsmt_block2.tscn" id="2_348xa"]
+[ext_resource type="PackedScene" uid="uid://da7jyln1ojlnu" path="res://Scenes/Basement/Blocks/bsmt_block3.tscn" id="3_ympdm"]
+[ext_resource type="PackedScene" uid="uid://bpcxgrh453y61" path="res://Scenes/Basement/Blocks/bsmt_block4.tscn" id="4_kb82y"]
+[ext_resource type="PackedScene" uid="uid://s5bgdnp676lr" path="res://Scenes/Basement/Blocks/bsmt_block5.tscn" id="5_ytxgw"]
+[ext_resource type="PackedScene" uid="uid://di628ebfge0tg" path="res://Scenes/Basement/Blocks/bsmt_block6.tscn" id="6_dxmpa"]
+[ext_resource type="PackedScene" uid="uid://uxbkg0e7ifh7" path="res://Scenes/Basement/Blocks/bsmt_block7.tscn" id="7_iad68"]
+[ext_resource type="PackedScene" uid="uid://c2o67i5n43pid" path="res://Scenes/Basement/Blocks/bsmt_block8.tscn" id="8_33uv4"]
+[ext_resource type="PackedScene" uid="uid://cgox53u04lq1p" path="res://Scenes/Basement/Blocks/bsmt_block9.tscn" id="9_ohw7j"]
+[ext_resource type="PackedScene" uid="uid://cacveqcoykdvp" path="res://Scenes/Basement/Blocks/bsmt_block10.tscn" id="10_8y8ve"]
+[ext_resource type="PackedScene" uid="uid://cfddwcewyi8hl" path="res://Scenes/Basement/Blocks/bsmt_block11.tscn" id="11_srwej"]
+
+[node name="BasementLib" type="Node3D"]
+
+[node name="Block" parent="." instance=ExtResource("1_3f1y8")]
+
+[node name="Block2" parent="." instance=ExtResource("2_348xa")]
+
+[node name="Block3" parent="." instance=ExtResource("3_ympdm")]
+
+[node name="Block4" parent="." instance=ExtResource("4_kb82y")]
+
+[node name="Block5" parent="." instance=ExtResource("5_ytxgw")]
+
+[node name="Block6" parent="." instance=ExtResource("6_dxmpa")]
+
+[node name="Block7" parent="." instance=ExtResource("7_iad68")]
+
+[node name="Block8" parent="." instance=ExtResource("8_33uv4")]
+
+[node name="Block9" parent="." instance=ExtResource("9_ohw7j")]
+
+[node name="Block10" parent="." instance=ExtResource("10_8y8ve")]
+
+[node name="Block11" parent="." instance=ExtResource("11_srwej")]

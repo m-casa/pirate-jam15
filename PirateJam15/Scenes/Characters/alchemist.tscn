@@ -1,0 +1,60 @@
+[gd_scene load_steps=10 format=3 uid="uid://co4uv0apipk4j"]
+
+[ext_resource type="Script" path="res://Scenes/Characters/alchemist.gd" id="1_a6gd3"]
+[ext_resource type="Texture2D" uid="uid://b48tvg73682g7" path="res://Assets/Characters/Alchemist.png" id="2_2xvm3"]
+[ext_resource type="PackedScene" uid="uid://bpvtclx8jqbhg" path="res://Scenes/Actions/interactable.tscn" id="3_pmxlb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_heftq"]
+atlas = ExtResource("2_2xvm3")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_14i6w"]
+atlas = ExtResource("2_2xvm3")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1kag"]
+atlas = ExtResource("2_2xvm3")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ag1r5"]
+atlas = ExtResource("2_2xvm3")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lcspc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_heftq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_14i6w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f1kag")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ag1r5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_o36yt"]
+
+[node name="Alchemist" type="CharacterBody3D"]
+script = ExtResource("1_a6gd3")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+pixel_size = 0.062
+billboard = 2
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_lcspc")
+autoplay = "default"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_o36yt")
+
+[node name="Interactable" parent="." instance=ExtResource("3_pmxlb")]
+
+[connection signal="interacted_with" from="Interactable" to="." method="_on_interactable_interacted_with"]

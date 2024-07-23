@@ -1,0 +1,61 @@
+[gd_scene load_steps=9 format=3 uid="uid://dk3fhxsl1tmgr"]
+
+[ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_rpm01"]
+[ext_resource type="Texture2D" uid="uid://bsxte1qghnnji" path="res://Assets/Monsters/Mob.png" id="2_vd36n"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xw7fo"]
+atlas = ExtResource("2_vd36n")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xnma3"]
+atlas = ExtResource("2_vd36n")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_72nex"]
+atlas = ExtResource("2_vd36n")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oswow"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xw7fo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xnma3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_72nex")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_o36yt"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yohca"]
+radius = 0.55
+
+[node name="Enemy" type="CharacterBody3D"]
+collision_layer = 9
+script = ExtResource("1_rpm01")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+pixel_size = 0.062
+billboard = 2
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_oswow")
+autoplay = "default"
+frame_progress = 0.794121
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_o36yt")
+
+[node name="DamageArea" type="Area3D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DamageArea"]
+shape = SubResource("CapsuleShape3D_yohca")
+
+[connection signal="body_entered" from="DamageArea" to="." method="_on_body_entered_damage_area"]

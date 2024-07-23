@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://da7jyln1ojlnu"]
+
+[ext_resource type="Texture2D" uid="uid://020l6hcntdek" path="res://Assets/Basement/basement_2.png" id="1_7kjnj"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_vmt62"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_au14o"]
+shading_mode = 0
+specular_mode = 1
+albedo_texture = ExtResource("1_7kjnj")
+uv1_scale = Vector3(3, 2, 1)
+texture_filter = 0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ww7of"]
+
+[node name="Block" type="MeshInstance3D"]
+mesh = SubResource("BoxMesh_vmt62")
+surface_material_override/0 = SubResource("StandardMaterial3D_au14o")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_ww7of")
