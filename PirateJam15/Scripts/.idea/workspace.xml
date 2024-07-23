@@ -5,7 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="34fa0fe4-f23a-40d0-a8b7-3281750c1a80" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/PauseMenu.gd" beforeDir="false" afterPath="$PROJECT_DIR$/PauseMenu.gd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/indexLayout.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Scenes/main.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/../Scenes/main.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project.godot" beforeDir="false" afterPath="$PROJECT_DIR$/../project.godot" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +46,7 @@
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "dev-micklouffe",
+    "git-widget-placeholder": "dev",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -59,7 +64,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1721707355938</updated>
-      <workItem from="1721707357882" duration="9029000" />
+      <workItem from="1721707357882" duration="8494000" />
     </task>
     <servers />
   </component>
