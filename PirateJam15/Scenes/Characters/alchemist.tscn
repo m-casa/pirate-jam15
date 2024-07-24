@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://co4uv0apipk4j"]
+[gd_scene load_steps=11 format=3 uid="uid://co4uv0apipk4j"]
 
 [ext_resource type="Script" path="res://Scripts/Characters/alchemist.gd" id="1_a6gd3"]
 [ext_resource type="Texture2D" uid="uid://b48tvg73682g7" path="res://Assets/Characters/Alchemist.png" id="2_2xvm3"]
@@ -43,6 +43,8 @@ animations = [{
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_o36yt"]
 radius = 0.4
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_upsi2"]
+
 [node name="Alchemist" type="CharacterBody3D"]
 script = ExtResource("1_a6gd3")
 
@@ -53,9 +55,12 @@ texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_lcspc")
 autoplay = "default"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="WorldCollider" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_o36yt")
 
 [node name="Interactable" parent="." instance=ExtResource("3_7nyq2")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactable"]
+shape = SubResource("CapsuleShape3D_upsi2")
 
 [connection signal="interacted_with" from="Interactable" to="." method="_on_interactable_interacted_with"]

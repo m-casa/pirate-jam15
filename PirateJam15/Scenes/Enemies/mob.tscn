@@ -1,7 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://dk3fhxsl1tmgr"]
+[gd_scene load_steps=11 format=3 uid="uid://dk3fhxsl1tmgr"]
 
 [ext_resource type="Script" path="res://Scripts/Characters/enemy.gd" id="1_rpm01"]
 [ext_resource type="Texture2D" uid="uid://bsxte1qghnnji" path="res://Assets/Enemies/Mob.png" id="2_go605"]
+[ext_resource type="PackedScene" uid="uid://cchar4njta66r" path="res://Scenes/Components/hitbox.tscn" id="3_8l3jd"]
+[ext_resource type="PackedScene" uid="uid://cwtuomrx5lja2" path="res://Scenes/Components/health.tscn" id="4_dj52m"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xw7fo"]
 atlas = ExtResource("2_go605")
@@ -35,10 +37,9 @@ animations = [{
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_o36yt"]
 radius = 0.4
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8xvam"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ppljw"]
 
-[node name="Enemy" type="CharacterBody3D"]
-collision_layer = 9
+[node name="Mob" type="CharacterBody3D"]
 script = ExtResource("1_rpm01")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
@@ -49,13 +50,17 @@ sprite_frames = SubResource("SpriteFrames_oswow")
 autoplay = "default"
 frame_progress = 0.794121
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="WorldCollider" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_o36yt")
 
-[node name="DamageArea" type="Area3D" parent="."]
+[node name="HitBox" parent="." node_paths=PackedStringArray("health") instance=ExtResource("3_8l3jd")]
+collision_layer = 8
 collision_mask = 2
+health = NodePath("../Health")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="DamageArea"]
-shape = SubResource("CapsuleShape3D_8xvam")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HitBox"]
+shape = SubResource("CapsuleShape3D_ppljw")
 
-[connection signal="body_entered" from="DamageArea" to="." method="_on_body_entered_damage_area"]
+[node name="Health" parent="." instance=ExtResource("4_dj52m")]
+
+[connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]

@@ -1,9 +1,15 @@
-class_name Enemy extends CharacterBody3D
+extends CharacterBody3D
 
+var attack: Attack
 
-func take_damage():
-	self.queue_free()
+# Called when a node and its children have entered the scene
+func _ready():
+	attack  = Attack.new()
+	attack.attack_damage = 5
 
-func _on_body_entered_damage_area(body):
-	var player = body as Player
-	player.take_damage()
+func _on_hit_box_area_entered(area):
+	if area.get_parent() is Player:
+		# Unnecessary variable, only meant to understand this logic
+		var player = area # If area is the player, damage them
+		
+		player.damage_player(attack)
