@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://drxxb01bf1f0a"]
 
-[node name="GameManagerMick" type="Control"]
+[node name="GameManager" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

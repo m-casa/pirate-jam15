@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bsxte1qghnnji"
-path="res://.godot/imported/Mob.png-7ffd0ce995dd54e7fd986a7fe336adda.ctex"
+uid="uid://cqm1fvccu01hl"
+path="res://.godot/imported/Spider.png-e5a82a9a5feb5ea31072823f2696a8c3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Monsters/Mob.png"
-dest_files=["res://.godot/imported/Mob.png-7ffd0ce995dd54e7fd986a7fe336adda.ctex"]
+source_file="res://Assets/Enemies/Spider.png"
+dest_files=["res://.godot/imported/Spider.png-e5a82a9a5feb5ea31072823f2696a8c3.ctex"]
 
 [params]
 
@@ -31,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

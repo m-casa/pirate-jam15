@@ -1,14 +1,14 @@
 [gd_scene load_steps=4 format=3 uid="uid://dqt6ouv4vlu0q"]
 
-[ext_resource type="Script" path="res://Scripts/player.gd" id="1_5anf2"]
+[ext_resource type="Script" path="res://Scripts/Characters/player.gd" id="1_5anf2"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vslgp"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_k423r"]
-size = Vector3(1, 0.15, 1.5)
+[sub_resource type="BoxShape3D" id="BoxShape3D_qhx10"]
+size = Vector3(1, 0.15, 1.69982)
 
 [node name="Player" type="CharacterBody3D"]
-collision_layer = 3
+collision_layer = 2
 floor_constant_speed = true
 floor_max_angle = 0.872665
 script = ExtResource("1_5anf2")
@@ -22,12 +22,12 @@ throw_force_upwrd = 3.5
 shape = SubResource("CapsuleShape3D_vslgp")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 fov = 90.0
 
 [node name="InteractRay" type="RayCast3D" parent="Camera3D"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
-target_position = Vector3(0, -1.5, 0)
+target_position = Vector3(0, -1.7, 0)
 collision_mask = 4
 collide_with_areas = true
 collide_with_bodies = false
@@ -40,6 +40,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.7)
 collision_mask = 8
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Camera3D/MeleeArea"]
-shape = SubResource("BoxShape3D_k423r")
-
-[connection signal="body_entered" from="Camera3D/MeleeArea" to="." method="_on_melee_area_body_entered"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.149701)
+shape = SubResource("BoxShape3D_qhx10")
