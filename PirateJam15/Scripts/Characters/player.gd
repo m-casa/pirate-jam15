@@ -4,6 +4,7 @@ class_name Player extends CharacterBody3D
 #region FIELDS
 var _can_attack: bool
 var _can_throw: bool
+var _attack_time: float
 var _gravity: float
 var _move_direction: Vector3
 var _target_velocity: Vector3
@@ -11,14 +12,15 @@ var _target_velocity: Vector3
 var _camera: Camera3D
 var _interact_ray: RayCast3D
 var _hold_position: Marker3D
-var _melee_area: Area3D
+var _attack_area: CollisionShape3D
+var _timer: Timer
 var _cube: PackedScene
 
-@export var speed: float
-@export var jump_velocity: float
-@export var camera_sens: float
-@export var throw_force_fwrd: float
-@export var throw_force_upwrd: float
+@export var speed = 5
+@export var jump_velocity = 4.5
+@export var camera_sens = 0.001
+@export var throw_force_fwrd = -18
+@export var throw_force_upwrd = 3.5
 #endregion
 
 #region METHODS
@@ -30,13 +32,18 @@ func _ready():
 	_target_velocity = Vector3.ZERO
 	
 	_can_attack = true
+	_attack_time = 0.6
+	
 	_can_throw = false
 	_cube = preload("res://Scenes/Items/cube.tscn")
 	
 	_camera = $Camera3D
 	_interact_ray = $Camera3D/InteractRay
 	_hold_position = $Camera3D/HoldPosition
-	_melee_area = $Camera3D/MeleeArea
+	_attack_area = $Camera3D/AttackArea/CollisionShape3D
+	_timer = $Camera3D/AttackArea/Timer
+	
+	_attack_area.set_disabled(true)
 	
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
@@ -64,12 +71,12 @@ func _process(delta):
 	_quit_game()
 
 # Called every physics tick; 60 times per sec by default
-func _physics_process(delta):
+func _physics_process(_delta):
 	_adjust_velocity()
 	
 	_interact()
 	
-	_attack()
+	#_attack()
 	
 	_throw()
 	
@@ -109,9 +116,12 @@ func _interact():
 # Attack only happens on collision layer 4
 func _attack():
 	if Input.is_action_just_released("action") && _can_attack:
-		if _melee_area.has_overlapping_bodies():
-			for enemy in _melee_area.get_overlapping_bodies():
-				enemy.take_damage()
+		_can_attack = false
+		
+		_timer.start()
+		#if _melee_area.has_overlapping_bodies():
+			#for enemy in _melee_area.get_overlapping_bodies():
+				#enemy.take_damage()
 
 # To be used for potential feature: Throwing selected item
 func _throw():
@@ -133,3 +143,11 @@ func _quit_game():
 	if Input.is_action_just_pressed("quit"):
 		get_tree().quit()
 #endregion
+
+
+func _on_body_entered_melee_area(body):
+	pass # Replace with function body.
+
+
+func _on_timer_timeout():
+	_can_attack = true

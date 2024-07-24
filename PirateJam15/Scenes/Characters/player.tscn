@@ -1,6 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dqt6ouv4vlu0q"]
+[gd_scene load_steps=7 format=3 uid="uid://dqt6ouv4vlu0q"]
 
 [ext_resource type="Script" path="res://Scripts/Characters/player.gd" id="1_5anf2"]
+[ext_resource type="PackedScene" uid="uid://cwtuomrx5lja2" path="res://Scenes/Components/health.tscn" id="2_ildgs"]
+[ext_resource type="Script" path="res://Scripts/Components/attack.gd" id="2_r4i3x"]
+[ext_resource type="PackedScene" uid="uid://b653o6e45dnd" path="res://Scenes/Effects/slash.tscn" id="3_4vjuc"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vslgp"]
 
@@ -12,11 +15,6 @@ collision_layer = 2
 floor_constant_speed = true
 floor_max_angle = 0.872665
 script = ExtResource("1_5anf2")
-speed = 5.0
-jump_velocity = 4.5
-camera_sens = 0.001
-throw_force_fwrd = -18.0
-throw_force_upwrd = 3.5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_vslgp")
@@ -35,10 +33,24 @@ collide_with_bodies = false
 [node name="HoldPosition" type="Marker3D" parent="Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.375, 0, -0.85)
 
-[node name="MeleeArea" type="Area3D" parent="Camera3D"]
+[node name="AttackArea" type="Area3D" parent="Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.7)
 collision_mask = 8
+script = ExtResource("2_r4i3x")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Camera3D/MeleeArea"]
+[node name="Slash" parent="Camera3D/AttackArea" instance=ExtResource("3_4vjuc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, -0.25)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Camera3D/AttackArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.149701)
 shape = SubResource("BoxShape3D_qhx10")
+
+[node name="Timer" type="Timer" parent="Camera3D/AttackArea"]
+process_callback = 0
+one_shot = true
+
+[node name="Health" parent="." instance=ExtResource("2_ildgs")]
+
+[connection signal="body_entered" from="Camera3D/AttackArea" to="." method="_on_body_entered_melee_area"]
+[connection signal="timeout" from="Camera3D/AttackArea/Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Camera3D/AttackArea/Timer" to="Camera3D/AttackArea" method="_on_timer_timeout"]
