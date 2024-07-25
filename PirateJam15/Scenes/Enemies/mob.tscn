@@ -36,6 +36,7 @@ animations = [{
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_o36yt"]
 radius = 0.4
+height = 1.5
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ppljw"]
 
@@ -51,12 +52,14 @@ autoplay = "default"
 frame_progress = 0.794121
 
 [node name="WorldCollider" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
 shape = SubResource("CapsuleShape3D_o36yt")
 
 [node name="HitBox" parent="." node_paths=PackedStringArray("health") instance=ExtResource("3_8l3jd")]
 collision_layer = 8
 collision_mask = 2
 health = NodePath("../Health")
+is_enemy = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HitBox"]
 shape = SubResource("CapsuleShape3D_ppljw")

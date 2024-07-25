@@ -8,9 +8,13 @@ var health: float
 func _ready():
 	health = _max_health
 
-func damage(attack: Attack):
-	if health > 0:
+func damage_enemy(attack: Attack):
+	var enemy = get_parent()
+	
+	if health > 0 and not enemy.is_knocked_back:
 		health -= attack.attack_damage
+		apply_knockback(attack)
+		
 		print_debug("Hit an enemy for 5!")
 	
 	if health <= 0:
@@ -24,3 +28,12 @@ func damage_player(attack: Attack):
 	
 	if health <= 0:
 		print_debug("Game Over!")
+
+func apply_knockback(attack: Attack):
+	var enemy = get_parent()
+	var direction_normalized = attack.knockback_direction
+	direction_normalized.y = 0
+	direction_normalized = direction_normalized.normalized()
+	
+	enemy.velocity = direction_normalized * -attack.knockback_force
+	enemy.is_knocked_back = true

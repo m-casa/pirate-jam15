@@ -11,8 +11,10 @@ var _timer: Timer
 
 # Called when a node and its children have entered the scene
 func _ready():
-	attack  = Attack.new()
+	attack = Attack.new()
 	attack.attack_damage = 5
+	attack.knockback_force = -10
+	attack.knockback_direction = -global_transform.basis.z
 	
 	_can_attack = true
 	_attack_time = 0.3
@@ -45,5 +47,6 @@ func _on_attack_area_entered(area):
 	if area is HitBox:
 		# Unnecessary variable, only meant to understand this logic
 		var target = area # If area is a hitbox, they're a target (enemies, pots) 
+		attack.knockback_direction = -global_transform.basis.z
 		
-		target.damage(attack)
+		target.damage_target(attack)
