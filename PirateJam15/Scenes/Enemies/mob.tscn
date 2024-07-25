@@ -64,7 +64,8 @@ is_enemy = true
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HitBox"]
 shape = SubResource("CapsuleShape3D_ppljw")
 
-[node name="Health" parent="." instance=ExtResource("4_dj52m")]
+[node name="Health" parent="." node_paths=PackedStringArray("_sprite") instance=ExtResource("4_dj52m")]
 _max_health = 20.0
+_sprite = NodePath("../AnimatedSprite3D")
 
 [connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
