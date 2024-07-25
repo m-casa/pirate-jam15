@@ -2,26 +2,27 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b28ruelxpo2v8"
-path="res://.godot/imported/basement_1.png-0002f1022facb53777057fdcd3679e58.ctex"
+uid="uid://d062rmw223b1s"
+path.s3tc="res://.godot/imported/library_01.png-34741d60e7d0e63f730e11a810dbff74.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 
 [deps]
 
-source_file="res://Assets/Basement/basement_1.png"
-dest_files=["res://.godot/imported/basement_1.png-0002f1022facb53777057fdcd3679e58.ctex"]
+source_file="res://Assets/Basement/library_01.png"
+dest_files=["res://.godot/imported/library_01.png-34741d60e7d0e63f730e11a810dbff74.s3tc.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=false
+mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""

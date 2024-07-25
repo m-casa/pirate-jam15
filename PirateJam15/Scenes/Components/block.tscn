@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cgox53u04lq1p"]
 
-[ext_resource type="Texture2D" uid="uid://be0jakwarpgdv" path="res://Assets/Basement/basement_8.png" id="1_i84bm"]
+[ext_resource type="Texture2D" uid="uid://be0jakwarpgdv" path="res://Assets/Basement/basement_08.png" id="1_i84bm"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_vmt62"]
 

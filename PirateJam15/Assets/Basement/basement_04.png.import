@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://be0jakwarpgdv"
-path="res://.godot/imported/basement_8.png-163ed63860f3f6efa7aee8e06c5ccae8.ctex"
+uid="uid://cbu7ver0uv5oh"
+path="res://.godot/imported/basement_04.png-c86701027d6ee63accfc883966500de4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Basement/basement_8.png"
-dest_files=["res://.godot/imported/basement_8.png-163ed63860f3f6efa7aee8e06c5ccae8.ctex"]
+source_file="res://Assets/Basement/basement_04.png"
+dest_files=["res://.godot/imported/basement_04.png-c86701027d6ee63accfc883966500de4.ctex"]
 
 [params]
 

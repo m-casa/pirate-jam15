@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://lvpeijxb1udq"
-path="res://.godot/imported/basement_3.png-dfb9bada5c6111a937c8da31d5e90e93.ctex"
+path="res://.godot/imported/basement_03.png-5f621667212914bef10c24a829c5862c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Basement/basement_3.png"
-dest_files=["res://.godot/imported/basement_3.png-dfb9bada5c6111a937c8da31d5e90e93.ctex"]
+source_file="res://Assets/Basement/basement_03.png"
+dest_files=["res://.godot/imported/basement_03.png-5f621667212914bef10c24a829c5862c.ctex"]
 
 [params]
 
