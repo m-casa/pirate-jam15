@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bsmomdfhnynh3"]
+
+[ext_resource type="Script" path="res://Scripts/Items/item.gd" id="1_1g5x6"]
+[ext_resource type="Texture2D" uid="uid://0kdingpjpcdn" path="res://Assets/Loot/potion-sprites.png" id="2_rm5ql"]
+
+[node name="Item" type="Node3D"]
+script = ExtResource("1_1g5x6")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.322119, 0)
+texture = ExtResource("2_rm5ql")
+hframes = 6
+frame = 1
