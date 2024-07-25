@@ -2,9 +2,9 @@ class_name Player extends CharacterBody3D
 
 
 #region FIELDS
-var _gravity: float
 var _jumping: bool
 var _can_throw: bool
+var _gravity: float
 var _input_dir: Vector2
 
 var _camera: Camera3D
@@ -22,12 +22,6 @@ var _cube: PackedScene
 #region METHODS
 # Called when a node and its children have entered the scene
 func _ready():
-	# Get the gravity from project settings to be synced with RigidBody nodes
-	_gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
-	
-	# Preload anything we plan to instantiate during gameplay
-	_cube = preload("res://Scenes/Items/cube.tscn")
-	
 	_jumping = false
 	_can_throw = false
 	_input_dir = Vector2.ZERO
@@ -36,12 +30,18 @@ func _ready():
 	_interact_ray = $Camera/InteractionRayCast
 	_hand_position = $Camera/HandPosition
 	
+	# Get the gravity from project settings to be synced with RigidBody nodes
+	_gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+	
+	# Preload anything we plan to instantiate during gameplay
+	_cube = preload("res://Scenes/Items/cube.tscn")
+	
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _unhandled_input(event):
 	# Check for mouse motion and apply to camera
 	if event is InputEventMouseMotion:
-		var mouseMotion: InputEventMouseMotion = event
+		var mouseMotion = event
 		
 		# Rotate self so that the player's body is rotating left and right;
 		#  Camera will also rotate left and right since it's a child

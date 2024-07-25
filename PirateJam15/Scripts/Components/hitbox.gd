@@ -1,15 +1,15 @@
 class_name HitBox extends Area3D
 
-@export var health: Health
+@export var health_component: Health
 @export var is_enemy: bool
 
 func damage_target(attack: Attack):
 	# Check if our health component is set
-	if health:
+	if health_component:
 		if is_enemy:
-			health.damage_enemy(attack)
+			health_component.damage_enemy(attack)
 
 func damage_player(attack: Attack):
 	# Check if our health component is set
-	if health:
-		health.damage_player(attack)
+	if health_component:
+		health_component.damage_player(attack)

@@ -2,38 +2,46 @@ class_name Health extends Node3D
 
 
 @export var _max_health = 10.0
-var health: float
+@export var _stun_duration = 0.3
+
+var _stunned: bool
+var _health: float
+var _timer: Timer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	health = _max_health
+	_stunned = false
+	_health = _max_health
+	
+	_timer = $Timer
 
 func damage_enemy(attack: Attack):
 	var enemy = get_parent()
 	
-	if health > 0 and not enemy.is_knocked_back:
-		health -= attack.attack_damage
-		apply_knockback(attack)
+	# Check if stunned, or else enemy might be hit multiple times 
+	#  within a few frames of each other
+	if _health > 0 and not _stunned:
+		_health -= attack.attack_damage
+		enemy.setup_knockback(attack)
 		
-		print_debug("Hit an enemy for 5!")
+		_stunned = true
+		_timer.set_wait_time(_stun_duration)
+		_timer.start()
 	
-	if health <= 0:
-		print_debug("Killed an enemy!")
+	if _health <= 0:
 		get_parent().queue_free()
 
 func damage_player(attack: Attack):
-	if health > 0:
-		health -= attack.attack_damage
+	if _health > 0 and not _stunned:
+		_health -= attack.attack_damage
 		print_debug("Hit the player for 5!")
+		
+		_stunned = true
+		_timer.set_wait_time(_stun_duration)
+		_timer.start()
 	
-	if health <= 0:
+	if _health <= 0:
 		print_debug("Game Over!")
 
-func apply_knockback(attack: Attack):
-	var enemy = get_parent()
-	var direction_normalized = attack.knockback_direction
-	direction_normalized.y = 0
-	direction_normalized = direction_normalized.normalized()
-	
-	enemy.velocity = direction_normalized * -attack.knockback_force
-	enemy.is_knocked_back = true
+func _on_timer_timeout():
+	_stunned = false

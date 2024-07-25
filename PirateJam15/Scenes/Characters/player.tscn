@@ -11,7 +11,7 @@ radius = 0.4
 height = 1.5
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qhx10"]
-size = Vector3(1, 0.15, 1.69982)
+size = Vector3(2.5, 0.45, 1.25)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6ed5f"]
 
@@ -44,11 +44,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, -0.95)
 script = ExtResource("3_axx46")
 
 [node name="AttackArea" type="Area3D" parent="Camera/Slash"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0.25)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.045, -0.125)
 collision_mask = 8
 
 [node name="SlashShape" type="CollisionShape3D" parent="Camera/Slash/AttackArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.149701)
 shape = SubResource("BoxShape3D_qhx10")
 disabled = true
 
@@ -56,14 +55,14 @@ disabled = true
 process_callback = 0
 one_shot = true
 
-[node name="HitBox" parent="." node_paths=PackedStringArray("health") instance=ExtResource("5_8qkoa")]
+[node name="HitBox" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("5_8qkoa")]
 collision_layer = 2
-health = NodePath("../Health")
+health_component = NodePath("../Health")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HitBox"]
 shape = SubResource("CapsuleShape3D_6ed5f")
 
 [node name="Health" parent="." instance=ExtResource("2_ildgs")]
+_stun_duration = 1.0
 
-[connection signal="area_entered" from="Camera/Slash/AttackArea" to="Camera/Slash" method="_on_attack_area_entered"]
 [connection signal="timeout" from="Camera/Slash/AttackArea/Timer" to="Camera/Slash" method="_on_timer_timeout"]
