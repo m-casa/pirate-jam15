@@ -1,7 +1,7 @@
-extends Resource
-class_name Loot
+class_name Loot extends Resource
 
-@export var sprite: ItemData
+@export var item: ItemData
+@export_range(1, 100, 50, 'suffix:%') var drop_chance: float
 @export_range(1, 5, 1, 'suffix:item') var min_amount: int
 @export_range(1, 5, 1, 'suffix:item') var max_amount: int
 
