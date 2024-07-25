@@ -1,4 +1,4 @@
-class_name Interactable extends Area3D
+extends Area3D
 
 
 signal interacted_with
