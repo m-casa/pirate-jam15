@@ -1,6 +1,8 @@
 extends Node3D
 
 
+@export var _knockback_force = -15
+
 var attack: Attack
 var _can_attack: bool
 var _attack_time: float
@@ -13,7 +15,7 @@ var _timer: Timer
 func _ready():
 	attack = Attack.new()
 	attack.attack_damage = 5
-	attack.knockback_force = -10
+	attack.knockback_force = _knockback_force
 	attack.knockback_direction = Vector3.ZERO
 	
 	_can_attack = true

@@ -3,26 +3,25 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://y5bs8a2woj5f"
-path.s3tc="res://.godot/imported/library_06.png-76c724bfb6e73a317af34a6ea5ec236a.s3tc.ctex"
+path="res://.godot/imported/library_06.png-76c724bfb6e73a317af34a6ea5ec236a.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://Assets/Basement/library_06.png"
-dest_files=["res://.godot/imported/library_06.png-76c724bfb6e73a317af34a6ea5ec236a.s3tc.ctex"]
+dest_files=["res://.godot/imported/library_06.png-76c724bfb6e73a317af34a6ea5ec236a.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""

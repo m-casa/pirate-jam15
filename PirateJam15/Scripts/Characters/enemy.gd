@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 var attack: Attack
-var was_knocked_back: bool
+var _was_knocked_back: bool
 var _gravity: float
 
 # Called when a node and its children have entered the scene
@@ -12,7 +12,7 @@ func _ready():
 	attack = Attack.new()
 	attack.attack_damage = 5
 	
-	was_knocked_back = false
+	_was_knocked_back = false
 
 func _physics_process(delta):
 	_apply_gravity(delta)
@@ -33,16 +33,16 @@ func setup_knockback(attack: Attack):
 	direction_normalized = direction_normalized.normalized()
 	
 	velocity = direction_normalized * -attack.knockback_force
-	was_knocked_back = true
+	_was_knocked_back = true
 
 func _apply_knockback():
-	if was_knocked_back:
+	if _was_knocked_back:
 		# Apply friction or damping to gradually stop the knockback
 		velocity *= 0.9  # Adjust this value as needed
 		
 		# Stop knockback when velocity is low
 		if velocity.length() < 0.1:
-			was_knocked_back = false
+			_was_knocked_back = false
 			velocity = Vector3.ZERO
 
 func _on_hit_box_area_entered(area):

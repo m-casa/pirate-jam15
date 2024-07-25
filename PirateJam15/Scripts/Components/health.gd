@@ -22,20 +22,20 @@ func damage_enemy(attack: Attack):
 	if not _stunned:
 		var enemy = get_parent()
 		
+		_stunned = true
 		_health -= attack.attack_damage
 		_sprite.modulate = Color.RED
 		enemy.setup_knockback(attack)
 		
-		_stunned = true
+		if _health <= 0:
+			get_parent().queue_free()
+		
 		_timer.set_wait_time(_stun_duration)
 		_timer.start()
 		
 		# Start a separate timer for the enemy to regain its original color
 		await get_tree().create_timer(_timer.time_left).timeout
 		_sprite.modulate = Color.WHITE
-	
-	if _health <= 0:
-		get_parent().queue_free()
 
 func damage_player(attack: Attack):
 	if _health > 0 and not _stunned:

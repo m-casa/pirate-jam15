@@ -41,6 +41,7 @@ height = 1.5
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ppljw"]
 
 [node name="Mob" type="CharacterBody3D"]
+wall_min_slide_angle = 0.0872665
 script = ExtResource("1_rpm01")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
@@ -55,11 +56,11 @@ frame_progress = 0.794121
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
 shape = SubResource("CapsuleShape3D_o36yt")
 
-[node name="HitBox" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("3_8l3jd")]
+[node name="HitBox" parent="." node_paths=PackedStringArray("_health_component") instance=ExtResource("3_8l3jd")]
 collision_layer = 8
 collision_mask = 2
-health_component = NodePath("../Health")
-is_enemy = true
+_health_component = NodePath("../Health")
+_is_enemy = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HitBox"]
 shape = SubResource("CapsuleShape3D_ppljw")
