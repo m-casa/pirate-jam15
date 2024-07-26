@@ -48,7 +48,6 @@ func _unhandled_input(event):
 	# Check for mouse motion and apply to camera
 	if event is InputEventMouseMotion:
 		var mouseMotion: InputEventMouseMotion = event
-		
 		# Rotate self so that the player's body is rotating left and right;
 		#  Camera will also rotate left and right since it's a child
 		self.rotate_y(-mouseMotion.relative.x * camera_sens)

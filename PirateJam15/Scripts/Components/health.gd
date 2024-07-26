@@ -14,7 +14,6 @@ func damage(attack: Attack):
 		print_debug("Hit an enemy for 5!")
 	
 	if health <= 0:
-		print_debug("Killed an enemy!")
 		get_parent().queue_free()
 
 func damage_player(attack: Attack):
