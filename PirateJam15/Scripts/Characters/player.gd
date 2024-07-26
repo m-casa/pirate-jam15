@@ -1,11 +1,15 @@
 class_name Player extends CharacterBody3D
 
+### Mickplouffe: Added the following code at multiple place related to input handling.
+# 	if not input_enabled:
+#  		return
 
 #region FIELDS
 var _gravity: float
 var _jumping: bool
 var _can_throw: bool
 var _input_dir: Vector2
+var input_enabled: bool = true  # Mickplouffe: Added this flag to control input handling
 
 var _camera: Camera3D
 var _interact_ray: RayCast3D
@@ -39,6 +43,8 @@ func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _unhandled_input(event):
+	if not input_enabled:
+		return
 	# Check for mouse motion and apply to camera
 	if event is InputEventMouseMotion:
 		var mouseMotion: InputEventMouseMotion = event
@@ -55,6 +61,8 @@ func _unhandled_input(event):
 
 # Called every frame
 func _process(_delta):
+	if not input_enabled:
+		return
 	_get_input_dir()
 	
 	_jump()
@@ -65,8 +73,11 @@ func _process(_delta):
 func _physics_process(delta):
 	_apply_gravity(delta)
 	
+	
 	_apply_velocity()
 	
+	if not input_enabled:
+		return
 	_interact()
 	
 	_throw()
