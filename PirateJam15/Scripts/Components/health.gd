@@ -1,7 +1,5 @@
 class_name Health extends Node3D
 
-const loot = preload("res://Scenes/Items/item.tscn")
-
 
 @export var _max_health = 10.0
 var health: float
@@ -16,10 +14,6 @@ func damage(attack: Attack):
 		print_debug("Hit an enemy for 5!")
 	
 	if health <= 0:
-		print_debug("Killed an enemy!")
-		var lootToDrop = loot.instantiate()
-		lootToDrop.position = global_position
-		get_parent().get_parent().add_child(lootToDrop)
 		get_parent().queue_free()
 
 func damage_player(attack: Attack):
