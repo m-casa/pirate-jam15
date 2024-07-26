@@ -42,6 +42,7 @@ animations = [{
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_o36yt"]
 radius = 0.4
+height = 1.5
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_upsi2"]
 
@@ -56,6 +57,7 @@ sprite_frames = SubResource("SpriteFrames_lcspc")
 autoplay = "default"
 
 [node name="WorldCollider" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
 shape = SubResource("CapsuleShape3D_o36yt")
 
 [node name="Interactable" parent="." instance=ExtResource("3_7nyq2")]

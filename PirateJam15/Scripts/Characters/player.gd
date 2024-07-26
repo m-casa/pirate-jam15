@@ -5,9 +5,15 @@ class_name Player extends CharacterBody3D
 #  		return
 
 #region FIELDS
-var _gravity: float
+@export var _player_speed = 5
+@export var _jump_velocity = 4.5
+@export var _camera_sens = 0.001
+@export var _throw_force_fwrd = -18
+@export var _throw_force_upwrd = 3.5
+
 var _jumping: bool
 var _can_throw: bool
+var _gravity: float
 var _input_dir: Vector2
 var input_enabled: bool = true  # Mickplouffe: Added this flag to control input handling
 
@@ -15,23 +21,11 @@ var _camera: Camera3D
 var _interact_ray: RayCast3D
 var _hand_position: Marker3D
 var _cube: PackedScene
-
-@export var player_speed = 5
-@export var jump_velocity = 4.5
-@export var camera_sens = 0.001
-@export var throw_force_fwrd = -18
-@export var throw_force_upwrd = 3.5
 #endregion
 
 #region METHODS
 # Called when a node and its children have entered the scene
 func _ready():
-	# Get the gravity from project settings to be synced with RigidBody nodes
-	_gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
-	
-	# Preload anything we plan to instantiate during gameplay
-	_cube = preload("res://Scenes/Items/cube.tscn")
-	
 	_jumping = false
 	_can_throw = false
 	_input_dir = Vector2.ZERO
@@ -39,6 +33,12 @@ func _ready():
 	_camera = $Camera
 	_interact_ray = $Camera/InteractionRayCast
 	_hand_position = $Camera/HandPosition
+	
+	# Get the gravity from project settings to be synced with RigidBody nodes
+	_gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+	
+	# Preload anything we plan to instantiate during gameplay
+	_cube = preload("res://Scenes/Items/cube.tscn")
 	
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
@@ -50,10 +50,10 @@ func _unhandled_input(event):
 		var mouseMotion: InputEventMouseMotion = event
 		# Rotate self so that the player's body is rotating left and right;
 		#  Camera will also rotate left and right since it's a child
-		self.rotate_y(-mouseMotion.relative.x * camera_sens)
+		self.rotate_y(-mouseMotion.relative.x * _camera_sens)
 		
 		# Only rotate the camera up and down; Don't want player body flipping over
-		_camera.rotate_x(-mouseMotion.relative.y * camera_sens)
+		_camera.rotate_x(-mouseMotion.relative.y * _camera_sens)
 		
 		# Clamp the camera so that the player doesn't break their neck looking up and down
 		_camera.rotation_degrees.x = clampf(_camera.rotation_degrees.x, -70, 70)
@@ -100,16 +100,16 @@ func _apply_velocity():
 	var move_direction = (transform.basis * Vector3(_input_dir.x, 0, _input_dir.y)).normalized()
 	
 	if move_direction:
-		velocity.x = move_direction.x * player_speed
-		velocity.z = move_direction.z * player_speed
+		velocity.x = move_direction.x * _player_speed
+		velocity.z = move_direction.z * _player_speed
 	else:
-		velocity.x = move_toward(velocity.x, 0, player_speed)
-		velocity.z = move_toward(velocity.z, 0, player_speed)
+		velocity.x = move_toward(velocity.x, 0, _player_speed)
+		velocity.z = move_toward(velocity.z, 0, _player_speed)
 	
 	# If the player is trying to jump, adjust vertical velocity
 	if _jumping:
 		_jumping = false
-		velocity.y = jump_velocity
+		velocity.y = _jump_velocity
 
 # Interact ony happens on collision layer 3
 func _interact():

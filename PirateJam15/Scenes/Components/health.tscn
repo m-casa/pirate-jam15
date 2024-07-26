@@ -4,3 +4,9 @@
 
 [node name="Health" type="Node3D"]
 script = ExtResource("1_76gix")
+
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
