@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://bsmomdfhnynh3"]
 
 [ext_resource type="Script" path="res://Scripts/Items/item.gd" id="1_1g5x6"]
-[ext_resource type="Resource" uid="uid://crwvv2jhlqkof" path="res://Assets/ItemData/green_slime.tres" id="2_1v887"]
+[ext_resource type="Resource" uid="uid://crwvv2jhlqkof" path="res://Assets/Other/ItemData/green_slime.tres" id="2_1v887"]
 [ext_resource type="Script" path="res://Scripts/Components/loot.gd" id="2_5eyfh"]
-[ext_resource type="Texture2D" uid="uid://bqec3yxbnmclk" path="res://Assets/Loot/items-spritesheet.png" id="4_br6wf"]
+[ext_resource type="Texture2D" uid="uid://bqec3yxbnmclk" path="res://Assets/SpriteSheets/Loot/items-spritesheet.png" id="4_br6wf"]
 
 [sub_resource type="Resource" id="Resource_b37er"]
 script = ExtResource("2_5eyfh")

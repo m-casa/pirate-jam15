@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://ddrvn5jqme1nt"]
 
-[ext_resource type="Texture2D" uid="uid://be0jakwarpgdv" path="res://Assets/Basement/basement_08.png" id="1_imayc"]
+[ext_resource type="Texture2D" uid="uid://be0jakwarpgdv" path="res://Assets/Textures/Basement/basement_08.png" id="1_imayc"]
 
 [sub_resource type="PrismMesh" id="PrismMesh_upcv3"]
 left_to_right = 1.0

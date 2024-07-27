@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://ca80cvqi2etsh"]
+
+[ext_resource type="Script" path="res://Scripts/Resources/ItemData.gd" id="1_xrcse"]
+[ext_resource type="Texture2D" uid="uid://0kdingpjpcdn" path="res://Assets/SpriteSheets/Loot/potion-sprites.png" id="2_7krd5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ki4er"]
+atlas = ExtResource("2_7krd5")
+region = Rect2(320, 0, 64, 64)
+
+[resource]
+script = ExtResource("1_xrcse")
+name = "Red Potion"
+texture = SubResource("AtlasTexture_ki4er")

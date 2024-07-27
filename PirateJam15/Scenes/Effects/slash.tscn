@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://b653o6e45dnd"]
 
-[ext_resource type="ArrayMesh" uid="uid://ybwq82l5iimo" path="res://Assets/Models/Slash.obj" id="1_rqyhl"]
-[ext_resource type="Shader" uid="uid://clkuluxobtiw2" path="res://Assets/Shaders/slash.tres" id="2_86d4q"]
+[ext_resource type="ArrayMesh" uid="uid://ybwq82l5iimo" path="res://Assets/Other/Models/Slash.obj" id="1_rqyhl"]
+[ext_resource type="Shader" uid="uid://clkuluxobtiw2" path="res://Assets/Other/Shaders/slash.tres" id="2_86d4q"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qiwlw"]
 render_priority = 1

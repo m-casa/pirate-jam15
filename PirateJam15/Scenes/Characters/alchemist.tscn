@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://co4uv0apipk4j"]
 
 [ext_resource type="Script" path="res://Scripts/Characters/alchemist.gd" id="1_a6gd3"]
-[ext_resource type="Texture2D" uid="uid://b48tvg73682g7" path="res://Assets/Characters/Alchemist.png" id="2_2xvm3"]
+[ext_resource type="Texture2D" uid="uid://b48tvg73682g7" path="res://Assets/SpriteSheets/Characters/Alchemist.png" id="2_2xvm3"]
 [ext_resource type="PackedScene" uid="uid://bpvtclx8jqbhg" path="res://Scenes/Components/interactable.tscn" id="3_7nyq2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_heftq"]
