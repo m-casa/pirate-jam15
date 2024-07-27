@@ -7,7 +7,6 @@ left_to_right = 1.0
 size = Vector3(1, 0.5, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t3h6d"]
-shading_mode = 0
 specular_mode = 1
 albedo_texture = ExtResource("1_imayc")
 uv1_scale = Vector3(3, 2, 1)

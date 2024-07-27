@@ -28,175 +28,150 @@
 [ext_resource type="PackedScene" uid="uid://b818lohqbur7k" path="res://Scenes/Blocks/ramp.tscn" id="26_o24jq"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kitdx"]
-shading_mode = 0
 specular_mode = 1
 albedo_texture = ExtResource("2_3d6rm")
 uv1_scale = Vector3(3, 2, 1)
 texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6qdr4"]
-shading_mode = 0
 specular_mode = 1
 albedo_texture = ExtResource("3_0k57b")
 uv1_scale = Vector3(3, 2, 1)
 texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nltnb"]
-shading_mode = 0
 specular_mode = 1
 albedo_texture = ExtResource("4_xwa3c")
 uv1_scale = Vector3(3, 2, 1)
 texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tlys3"]
-shading_mode = 0
 specular_mode = 1
 albedo_texture = ExtResource("5_al2d1")
 uv1_scale = Vector3(3, 2, 1)
 texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7pdcm"]
-shading_mode = 0
 specular_mode = 1
 albedo_texture = ExtResource("6_y0fpf")
 uv1_scale = Vector3(3, 2, 1)
 texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4n1c4"]
-shading_mode = 0
 specular_mode = 1
 albedo_texture = ExtResource("7_gfok5")
 uv1_scale = Vector3(3, 2, 1)
 texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wi8ky"]
-shading_mode = 0
 specular_mode = 1
 albedo_texture = ExtResource("8_pub5l")
 uv1_scale = Vector3(3, 2, 1)
 texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mu7t2"]
-shading_mode = 0
 specular_mode = 1
 albedo_texture = ExtResource("9_4574t")
 uv1_scale = Vector3(3, 2, 1)
 texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rai5d"]
-shading_mode = 0
 specular_mode = 1
 albedo_texture = ExtResource("10_hpyw1")
 uv1_scale = Vector3(3, 2, 1)
 texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gk7qg"]
-shading_mode = 0
 specular_mode = 1
 albedo_texture = ExtResource("11_fg83t")
 uv1_scale = Vector3(3, 2, 1)
 texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_10fx3"]
-shading_mode = 0
 specular_mode = 1
 albedo_texture = ExtResource("12_cmbtk")
 uv1_scale = Vector3(3, 2, 1)
 texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_umgrt"]
-shading_mode = 0
 specular_mode = 1
 albedo_texture = ExtResource("13_15y8c")
 uv1_scale = Vector3(3, 2, 1)
 texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cawhx"]
-shading_mode = 0
 specular_mode = 1
 albedo_texture = ExtResource("14_0rqie")
 uv1_scale = Vector3(3, 2, 1)
 texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o4pgi"]
-shading_mode = 0
 specular_mode = 1
 albedo_texture = ExtResource("15_30owc")
 uv1_scale = Vector3(3, 2, 1)
 texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oxw7m"]
-shading_mode = 0
 specular_mode = 1
 albedo_texture = ExtResource("16_d2cer")
 uv1_scale = Vector3(3, 2, 1)
 texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7cglm"]
-shading_mode = 0
 specular_mode = 1
 albedo_texture = ExtResource("17_0iwwc")
 uv1_scale = Vector3(3, 2, 1)
 texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ayj0d"]
-shading_mode = 0
 specular_mode = 1
 albedo_texture = ExtResource("18_xcole")
 uv1_scale = Vector3(3, 2, 1)
 texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ac46j"]
-shading_mode = 0
 specular_mode = 1
 albedo_texture = ExtResource("19_4b7tb")
 uv1_scale = Vector3(3, 2, 1)
 texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w2wr2"]
-shading_mode = 0
 specular_mode = 1
 albedo_texture = ExtResource("20_1yji7")
 uv1_scale = Vector3(3, 2, 1)
 texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3i6d7"]
-shading_mode = 0
 specular_mode = 1
 albedo_texture = ExtResource("21_r2juc")
 uv1_scale = Vector3(3, 2, 1)
 texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y8t2b"]
-shading_mode = 0
 specular_mode = 1
 albedo_texture = ExtResource("22_x0p18")
 uv1_scale = Vector3(3, 2, 1)
 texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_to1t8"]
-shading_mode = 0
 specular_mode = 1
 albedo_texture = ExtResource("23_1igw0")
 uv1_scale = Vector3(3, 2, 1)
 texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ulv4x"]
-shading_mode = 0
 specular_mode = 1
 albedo_texture = ExtResource("24_6ed70")
 uv1_scale = Vector3(3, 2, 1)
 texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f8bt7"]
-shading_mode = 0
 specular_mode = 1
 albedo_texture = ExtResource("25_8qo8l")
 uv1_scale = Vector3(3, 2, 1)
 texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vv4sl"]
-shading_mode = 0
 specular_mode = 1
 albedo_texture = ExtResource("4_xwa3c")
 uv1_scale = Vector3(3, 2, 1)

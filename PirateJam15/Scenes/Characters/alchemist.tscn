@@ -52,6 +52,7 @@ script = ExtResource("1_a6gd3")
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 pixel_size = 0.062
 billboard = 2
+shaded = true
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_lcspc")
 autoplay = "default"
