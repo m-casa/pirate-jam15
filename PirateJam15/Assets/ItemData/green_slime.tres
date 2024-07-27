@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://crwvv2jhlqkof"]
 
-[ext_resource type="Script" path="res://Scripts/Resources/ItemData.gd" id="1_2xgfa"]
+[ext_resource type="Script" path="res://Scripts/Items/ItemData.gd" id="1_2xgfa"]
 [ext_resource type="Texture2D" uid="uid://bqec3yxbnmclk" path="res://Assets/Loot/items-spritesheet.png" id="2_4ruu5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6303q"]
@@ -11,3 +11,4 @@ region = Rect2(448, 0, 64, 64)
 script = ExtResource("1_2xgfa")
 name = "Green Slime"
 texture = SubResource("AtlasTexture_6303q")
+effects = Array[Resource("res://Scripts/Items/item_effect.gd")]([])

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cr7nyl23q24aw"]
+[gd_scene load_steps=15 format=3 uid="uid://cr7nyl23q24aw"]
 
 [ext_resource type="MeshLibrary" uid="uid://o10yjj83bik" path="res://Scenes/Basement/BasementMeshLib.tres" id="1_rw3kt"]
 [ext_resource type="PackedScene" uid="uid://dqt6ouv4vlu0q" path="res://Scenes/Characters/player.tscn" id="2_ktywg"]
@@ -8,6 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://b8hlddi55sswu" path="res://Scenes/InGameHud.tscn" id="5_xj1nk"]
 [ext_resource type="PackedScene" uid="uid://bax23imhhrv5a" path="res://Scenes/Inventory/inventory.tscn" id="7_whysh"]
 [ext_resource type="PackedScene" uid="uid://ce2c6kfbekmja" path="res://Scenes/DoorwayTeleporter.tscn" id="7_xqy7o"]
+[ext_resource type="PackedScene" uid="uid://chemh4hjosrg0" path="res://Scenes/Inventory/item_pickup.tscn" id="9_r67e6"]
+[ext_resource type="Resource" uid="uid://crwvv2jhlqkof" path="res://Assets/ItemData/green_slime.tres" id="10_lpi3y"]
+[ext_resource type="Resource" uid="uid://ca80cvqi2etsh" path="res://Assets/ItemData/red_potion.tres" id="11_m0q71"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cix0u"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -73,3 +76,11 @@ transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -9.5)
 target_scene = "Level01"
 teleport_position = Vector3(50, 0, 50)
 min_loading_time = 1.0
+
+[node name="ItemPickup" parent="." instance=ExtResource("9_r67e6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.80923, 1.54107, -2.85211)
+item_data = ExtResource("10_lpi3y")
+
+[node name="ItemPickup2" parent="." instance=ExtResource("9_r67e6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.16678, 1.54107, -2.85211)
+item_data = ExtResource("11_m0q71")

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://t28hi6exs4kd"]
+
+[ext_resource type="Script" path="res://Scripts/Items/ItemData.gd" id="1_d4xxe"]
+[ext_resource type="Texture2D" uid="uid://0kdingpjpcdn" path="res://Assets/Loot/potion-sprites.png" id="2_xwku5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nxe7r"]
+atlas = ExtResource("2_xwku5")
+region = Rect2(192, 0, 64, 64)
+
+[resource]
+script = ExtResource("1_d4xxe")
+name = "Speed Potion"
+texture = SubResource("AtlasTexture_nxe7r")
+effects = Array[Resource("res://Scripts/Items/item_effect.gd")]([])

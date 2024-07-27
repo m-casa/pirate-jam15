@@ -123,14 +123,14 @@ func _throw():
 	if Input.is_action_just_released("action") && _can_throw:
 		pass
 		#var throwable = _cube.instantiate()
-		
-		# For just holding in place
-		#_hand_position.add_child(throwable)
-		
+		#
+		 ##For just holding in place
+		##_hand_position.add_child(throwable)
+		#
 		#throwable.position = _hand_position.global_position
 		#get_tree().current_scene.add_child(throwable)
-		
-		#throwable.apply_central_impulse(_camera.global_transform.basis.z * throw_force_fwrd + Vector3(0, throw_force_upwrd, 0))
+		#
+		#throwable.apply_central_impulse(_camera.global_transform.basis.z * _throw_force_fwrd + Vector3(0, _throw_force_upwrd, 0))
 
 func _quit_game():
 	if Input.is_action_just_pressed("quit"):

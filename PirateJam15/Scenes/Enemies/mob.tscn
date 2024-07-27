@@ -1,9 +1,26 @@
-[gd_scene load_steps=11 format=3 uid="uid://b0gf2ggn8vnrr"]
+[gd_scene load_steps=16 format=3 uid="uid://b0gf2ggn8vnrr"]
 
 [ext_resource type="Script" path="res://Scripts/Characters/enemy.gd" id="1_rpm01"]
 [ext_resource type="Texture2D" uid="uid://bsxte1qghnnji" path="res://Assets/Enemies/Mob.png" id="2_go605"]
+[ext_resource type="Resource" uid="uid://crwvv2jhlqkof" path="res://Assets/ItemData/green_slime.tres" id="2_ijoj5"]
 [ext_resource type="PackedScene" uid="uid://cchar4njta66r" path="res://Scenes/Components/hitbox.tscn" id="3_8l3jd"]
+[ext_resource type="Script" path="res://Scripts/Items/drop_data.gd" id="3_lejx7"]
 [ext_resource type="PackedScene" uid="uid://cwtuomrx5lja2" path="res://Scenes/Components/health.tscn" id="4_dj52m"]
+[ext_resource type="Resource" uid="uid://emac10og77oe" path="res://Assets/ItemData/bone.tres" id="4_ym3q2"]
+
+[sub_resource type="Resource" id="Resource_foll3"]
+script = ExtResource("3_lejx7")
+item = ExtResource("2_ijoj5")
+drop_probability = 100.0
+min_items = 1
+max_items = 3
+
+[sub_resource type="Resource" id="Resource_8vk08"]
+script = ExtResource("3_lejx7")
+item = ExtResource("4_ym3q2")
+drop_probability = 10.0
+min_items = 1
+max_items = 1
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xw7fo"]
 atlas = ExtResource("2_go605")
@@ -43,6 +60,7 @@ height = 1.5
 [node name="Mob" type="CharacterBody3D"]
 wall_min_slide_angle = 0.0872665
 script = ExtResource("1_rpm01")
+drops = Array[ExtResource("3_lejx7")]([SubResource("Resource_foll3"), SubResource("Resource_8vk08")])
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 pixel_size = 0.062
@@ -68,5 +86,8 @@ shape = SubResource("CapsuleShape3D_ppljw")
 [node name="Health" parent="." node_paths=PackedStringArray("_sprite") instance=ExtResource("4_dj52m")]
 _max_health = 20.0
 _sprite = NodePath("../AnimatedSprite3D")
+
+[node name="LootSpawn" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.700147, 0)
 
 [connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]

@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://chemh4hjosrg0"]
+
+[ext_resource type="Script" path="res://Scripts/Items/item_pickup.gd" id="1_h0op2"]
+[ext_resource type="AudioStream" uid="uid://o6rvjhg8olmv" path="res://Assets/Audio/item_pickup.wav" id="2_veewr"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_q74gj"]
+
+[node name="ItemPickup" type="Node3D"]
+script = ExtResource("1_h0op2")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_q74gj")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+billboard = 2
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_veewr")
