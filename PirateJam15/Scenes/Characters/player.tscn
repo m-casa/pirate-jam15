@@ -1,10 +1,10 @@
 [gd_scene load_steps=9 format=3 uid="uid://dqt6ouv4vlu0q"]
 
 [ext_resource type="Script" path="res://Scripts/Characters/player.gd" id="1_5anf2"]
-[ext_resource type="PackedScene" path="res://Scenes/Components/health.tscn" id="2_ildgs"]
+[ext_resource type="PackedScene" uid="uid://cwtuomrx5lja2" path="res://Scenes/Components/health.tscn" id="2_ildgs"]
 [ext_resource type="PackedScene" uid="uid://b653o6e45dnd" path="res://Scenes/Effects/slash.tscn" id="3_4vjuc"]
 [ext_resource type="Script" path="res://Scripts/Components/slash.gd" id="3_axx46"]
-[ext_resource type="PackedScene" path="res://Scenes/Components/hitbox.tscn" id="5_8qkoa"]
+[ext_resource type="PackedScene" uid="uid://cchar4njta66r" path="res://Scenes/Components/hitbox.tscn" id="5_8qkoa"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vslgp"]
 radius = 0.4
