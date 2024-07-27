@@ -5,6 +5,8 @@ class_name Player extends CharacterBody3D
 #  		return
 
 #region FIELDS
+const COYOTE_TIME: float = 0.2
+
 @export var _player_speed = 5
 @export var _jump_velocity = 4.5
 @export var _camera_sens = 0.001
@@ -14,6 +16,7 @@ class_name Player extends CharacterBody3D
 var _jumping: bool
 var _can_throw: bool
 var _gravity: float
+var _coyote_timer: float
 var _input_dir: Vector2
 var input_enabled: bool = true  # Mickplouffe: Added this flag to control input handling
 
@@ -28,6 +31,7 @@ var _cube: PackedScene
 func _ready():
 	_jumping = false
 	_can_throw = false
+	_coyote_timer = 0.0
 	_input_dir = Vector2.ZERO
 	
 	_camera = $Camera
@@ -59,10 +63,13 @@ func _unhandled_input(event):
 		_camera.rotation_degrees.x = clampf(_camera.rotation_degrees.x, -70, 70)
 
 # Called every frame
-func _process(_delta):
+func _process(delta):
 	if not input_enabled:
 		return
+	
 	_get_input_dir()
+	
+	_update_coyote_timer(delta)
 	
 	_jump()
 	
@@ -72,11 +79,11 @@ func _process(_delta):
 func _physics_process(delta):
 	_apply_gravity(delta)
 	
-	
 	_apply_velocity()
 	
 	if not input_enabled:
 		return
+	
 	_interact()
 	
 	_throw()
@@ -88,8 +95,17 @@ func _get_input_dir():
 	_input_dir = Input.get_vector("move_left", "move_right", "move_forwards", "move_backwards")
 
 func _jump():
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if Input.is_action_just_pressed("jump") and (is_on_floor() or _coyote_timer < COYOTE_TIME):
 		_jumping = true
+		_coyote_timer = COYOTE_TIME
+
+func _update_coyote_timer(delta):
+	if is_on_floor():
+		_coyote_timer = 0.0
+	elif _jumping:
+		_coyote_timer = COYOTE_TIME
+	else:
+		_coyote_timer += delta
 
 func _apply_gravity(delta):
 	if not is_on_floor():
