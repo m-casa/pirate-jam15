@@ -1,18 +1,25 @@
 class_name Health extends Node3D
 
+@export var player_data: PlayerData
 
 @export var _max_health = 10.0
 @export var _stun_duration = 0.3
 @export var _sprite = AnimatedSprite3D
+@export var _is_player: bool = false
 
 var _stunned: bool
 var _health: float
 var _timer: Timer
 
+signal died(data: Vector3)
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	_stunned = false
-	_health = _max_health
+	if _is_player:
+		_health = player_data.current_health
+	else:
+		_health = _max_health 
 	
 	_timer = $Timer
 
@@ -28,6 +35,8 @@ func damage_enemy(attack: Attack):
 		enemy.setup_knockback(attack)
 		
 		if _health <= 0:
+			var data = get_parent()
+			emit_signal("died", data.position)
 			get_parent().queue_free()
 		
 		_timer.set_wait_time(_stun_duration)
@@ -38,16 +47,20 @@ func damage_enemy(attack: Attack):
 		_sprite.modulate = Color.WHITE
 
 func damage_player(attack: Attack):
-	if _health > 0 and not _stunned:
-		_health -= attack.attack_damage
+	var player_health = player_data.current_health
+	
+	if player_data.current_health > 0 and not _stunned:
+		player_data.take_dmg(attack.attack_damage)
+		print(player_data.current_health)
 		print_debug("Hit the player for 5!")
 		
 		_stunned = true
 		_timer.set_wait_time(_stun_duration)
 		_timer.start()
 	
-	if _health <= 0:
+	if player_data.current_health <= 0:
 		print_debug("Game Over!")
+		
 
 func _on_timer_timeout():
 	_stunned = false

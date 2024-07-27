@@ -17,7 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-GameManager="*res://Scripts/Managers/GameManager.gd"
+GameManager="*res://Scenes/Managers/GameManager.tscn"
 LoadingScreen="*res://Scenes/Managers/LoadScreen.tscn"
 
 [display]

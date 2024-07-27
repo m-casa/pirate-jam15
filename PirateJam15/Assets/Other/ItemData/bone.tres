@@ -1,13 +1,14 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://emac10og77oe"]
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://d182k38r3twb2"]
 
-[ext_resource type="Script" path="res://Scripts/Resources/ItemData.gd" id="1_l1hr3"]
+[ext_resource type="Script" path="res://Scripts/Items/ItemData.gd" id="1_c4mjr"]
 [ext_resource type="Texture2D" uid="uid://bqec3yxbnmclk" path="res://Assets/SpriteSheets/Loot/items-spritesheet.png" id="2_h7a78"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_muahx"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_qbaa6"]
 atlas = ExtResource("2_h7a78")
 region = Rect2(320, 0, 64, 64)
 
 [resource]
-script = ExtResource("1_l1hr3")
-name = ""
-texture = SubResource("AtlasTexture_muahx")
+script = ExtResource("1_c4mjr")
+name = "Bone"
+texture = SubResource("AtlasTexture_qbaa6")
+effects = Array[Resource("res://Scripts/Items/item_effect.gd")]([])

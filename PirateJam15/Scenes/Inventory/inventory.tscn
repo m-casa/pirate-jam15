@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://c4fjfxlrextlh" path="res://Assets/SpriteSheets/Loot/items.png" id="1_rp4hy"]
 [ext_resource type="Script" path="res://Scripts/Inventory/inventory_ui.gd" id="2_l543m"]
-[ext_resource type="Resource" uid="uid://cvshv37nu7w7c" path="res://Scenes/Inventory/player_inventory.tres" id="3_x3soy"]
+[ext_resource type="Resource" uid="uid://cvshv37nu7w7c" path="res://Assets/PlayerData/player_inventory.tres" id="3_1ymy8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t10xg"]
 atlas = ExtResource("1_rp4hy")
@@ -49,4 +49,4 @@ layout_direction = 2
 layout_mode = 2
 columns = 6
 script = ExtResource("2_l543m")
-data = ExtResource("3_x3soy")
+data = ExtResource("3_1ymy8")

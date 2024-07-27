@@ -1,8 +1,16 @@
 extends CharacterBody3D
 
+const pickup = preload("res://Scenes/Inventory/item_pickup.tscn")
+
 var attack: Attack
 var _was_knocked_back: bool
 var _gravity: float
+
+@onready var health = $Health
+
+
+@export_category("Item Drops")
+@export var drops: Array[DropData]
 
 # Called when a node and its children have entered the scene
 func _ready():
@@ -13,6 +21,8 @@ func _ready():
 	attack.attack_damage = 5
 	
 	_was_knocked_back = false
+	
+	health.died.connect( drop_items )
 
 func _physics_process(delta):
 	_apply_gravity(delta)
@@ -48,3 +58,21 @@ func _apply_knockback():
 func _on_hit_box_area_entered(area):
 	if area.get_parent() is Player:
 		area.damage_player(attack)
+		
+
+func drop_items( position_data: Vector3) -> void:
+	print(position_data)
+	if drops.size() == 0: return
+	for i in drops.size():
+		if drops[i] == null or drops[i].item == null: continue
+
+		var drop_count: int = drops[i].get_drop_count()
+
+		for c in drop_count:
+			var drop: ItemPickup = pickup.instantiate()
+			drop.item_data = drops[i].item
+			get_parent().add_child(drop)
+			drop.global_position = position_data
+			
+	print("dropping items")
+	pass
