@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bax23imhhrv5a"]
 
-[ext_resource type="Texture2D" uid="uid://c4fjfxlrextlh" path="res://Assets/Loot/items.png" id="1_rp4hy"]
+[ext_resource type="Texture2D" uid="uid://c4fjfxlrextlh" path="res://Assets/SpriteSheets/Loot/items.png" id="1_rp4hy"]
 [ext_resource type="Script" path="res://Scripts/Inventory/inventory_ui.gd" id="2_l543m"]
 [ext_resource type="Resource" uid="uid://cvshv37nu7w7c" path="res://Assets/PlayerData/player_inventory.tres" id="3_1ymy8"]
 

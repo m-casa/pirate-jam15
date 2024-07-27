@@ -1,24 +1,24 @@
 [gd_scene load_steps=16 format=3 uid="uid://b0gf2ggn8vnrr"]
 
 [ext_resource type="Script" path="res://Scripts/Characters/enemy.gd" id="1_rpm01"]
-[ext_resource type="Texture2D" uid="uid://bsxte1qghnnji" path="res://Assets/Enemies/Mob.png" id="2_go605"]
-[ext_resource type="Resource" uid="uid://crwvv2jhlqkof" path="res://Assets/ItemData/green_slime.tres" id="2_ijoj5"]
+[ext_resource type="Texture2D" uid="uid://bsxte1qghnnji" path="res://Assets/SpriteSheets/Enemies/Mob.png" id="2_go605"]
+[ext_resource type="Resource" uid="uid://to85m1frdxal" path="res://Assets/Other/ItemData/green_slime.tres" id="2_ubleq"]
 [ext_resource type="PackedScene" uid="uid://cchar4njta66r" path="res://Scenes/Components/hitbox.tscn" id="3_8l3jd"]
 [ext_resource type="Script" path="res://Scripts/Items/drop_data.gd" id="3_lejx7"]
+[ext_resource type="Resource" uid="uid://d182k38r3twb2" path="res://Assets/Other/ItemData/bone.tres" id="4_7efui"]
 [ext_resource type="PackedScene" uid="uid://cwtuomrx5lja2" path="res://Scenes/Components/health.tscn" id="4_dj52m"]
-[ext_resource type="Resource" uid="uid://emac10og77oe" path="res://Assets/ItemData/bone.tres" id="4_ym3q2"]
 
 [sub_resource type="Resource" id="Resource_foll3"]
 script = ExtResource("3_lejx7")
-item = ExtResource("2_ijoj5")
+item = ExtResource("2_ubleq")
 drop_probability = 100.0
 min_items = 1
-max_items = 3
+max_items = 5
 
 [sub_resource type="Resource" id="Resource_8vk08"]
 script = ExtResource("3_lejx7")
-item = ExtResource("4_ym3q2")
-drop_probability = 10.0
+item = ExtResource("4_7efui")
+drop_probability = 20.0
 min_items = 1
 max_items = 1
 
@@ -65,6 +65,7 @@ drops = Array[ExtResource("3_lejx7")]([SubResource("Resource_foll3"), SubResourc
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 pixel_size = 0.062
 billboard = 2
+shaded = true
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_oswow")
 autoplay = "default"
