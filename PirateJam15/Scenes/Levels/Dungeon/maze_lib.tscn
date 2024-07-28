@@ -1,4 +1,4 @@
-[gd_scene load_steps=88 format=3 uid="uid://c51rkbocf7ss1"]
+[gd_scene load_steps=90 format=3 uid="uid://c51rkbocf7ss1"]
 
 [ext_resource type="PackedScene" uid="uid://cgox53u04lq1p" path="res://Scenes/Blocks/block.tscn" id="1_l1y74"]
 [ext_resource type="Texture2D" uid="uid://byo1lyg4df5oh" path="res://Assets/Textures/Maze/maze_18.png" id="2_n5yh7"]
@@ -44,6 +44,7 @@
 [ext_resource type="Texture2D" uid="uid://eo4rnavxejhh" path="res://Assets/Textures/Ship/ship_31.png" id="42_umkwn"]
 [ext_resource type="Texture2D" uid="uid://1t4a06gl2hgq" path="res://Assets/Textures/Ship/ship_32.png" id="43_aavnm"]
 [ext_resource type="Texture2D" uid="uid://c774y0lhgsm5r" path="res://Assets/Textures/Ship/ship_33.png" id="44_dlhqu"]
+[ext_resource type="Texture2D" uid="uid://slvogde6gqmo" path="res://Assets/Textures/Seamless/seamless_127.png" id="45_siy8e"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2s2nh"]
 specular_mode = 1
@@ -303,6 +304,12 @@ albedo_texture = ExtResource("44_dlhqu")
 uv1_scale = Vector3(3, 2, 1)
 texture_filter = 0
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hdbvt"]
+specular_mode = 1
+albedo_texture = ExtResource("45_siy8e")
+uv1_scale = Vector3(3, 2, 1)
+texture_filter = 0
+
 [node name="MazeLib" type="Node3D"]
 
 [node name="Block" parent="." instance=ExtResource("1_l1y74")]
@@ -476,3 +483,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_0g5a8")
 [node name="Block43" parent="." instance=ExtResource("1_l1y74")]
 visible = false
 surface_material_override/0 = SubResource("StandardMaterial3D_hh8hn")
+
+[node name="Block44" parent="." instance=ExtResource("1_l1y74")]
+visible = false
+surface_material_override/0 = SubResource("StandardMaterial3D_hdbvt")
