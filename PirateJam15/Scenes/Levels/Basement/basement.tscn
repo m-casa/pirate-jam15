@@ -36,12 +36,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 4)
 light_color = Color(0, 1, 1, 1)
 light_energy = 10.0
 shadow_enabled = true
+omni_attenuation = 0.7
 
 [node name="RedLight" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -10)
 light_color = Color(1, 0, 0, 1)
 light_energy = 10.0
 shadow_enabled = true
+omni_attenuation = 0.7
 
 [node name="BasementBlocks" type="GridMap" parent="."]
 mesh_library = ExtResource("1_rw3kt")
