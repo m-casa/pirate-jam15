@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=3 uid="uid://c5n8nu8oxrnqp"]
+[gd_scene load_steps=108 format=3 uid="uid://c5n8nu8oxrnqp"]
 
 [ext_resource type="PackedScene" uid="uid://cgox53u04lq1p" path="res://Scenes/Blocks/block.tscn" id="1_5ejyu"]
 [ext_resource type="Texture2D" uid="uid://cpd32vw8k0vkh" path="res://Assets/Textures/Caverns/mine_23.png" id="2_e2711"]
@@ -32,8 +32,19 @@
 [ext_resource type="Texture2D" uid="uid://nrei6nh3uve8" path="res://Assets/Textures/Caverns/mine_30.png" id="30_ouar1"]
 [ext_resource type="Texture2D" uid="uid://bn64bxsix24xp" path="res://Assets/Textures/Caverns/mine_31.png" id="31_dunf1"]
 [ext_resource type="Texture2D" uid="uid://mm0c0vbxn5p5" path="res://Assets/Textures/Caverns/mine_32.png" id="32_mbtyi"]
+[ext_resource type="Texture2D" uid="uid://bcgwnt26yfxh3" path="res://Assets/Textures/Caverns/mine_24.png" id="33_gh376"]
 [ext_resource type="PackedScene" uid="uid://boi70ccrwnkg3" path="res://Scenes/Blocks/half_block.tscn" id="33_m8po4"]
+[ext_resource type="Texture2D" uid="uid://6sq5y87oypfb" path="res://Assets/Textures/Caverns/mine_29.png" id="34_7otnk"]
 [ext_resource type="PackedScene" uid="uid://ddrvn5jqme1nt" path="res://Scenes/Blocks/half_ramp.tscn" id="34_pd8j1"]
+[ext_resource type="Texture2D" uid="uid://dbu38qok1vfs" path="res://Assets/Textures/Caverns/mine_34.png" id="35_im1l6"]
+[ext_resource type="Texture2D" uid="uid://r1b0ew74r00f" path="res://Assets/Textures/Caverns/mine_35.png" id="36_7fcjb"]
+[ext_resource type="Texture2D" uid="uid://fsobwm3o236x" path="res://Assets/Textures/Caverns/mine_36.png" id="37_xgtj7"]
+[ext_resource type="Texture2D" uid="uid://rx3un85l56fl" path="res://Assets/Textures/Caverns/mine_37.png" id="38_gkcax"]
+[ext_resource type="Texture2D" uid="uid://b3rurd1hn2016" path="res://Assets/Textures/Caverns/mine_45.png" id="39_eq3v0"]
+[ext_resource type="Texture2D" uid="uid://m8wgv2yhall3" path="res://Assets/Textures/Caverns/mine_46.png" id="40_8cunn"]
+[ext_resource type="Texture2D" uid="uid://dd6ukv2btkooa" path="res://Assets/Textures/Caverns/mine_47.png" id="41_oews8"]
+[ext_resource type="Texture2D" uid="uid://dpa4wc8qk81qy" path="res://Assets/Textures/Caverns/mine_48.png" id="42_fx5qh"]
+[ext_resource type="Texture2D" uid="uid://ik3ldbqm1cd5" path="res://Assets/Textures/Caverns/mine_49.png" id="43_navxw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_saqis"]
 specular_mode = 1
@@ -218,6 +229,72 @@ texture_filter = 0
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lea70"]
 specular_mode = 1
 albedo_texture = ExtResource("32_mbtyi")
+uv1_scale = Vector3(3, 2, 1)
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ks6ha"]
+specular_mode = 1
+albedo_texture = ExtResource("33_gh376")
+uv1_scale = Vector3(3, 2, 1)
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jadj8"]
+specular_mode = 1
+albedo_texture = ExtResource("34_7otnk")
+uv1_scale = Vector3(3, 2, 1)
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j614k"]
+specular_mode = 1
+albedo_texture = ExtResource("35_im1l6")
+uv1_scale = Vector3(3, 2, 1)
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ufanm"]
+specular_mode = 1
+albedo_texture = ExtResource("36_7fcjb")
+uv1_scale = Vector3(3, 2, 1)
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ruwbc"]
+specular_mode = 1
+albedo_texture = ExtResource("37_xgtj7")
+uv1_scale = Vector3(3, 2, 1)
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6oxq8"]
+specular_mode = 1
+albedo_texture = ExtResource("38_gkcax")
+uv1_scale = Vector3(3, 2, 1)
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sxo65"]
+specular_mode = 1
+albedo_texture = ExtResource("39_eq3v0")
+uv1_scale = Vector3(3, 2, 1)
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vlwsw"]
+specular_mode = 1
+albedo_texture = ExtResource("40_8cunn")
+uv1_scale = Vector3(3, 2, 1)
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_feufp"]
+specular_mode = 1
+albedo_texture = ExtResource("41_oews8")
+uv1_scale = Vector3(3, 2, 1)
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kcm34"]
+specular_mode = 1
+albedo_texture = ExtResource("42_fx5qh")
+uv1_scale = Vector3(3, 2, 1)
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n2opb"]
+specular_mode = 1
+albedo_texture = ExtResource("43_navxw")
 uv1_scale = Vector3(3, 2, 1)
 texture_filter = 0
 
@@ -466,6 +543,50 @@ surface_material_override/0 = SubResource("StandardMaterial3D_qu3q3")
 [node name="Block31" parent="." instance=ExtResource("1_5ejyu")]
 visible = false
 surface_material_override/0 = SubResource("StandardMaterial3D_lea70")
+
+[node name="Block32" parent="." instance=ExtResource("1_5ejyu")]
+visible = false
+surface_material_override/0 = SubResource("StandardMaterial3D_ks6ha")
+
+[node name="Block33" parent="." instance=ExtResource("1_5ejyu")]
+visible = false
+surface_material_override/0 = SubResource("StandardMaterial3D_jadj8")
+
+[node name="Block34" parent="." instance=ExtResource("1_5ejyu")]
+visible = false
+surface_material_override/0 = SubResource("StandardMaterial3D_j614k")
+
+[node name="Block35" parent="." instance=ExtResource("1_5ejyu")]
+visible = false
+surface_material_override/0 = SubResource("StandardMaterial3D_ufanm")
+
+[node name="Block36" parent="." instance=ExtResource("1_5ejyu")]
+visible = false
+surface_material_override/0 = SubResource("StandardMaterial3D_ruwbc")
+
+[node name="Block37" parent="." instance=ExtResource("1_5ejyu")]
+visible = false
+surface_material_override/0 = SubResource("StandardMaterial3D_6oxq8")
+
+[node name="Block38" parent="." instance=ExtResource("1_5ejyu")]
+visible = false
+surface_material_override/0 = SubResource("StandardMaterial3D_sxo65")
+
+[node name="Block39" parent="." instance=ExtResource("1_5ejyu")]
+visible = false
+surface_material_override/0 = SubResource("StandardMaterial3D_vlwsw")
+
+[node name="Block40" parent="." instance=ExtResource("1_5ejyu")]
+visible = false
+surface_material_override/0 = SubResource("StandardMaterial3D_feufp")
+
+[node name="Block41" parent="." instance=ExtResource("1_5ejyu")]
+visible = false
+surface_material_override/0 = SubResource("StandardMaterial3D_kcm34")
+
+[node name="Block42" parent="." instance=ExtResource("1_5ejyu")]
+visible = false
+surface_material_override/0 = SubResource("StandardMaterial3D_n2opb")
 
 [node name="HalfBlock" parent="." instance=ExtResource("33_m8po4")]
 visible = false
