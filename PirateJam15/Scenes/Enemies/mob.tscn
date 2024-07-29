@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b0gf2ggn8vnrr"]
+[gd_scene load_steps=18 format=3 uid="uid://b0gf2ggn8vnrr"]
 
 [ext_resource type="Script" path="res://Scripts/Characters/enemy.gd" id="1_rpm01"]
 [ext_resource type="Texture2D" uid="uid://bsxte1qghnnji" path="res://Assets/SpriteSheets/Enemies/Mob.png" id="2_go605"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://Scripts/Items/drop_data.gd" id="3_lejx7"]
 [ext_resource type="Resource" uid="uid://d182k38r3twb2" path="res://Assets/Other/ItemData/bone.tres" id="4_7efui"]
 [ext_resource type="PackedScene" uid="uid://cwtuomrx5lja2" path="res://Scenes/Components/health.tscn" id="4_dj52m"]
+[ext_resource type="Resource" uid="uid://ca80cvqi2etsh" path="res://Assets/Other/ItemData/red_potion.tres" id="5_0igm3"]
 
 [sub_resource type="Resource" id="Resource_foll3"]
 script = ExtResource("3_lejx7")
@@ -19,6 +20,13 @@ max_items = 5
 script = ExtResource("3_lejx7")
 item = ExtResource("4_7efui")
 drop_probability = 20.0
+min_items = 1
+max_items = 1
+
+[sub_resource type="Resource" id="Resource_yl52b"]
+script = ExtResource("3_lejx7")
+item = ExtResource("5_0igm3")
+drop_probability = 1.0
 min_items = 1
 max_items = 1
 
@@ -60,7 +68,7 @@ height = 1.5
 [node name="Mob" type="CharacterBody3D"]
 wall_min_slide_angle = 0.0872665
 script = ExtResource("1_rpm01")
-drops = Array[ExtResource("3_lejx7")]([SubResource("Resource_foll3"), SubResource("Resource_8vk08")])
+drops = Array[ExtResource("3_lejx7")]([SubResource("Resource_foll3"), SubResource("Resource_8vk08"), SubResource("Resource_yl52b")])
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 pixel_size = 0.062

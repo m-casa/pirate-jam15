@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dvkpjy43373eq"]
+
+[node name="QuestTitle" type="Label"]
+custom_minimum_size = Vector2(200, 0)
+size_flags_horizontal = 8
+theme_override_colors/font_color = Color(0.87451, 0.443137, 0.14902, 1)
+text = "Quest Name"

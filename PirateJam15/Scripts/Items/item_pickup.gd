@@ -30,6 +30,7 @@ func item_picked_up() -> void:
 	audio_player.play()
 	visible = false
 	GameManager.updateInventory.emit()
+	GameManager.updateQuest.emit()
 	await audio_player.finished
 	queue_free()
 	pass

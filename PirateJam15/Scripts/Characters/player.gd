@@ -10,8 +10,8 @@ const COYOTE_TIME: float = 0.2
 @export var _player_speed = 5
 @export var _jump_velocity = 4.5
 @export var _camera_sens = 0.001
-@export var _throw_force_fwrd = -18
-@export var _throw_force_upwrd = 3.5
+#@export var _throw_force_fwrd = -18
+#@export var _throw_force_upwrd = 3.5
 
 var _jumping: bool
 var _can_throw: bool

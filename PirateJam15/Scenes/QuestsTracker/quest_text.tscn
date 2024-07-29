@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://budedig8oa7ws"]
+
+[node name="QuestText" type="RichTextLabel"]
+custom_minimum_size = Vector2(200, 0)
+text = "Our Customers are in need green dye. fetch me some slime from the dungeon "
+fit_content = true

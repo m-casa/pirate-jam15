@@ -7,7 +7,7 @@ var _was_knocked_back: bool
 var _gravity: float
 
 @onready var health = $Health
-
+@onready var loot_spawn = $LootSpawn
 
 @export_category("Item Drops")
 @export var drops: Array[DropData]
@@ -35,14 +35,14 @@ func _apply_gravity(delta):
 	if not is_on_floor():
 		velocity.y -= _gravity * delta
 
-func setup_knockback(attack: Attack):
+func setup_knockback(kncokback_attack: Attack):
 	# Normalize the knockback direction,
 	#  so that looking up or down doesn't change the force
-	var direction_normalized = attack.knockback_direction
+	var direction_normalized = kncokback_attack.knockback_direction
 	direction_normalized.y = 0
 	direction_normalized = direction_normalized.normalized()
 	
-	velocity = direction_normalized * -attack.knockback_force
+	velocity = direction_normalized * -kncokback_attack.knockback_force
 	_was_knocked_back = true
 
 func _apply_knockback():
@@ -58,10 +58,8 @@ func _apply_knockback():
 func _on_hit_box_area_entered(area):
 	if area.get_parent() is Player:
 		area.damage_player(attack)
-		
 
 func drop_items( position_data: Vector3) -> void:
-	print(position_data)
 	if drops.size() == 0: return
 	for i in drops.size():
 		if drops[i] == null or drops[i].item == null: continue
@@ -72,7 +70,4 @@ func drop_items( position_data: Vector3) -> void:
 			var drop: ItemPickup = pickup.instantiate()
 			drop.item_data = drops[i].item
 			get_parent().add_child(drop)
-			drop.global_position = position_data
-			
-	print("dropping items")
-	pass
+			drop.global_position = loot_spawn.global_position
