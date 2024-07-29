@@ -23,8 +23,10 @@ func add_item(item: ItemData, count: int = 1) -> bool:
 			newSlotData.changed.connect(slot_changed)
 			return true
 		
-	print("inventory full")
 	return false
+	
+func remove_item(item: ItemData, count: int = 1) -> void:
+	pass
 
 func connect_slots() -> void:
 	for s in slots:

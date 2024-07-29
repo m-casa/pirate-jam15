@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="QuestData" load_steps=5 format=3 uid="uid://cts8arckkt2aj"]
+
+[ext_resource type="Resource" uid="uid://d182k38r3twb2" path="res://Assets/Other/ItemData/bone.tres" id="1_tmjpb"]
+[ext_resource type="Script" path="res://Scripts/Quests/quest_data.gd" id="1_u4k6w"]
+[ext_resource type="Script" path="res://Scripts/Inventory/slot_data.gd" id="2_layd2"]
+
+[sub_resource type="Resource" id="Resource_33bub"]
+script = ExtResource("2_layd2")
+item_data = ExtResource("1_tmjpb")
+quantity = 11
+
+[resource]
+script = ExtResource("1_u4k6w")
+quest_name = "Fetch me there souls"
+quest_text = "we need bones"
+quest_turn_in = Array[ExtResource("2_layd2")]([SubResource("Resource_33bub")])
+completed = false

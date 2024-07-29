@@ -47,11 +47,9 @@ func damage_enemy(attack: Attack):
 		_sprite.modulate = Color.WHITE
 
 func damage_player(attack: Attack):
-	var player_health = player_data.current_health
 	
 	if player_data.current_health > 0 and not _stunned:
 		player_data.take_dmg(attack.attack_damage)
-		print(player_data.current_health)
 		print_debug("Hit the player for 5!")
 		
 		_stunned = true
