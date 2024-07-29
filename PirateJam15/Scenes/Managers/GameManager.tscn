@@ -6,7 +6,7 @@
 
 [node name="GameManager" type="Node"]
 script = ExtResource("1_xxp7u")
-alchemist_quests = Array[Resource("res://Scripts/Quests/quest_data.gd")]([ExtResource("2_tpuhs"), ExtResource("3_132sp"), null, null, null, null, null, null])
+alchemist_quests = Array[Resource("res://Scripts/Quests/quest_data.gd")]([ExtResource("2_tpuhs"), ExtResource("3_132sp"), null, null, null, null])
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 max_polyphony = 4

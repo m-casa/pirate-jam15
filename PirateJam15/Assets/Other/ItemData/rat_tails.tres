@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://ban72lmwsgxcy"]
+
+[ext_resource type="Script" path="res://Scripts/Items/ItemData.gd" id="1_algo4"]
+[ext_resource type="Texture2D" uid="uid://bqec3yxbnmclk" path="res://Assets/SpriteSheets/Loot/items-spritesheet.png" id="2_oc6j6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8jalc"]
+atlas = ExtResource("2_oc6j6")
+region = Rect2(704, 0, 64, 64)
+
+[resource]
+script = ExtResource("1_algo4")
+name = "Rat Tail"
+texture = SubResource("AtlasTexture_8jalc")
+effects = Array[Resource("res://Scripts/Items/item_effect.gd")]([])

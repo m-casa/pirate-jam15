@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://Scripts/Items/drop_data.gd" id="3_lejx7"]
 [ext_resource type="Resource" uid="uid://d182k38r3twb2" path="res://Assets/Other/ItemData/bone.tres" id="4_7efui"]
 [ext_resource type="PackedScene" uid="uid://cwtuomrx5lja2" path="res://Scenes/Components/health.tscn" id="4_dj52m"]
-[ext_resource type="Resource" uid="uid://ca80cvqi2etsh" path="res://Assets/Other/ItemData/red_potion.tres" id="5_0igm3"]
+[ext_resource type="Resource" uid="uid://ca80cvqi2etsh" path="res://Assets/Other/ItemData/health_potion.tres" id="5_0igm3"]
 
 [sub_resource type="Resource" id="Resource_foll3"]
 script = ExtResource("3_lejx7")
@@ -97,6 +97,6 @@ _max_health = 20.0
 _sprite = NodePath("../AnimatedSprite3D")
 
 [node name="LootSpawn" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.700147, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0076313, -0.593311, 0)
 
 [connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
