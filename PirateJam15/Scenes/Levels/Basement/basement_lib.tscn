@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://6mhqkfalnhqx"]
+[gd_scene load_steps=59 format=3 uid="uid://6mhqkfalnhqx"]
 
 [ext_resource type="PackedScene" uid="uid://cgox53u04lq1p" path="res://Scenes/Blocks/block.tscn" id="1_6nt84"]
 [ext_resource type="Texture2D" uid="uid://dpyb5u3ljqrae" path="res://Assets/Textures/Basement/basement_00.png" id="2_3d6rm"]
@@ -26,6 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://bd1545ahtkgiy" path="res://Assets/Textures/Basement/library_13.png" id="24_6ed70"]
 [ext_resource type="Texture2D" uid="uid://ctbqb5fxnxptf" path="res://Assets/Textures/Basement/library_14.png" id="25_8qo8l"]
 [ext_resource type="PackedScene" uid="uid://b818lohqbur7k" path="res://Scenes/Blocks/ramp.tscn" id="26_o24jq"]
+[ext_resource type="PackedScene" uid="uid://cno78qngqf1if" path="res://Scenes/Blocks/flipped_block.tscn" id="27_3rl6w"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kitdx"]
 specular_mode = 1
@@ -177,6 +178,48 @@ albedo_texture = ExtResource("4_xwa3c")
 uv1_scale = Vector3(3, 2, 1)
 texture_filter = 0
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1x0xm"]
+specular_mode = 1
+albedo_texture = ExtResource("11_fg83t")
+uv1_scale = Vector3(4, 4, 1)
+uv1_offset = Vector3(-0.5, 0, 0)
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2foed"]
+specular_mode = 1
+albedo_texture = ExtResource("15_30owc")
+uv1_scale = Vector3(4, 4, 1)
+uv1_offset = Vector3(-0.5, 0, 0)
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lx623"]
+specular_mode = 1
+albedo_texture = ExtResource("16_d2cer")
+uv1_scale = Vector3(4, 4, 1)
+uv1_offset = Vector3(-0.5, 0, 0)
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xo0r5"]
+specular_mode = 1
+albedo_texture = ExtResource("20_1yji7")
+uv1_scale = Vector3(4, 4, 1)
+uv1_offset = Vector3(-0.5, 0, 0)
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yrdqb"]
+specular_mode = 1
+albedo_texture = ExtResource("21_r2juc")
+uv1_scale = Vector3(4, 4, 1)
+uv1_offset = Vector3(-0.5, 0, 0)
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dj1sn"]
+specular_mode = 1
+albedo_texture = ExtResource("25_8qo8l")
+uv1_scale = Vector3(4, 4, 1)
+uv1_offset = Vector3(-0.5, 0, 0)
+texture_filter = 0
+
 [node name="BasementLib" type="Node3D"]
 
 [node name="Block" parent="." instance=ExtResource("1_6nt84")]
@@ -278,3 +321,27 @@ surface_material_override/0 = SubResource("StandardMaterial3D_f8bt7")
 [node name="Ramp" parent="." instance=ExtResource("26_o24jq")]
 visible = false
 surface_material_override/0 = SubResource("StandardMaterial3D_vv4sl")
+
+[node name="FlippedBlock" parent="." instance=ExtResource("27_3rl6w")]
+visible = false
+surface_material_override/0 = SubResource("StandardMaterial3D_1x0xm")
+
+[node name="FlippedBlock2" parent="." instance=ExtResource("27_3rl6w")]
+visible = false
+surface_material_override/0 = SubResource("StandardMaterial3D_2foed")
+
+[node name="FlippedBlock3" parent="." instance=ExtResource("27_3rl6w")]
+visible = false
+surface_material_override/0 = SubResource("StandardMaterial3D_lx623")
+
+[node name="FlippedBlock4" parent="." instance=ExtResource("27_3rl6w")]
+visible = false
+surface_material_override/0 = SubResource("StandardMaterial3D_xo0r5")
+
+[node name="FlippedBlock5" parent="." instance=ExtResource("27_3rl6w")]
+visible = false
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdqb")
+
+[node name="FlippedBlock6" parent="." instance=ExtResource("27_3rl6w")]
+visible = false
+surface_material_override/0 = SubResource("StandardMaterial3D_dj1sn")

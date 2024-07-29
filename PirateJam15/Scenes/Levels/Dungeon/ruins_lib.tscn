@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://bshqilwpmqgqo"]
+[gd_scene load_steps=66 format=3 uid="uid://bshqilwpmqgqo"]
 
 [ext_resource type="PackedScene" uid="uid://cgox53u04lq1p" path="res://Scenes/Blocks/block.tscn" id="1_qji2w"]
 [ext_resource type="Texture2D" uid="uid://dxgecwohwf1xp" path="res://Assets/Textures/Seamless/seamless_011.png" id="2_2j7wn"]
@@ -31,6 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://yg8uv1oojuea" path="res://Assets/Textures/Ruins/ruins_41.png" id="28_7gdy8"]
 [ext_resource type="Texture2D" uid="uid://cyuhrmtd13btf" path="res://Assets/Textures/Ruins/ruins_09.png" id="29_v8bui"]
 [ext_resource type="Texture2D" uid="uid://djxry6r7n2hii" path="res://Assets/Textures/Ruins/ruins_47.png" id="30_on36m"]
+[ext_resource type="PackedScene" uid="uid://boi70ccrwnkg3" path="res://Scenes/Blocks/half_block.tscn" id="32_hk2wq"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mej38"]
 specular_mode = 1
@@ -212,6 +213,24 @@ albedo_texture = ExtResource("2_2j7wn")
 uv1_scale = Vector3(3, 2, 1)
 texture_filter = 0
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c86au"]
+specular_mode = 1
+albedo_texture = ExtResource("3_0gpsy")
+uv1_scale = Vector3(3, 2, 1)
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ffdnj"]
+specular_mode = 1
+albedo_texture = ExtResource("2_2j7wn")
+uv1_scale = Vector3(3, 2, 1)
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lm880"]
+specular_mode = 1
+albedo_texture = ExtResource("3_0gpsy")
+uv1_scale = Vector3(3, 2, 1)
+texture_filter = 0
+
 [node name="RuinsLib" type="Node3D"]
 
 [node name="Block" parent="." instance=ExtResource("1_qji2w")]
@@ -333,3 +352,15 @@ surface_material_override/0 = SubResource("StandardMaterial3D_wdgmt")
 [node name="HalfRamp" parent="." instance=ExtResource("4_ppwyw")]
 visible = false
 surface_material_override/0 = SubResource("StandardMaterial3D_ah0bf")
+
+[node name="HalfRamp2" parent="." instance=ExtResource("4_ppwyw")]
+visible = false
+surface_material_override/0 = SubResource("StandardMaterial3D_c86au")
+
+[node name="HalfBlock" parent="." instance=ExtResource("32_hk2wq")]
+visible = false
+surface_material_override/0 = SubResource("StandardMaterial3D_ffdnj")
+
+[node name="HalfBlock2" parent="." instance=ExtResource("32_hk2wq")]
+visible = false
+surface_material_override/0 = SubResource("StandardMaterial3D_lm880")
