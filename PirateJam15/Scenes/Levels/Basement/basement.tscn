@@ -1,9 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://cr7nyl23q24aw"]
+[gd_scene load_steps=8 format=3 uid="uid://cr7nyl23q24aw"]
 
 [ext_resource type="MeshLibrary" uid="uid://c2dgq4p65llyv" path="res://Scenes/Levels/Basement/BasementMeshLib.tres" id="1_rw3kt"]
 [ext_resource type="PackedScene" uid="uid://dqt6ouv4vlu0q" path="res://Scenes/Characters/player.tscn" id="2_ktywg"]
 [ext_resource type="PackedScene" uid="uid://co4uv0apipk4j" path="res://Scenes/Characters/alchemist.tscn" id="3_ewlbq"]
-[ext_resource type="PackedScene" uid="uid://b0gf2ggn8vnrr" path="res://Scenes/Enemies/mob.tscn" id="4_yllkx"]
 [ext_resource type="PackedScene" uid="uid://ce2c6kfbekmja" path="res://Scenes/Managers/DoorwayTeleporter.tscn" id="7_xqy7o"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cix0u"]
@@ -55,12 +54,6 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 2, 
 
 [node name="Alchemist" parent="." instance=ExtResource("3_ewlbq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 4)
-
-[node name="Mob" parent="." instance=ExtResource("4_yllkx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2, 0)
-
-[node name="Mob2" parent="." instance=ExtResource("4_yllkx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 2, -1)
 
 [node name="DoorwayTeleporter" parent="." instance=ExtResource("7_xqy7o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -10.5)

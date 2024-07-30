@@ -10,6 +10,7 @@ var _gravity: float
 
 @onready var health = $Health
 @onready var loot_spawn = $LootSpawn
+@onready var animated_sprite = $AnimatedSprite3D
 
 @export_category("Item Drops")
 @export var drops: Array[DropData]
@@ -67,7 +68,7 @@ func _on_hit_box_area_entered(area):
 		attack.knockback_direction = enemy_position.direction_to(player_position)
 		area.damage_player(attack)
 
-func drop_items( position_data: Vector3) -> void:
+func drop_items() -> void:
 	if drops.size() == 0: return
 	for i in drops.size():
 		if drops[i] == null or drops[i].item == null: continue
