@@ -1,0 +1,113 @@
+[gd_scene load_steps=17 format=3 uid="uid://dovmw5pn5i8ri"]
+
+[ext_resource type="Script" path="res://Scripts/Characters/enemy.gd" id="1_57u6q"]
+[ext_resource type="Resource" uid="uid://cde81pvtku7p0" path="res://Assets/Other/ItemData/blue_dust.tres" id="2_da1mt"]
+[ext_resource type="Script" path="res://Scripts/Items/drop_data.gd" id="3_g080a"]
+[ext_resource type="Texture2D" uid="uid://b4hpe4exq840a" path="res://Assets/SpriteSheets/Enemies/Skull_blue.png" id="4_egtht"]
+[ext_resource type="PackedScene" uid="uid://cchar4njta66r" path="res://Scenes/Components/hitbox.tscn" id="5_pe4c6"]
+[ext_resource type="PackedScene" uid="uid://cwtuomrx5lja2" path="res://Scenes/Components/health.tscn" id="6_eihrm"]
+
+[sub_resource type="Resource" id="Resource_foll3"]
+script = ExtResource("3_g080a")
+item = ExtResource("2_da1mt")
+drop_probability = 100.0
+min_items = 1
+max_items = 3
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6regy"]
+atlas = ExtResource("4_egtht")
+region = Rect2(0, 45, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ugw8f"]
+atlas = ExtResource("4_egtht")
+region = Rect2(32, 45, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8pfuh"]
+atlas = ExtResource("4_egtht")
+region = Rect2(64, 45, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wisi4"]
+atlas = ExtResource("4_egtht")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jh44i"]
+atlas = ExtResource("4_egtht")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cdcye"]
+atlas = ExtResource("4_egtht")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oswow"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6regy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ugw8f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8pfuh")
+}],
+"loop": false,
+"name": &"death",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wisi4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jh44i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cdcye")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 4.0
+}]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_o36yt"]
+radius = 0.4
+height = 1.5
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ppljw"]
+
+[node name="Skull" type="CharacterBody3D"]
+wall_min_slide_angle = 0.0872665
+script = ExtResource("1_57u6q")
+drops = Array[ExtResource("3_g080a")]([SubResource("Resource_foll3")])
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+pixel_size = 0.062
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_oswow")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="WorldCollider" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+shape = SubResource("CapsuleShape3D_o36yt")
+
+[node name="HitBox" parent="." node_paths=PackedStringArray("_health_component") instance=ExtResource("5_pe4c6")]
+collision_layer = 8
+collision_mask = 2
+_health_component = NodePath("../Health")
+_is_enemy = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HitBox"]
+shape = SubResource("CapsuleShape3D_ppljw")
+
+[node name="Health" parent="." node_paths=PackedStringArray("_sprite") instance=ExtResource("6_eihrm")]
+_max_health = 20.0
+_sprite = NodePath("../AnimatedSprite3D")
+
+[node name="LootSpawn" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0076313, -0.593311, 0)
+
+[connection signal="animation_finished" from="AnimatedSprite3D" to="Health" method="_on_animated_sprite_3d_animation_finished"]
+[connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
