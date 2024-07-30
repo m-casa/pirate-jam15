@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dqt6ouv4vlu0q"]
+[gd_scene load_steps=11 format=3 uid="uid://dqt6ouv4vlu0q"]
 
 [ext_resource type="Script" path="res://Scripts/Characters/player.gd" id="1_5anf2"]
 [ext_resource type="PackedScene" uid="uid://cwtuomrx5lja2" path="res://Scenes/Components/health.tscn" id="2_ildgs"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://Scripts/Components/slash.gd" id="3_axx46"]
 [ext_resource type="PackedScene" uid="uid://cchar4njta66r" path="res://Scenes/Components/hitbox.tscn" id="5_8qkoa"]
 [ext_resource type="Resource" uid="uid://bdw6ers08vrso" path="res://Scenes/Characters/player_stats.tres" id="6_77dva"]
+[ext_resource type="AudioStream" uid="uid://cubyh7c1nh0mi" path="res://Assets/Audio/UI_Sounds/Slash_01.mp3" id="7_vjscb"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vslgp"]
 radius = 0.4
@@ -55,6 +56,11 @@ disabled = true
 [node name="Timer" type="Timer" parent="Camera/Slash/AttackArea"]
 process_callback = 0
 one_shot = true
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Camera/Slash"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, 0.5)
+stream = ExtResource("7_vjscb")
+bus = &"SFX"
 
 [node name="HitBox" parent="." node_paths=PackedStringArray("_health_component") instance=ExtResource("5_8qkoa")]
 collision_layer = 2

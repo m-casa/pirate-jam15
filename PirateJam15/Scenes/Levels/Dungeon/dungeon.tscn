@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://rrs0cgwoevtb"]
+[gd_scene load_steps=18 format=3 uid="uid://rrs0cgwoevtb"]
 
 [ext_resource type="MeshLibrary" uid="uid://drprmxf6sb7u5" path="res://Scenes/Levels/Dungeon/DungeonMeshLib.tres" id="1_c4fos"]
 [ext_resource type="PackedScene" uid="uid://ce2c6kfbekmja" path="res://Scenes/Managers/DoorwayTeleporter.tscn" id="2_4oy6o"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://cdsqb1su14vcj" path="res://Scenes/Enemies/rat.tscn" id="11_2gx3j"]
 [ext_resource type="PackedScene" uid="uid://b0gf2ggn8vnrr" path="res://Scenes/Enemies/mob.tscn" id="12_g84re"]
 [ext_resource type="PackedScene" uid="uid://ts4uci2nwvse" path="res://Scenes/Enemies/book.tscn" id="13_0pwun"]
+[ext_resource type="AudioStream" uid="uid://khvnldr1npo4" path="res://Assets/Audio/Dungeon_Full-Track_v1.41.wav" id="14_4e861"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_aucod"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -247,3 +248,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.343934, 1.49828, -1.6155)
 
 [node name="Book" parent="." instance=ExtResource("13_0pwun")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.0711, 2.00025, -0.916794)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_4e861")
+autoplay = true
+bus = &"Music"

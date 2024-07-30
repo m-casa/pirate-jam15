@@ -8,8 +8,6 @@ class_name ItemPickup extends Node3D
 @onready var audio_player: AudioStreamPlayer3D = $AudioStreamPlayer3D
 
 func _ready() -> void:
-	var test = Vector3(2, 2, 2).length()
-	print(test)
 	_update_texture()
 	if Engine.is_editor_hint():
 		return
