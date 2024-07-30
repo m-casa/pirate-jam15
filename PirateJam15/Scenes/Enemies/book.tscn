@@ -70,12 +70,12 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_o36yt"]
-radius = 0.4
-height = 1.2
+radius = 0.3
+height = 1.0
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ppljw"]
-radius = 0.55
-height = 1.5
+radius = 0.4
+height = 1.15
 
 [node name="Book" type="CharacterBody3D"]
 collision_layer = 2
@@ -84,16 +84,17 @@ script = ExtResource("1_hfn8p")
 drops = Array[ExtResource("3_2cme2")]([SubResource("Resource_foll3")])
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
-pixel_size = 0.062
+pixel_size = 0.042
 billboard = 2
 shaded = true
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_oswow")
 animation = &"idle"
 autoplay = "idle"
+frame_progress = 0.630008
 
 [node name="WorldCollider" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.025, 0)
 shape = SubResource("CapsuleShape3D_o36yt")
 
 [node name="HitBox" parent="." node_paths=PackedStringArray("_health_component") instance=ExtResource("5_0duty")]
@@ -103,7 +104,7 @@ _health_component = NodePath("../Health")
 _is_enemy = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HitBox"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
 shape = SubResource("CapsuleShape3D_ppljw")
 
 [node name="Health" parent="." node_paths=PackedStringArray("_sprite") instance=ExtResource("6_omxkf")]
