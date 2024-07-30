@@ -14,7 +14,8 @@ const COYOTE_TIME: float = 0.2
 #@export var _throw_force_upwrd = 3.5
 
 var _jumping: bool
-var _can_throw: bool
+var _was_knocked_back: bool
+#var _can_throw: bool
 var _gravity: float
 var _coyote_timer: float
 var _input_dir: Vector2
@@ -30,7 +31,8 @@ var _cube: PackedScene
 # Called when a node and its children have entered the scene
 func _ready():
 	_jumping = false
-	_can_throw = false
+	_was_knocked_back = false
+	#_can_throw = false
 	_coyote_timer = 0.0
 	_input_dir = Vector2.ZERO
 	
@@ -87,12 +89,14 @@ func _physics_process(delta):
 	
 	_apply_velocity()
 	
+	_apply_knockback()
+	
 	if not input_enabled:
 		return
 	
 	_interact()
 	
-	_throw()
+	#_throw()
 	
 	move_and_slide()
 	
@@ -130,19 +134,44 @@ func _apply_gravity(delta):
 
 # Apply the movement direction set by the player's input
 func _apply_velocity():
-	var move_direction = (transform.basis * Vector3(_input_dir.x, 0, _input_dir.y)).normalized()
+	if not _was_knocked_back:
+		var move_direction = (transform.basis * Vector3(_input_dir.x, 0, _input_dir.y)).normalized()
 	
-	if move_direction:
-		velocity.x = move_direction.x * _player_speed
-		velocity.z = move_direction.z * _player_speed
-	else:
-		velocity.x = move_toward(velocity.x, 0, _player_speed)
-		velocity.z = move_toward(velocity.z, 0, _player_speed)
+		if move_direction:
+			velocity.x = move_direction.x * _player_speed
+			velocity.z = move_direction.z * _player_speed
+		else:
+			velocity.x = move_toward(velocity.x, 0, _player_speed)
+			velocity.z = move_toward(velocity.z, 0, _player_speed)
 	
-	# If the player is trying to jump, adjust vertical velocity
-	if _jumping:
-		_jumping = false
-		velocity.y = _jump_velocity
+		# If the player is trying to jump, adjust vertical velocity
+		if _jumping:
+			_jumping = false
+			velocity.y = _jump_velocity
+
+func setup_knockback(knockback_attack: Attack):
+	# Normalize the knockback direction,
+	#  so that looking up or down doesn't change the force
+	var direction_normalized = knockback_attack.knockback_direction
+	direction_normalized.y = 0
+	direction_normalized = direction_normalized.normalized()
+	
+	velocity = direction_normalized * -knockback_attack.knockback_force
+	_was_knocked_back = true
+
+func _apply_knockback():
+	if _was_knocked_back:
+		# Apply friction to gradually stop the knockback
+		var friction = 0.9
+		
+		velocity.x *= friction
+		velocity.z *= friction
+		
+		# Stop knockback when velocity is low
+		if velocity.length() < 0.7:
+			_was_knocked_back = false
+			velocity.x = 0
+			velocity.z = 0
 
 # Interact ony happens on collision layer 3
 func _interact():
@@ -152,17 +181,16 @@ func _interact():
 			interactable.interact()
 
 # To be used for potential feature: Throwing selected item
-func _throw():
-	if Input.is_action_just_released("action") && _can_throw:
-		pass
+#func _throw():
+	#if Input.is_action_just_released("action") && _can_throw:
 		#var throwable = _cube.instantiate()
-		#
+		
 		 ##For just holding in place
 		##_hand_position.add_child(throwable)
-		#
+		
 		#throwable.position = _hand_position.global_position
 		#get_tree().current_scene.add_child(throwable)
-		#
+		
 		#throwable.apply_central_impulse(_camera.global_transform.basis.z * _throw_force_fwrd + Vector3(0, _throw_force_upwrd, 0))
 
 func _quit_game():
