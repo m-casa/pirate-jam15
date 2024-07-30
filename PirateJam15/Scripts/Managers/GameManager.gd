@@ -30,34 +30,44 @@ func set_quest(quest: QuestData) -> void:
 	
 func update_quest() -> void:
 	# set initial quest if empty
+	var completed_quests = 0
+
 	if current_quest == null and has_seen_intro:
 		if alchemist_quests.size() > 0:
 			set_quest(alchemist_quests[0])
-			
 
 	# loop over quests and set the quest data to the first uncompleted quest
 	for i in alchemist_quests.size():
 		if alchemist_quests[i]:
 			if alchemist_quests[i].completed:
+				completed_quests += 1
 				continue
 			if !alchemist_quests[i].completed and has_seen_intro:
 				set_quest(alchemist_quests[i])
 				return
 
-	# up date inventory and quest hud
-	updateInventory.emit()
-	pass
+	if completed_quests == alchemist_quests.size():
+		game_over()
 
 func complete_quest() -> void:
+	var completed_lines = 0
 	if !current_quest: return
 	for turnin in current_quest.quest_turn_in:
 		for item in player_inventory.slots:
-			if item:
-				if item.quantity >= turnin.quantity:
-					current_quest.completed = true
-					# TODO Check for all items if we have multi quest turn ins
-					
+			if item and item.item_data == turnin.item_data and item.quantity >= turnin.quantity:
+				completed_lines += 1
+
+	if completed_lines == current_quest.quest_turn_in.size():
+		current_quest.completed = true
+		steal_items()
 #endregion
+
+func steal_items() -> void:
+	for i in player_inventory.slots.size():
+		player_inventory.slots[i] = null
+
+func game_over() -> void:
+	pass
 
 #region global alchemist state
 func update_intro_bool() -> void:
