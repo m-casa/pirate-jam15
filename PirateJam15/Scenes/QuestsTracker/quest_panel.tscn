@@ -52,10 +52,3 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_h55j7")
 layout_mode = 2
 script = ExtResource("3_ay2pi")
 data = ExtResource("4_fpxut")
-intro_title = "Speak with the Alchemist!"
-intro_text = "The shady alchemist beckons you forth. Looks like another day in that shadowy dungeon... See what he wants this time.
-
-WASD - Move
-E - Interact
-F - Toggle Quest Tracker
-LMB - Attack"

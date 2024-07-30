@@ -8,6 +8,13 @@
 
 [node name="GameManager" type="Node"]
 script = ExtResource("1_xxp7u")
+intro_title = "Speak with the Alchemist!"
+intro_text = "The shady alchemist beckons you forth. Looks like another day in that shadowy dungeon... See what he wants this time.
+
+WASD - Move
+E - Interact
+F - Toggle Quest Tracker
+LMB - Attack"
 alchemist_quests = Array[Resource("res://Scripts/Quests/quest_data.gd")]([ExtResource("2_tpuhs"), ExtResource("3_132sp"), ExtResource("4_xvmeg"), ExtResource("5_0tdmj")])
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
