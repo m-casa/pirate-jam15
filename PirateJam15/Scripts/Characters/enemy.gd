@@ -61,7 +61,7 @@ func _apply_knockback():
 			velocity = Vector3.ZERO
 
 func _on_hit_box_area_entered(area):
-	if area.get_parent() is Player:
+	if area.get_parent() is Player and health.health > 0:
 		var enemy_position = global_transform.origin
 		var player_position = area.global_transform.origin
 		

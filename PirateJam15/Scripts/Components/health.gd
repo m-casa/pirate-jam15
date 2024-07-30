@@ -8,7 +8,7 @@ class_name Health extends Node3D
 @export var _is_player: bool = false
 
 var _stunned: bool
-var _health: float
+var health: float
 var _timer: Timer
 
 signal died
@@ -17,24 +17,24 @@ signal died
 func _ready():
 	_stunned = false
 	if _is_player:
-		_health = player_data.current_health
+		health = player_data.current_health
 	else:
-		_health = _max_health 
+		health = _max_health 
 	
 	_timer = $Timer
 
 func damage_enemy(attack: Attack):
 	# Check if stunned, or else enemy might be hit multiple times 
 	#  within a few frames of each other
-	if not _stunned:
+	if health > 0 and not _stunned:
 		var enemy = get_parent()
 		
 		_stunned = true
-		_health -= attack.attack_damage
+		health -= attack.attack_damage
 		_sprite.modulate = Color.RED
 		enemy.setup_knockback(attack)
 
-		if _health <= 0:
+		if health <= 0:
 			_sprite.play("death")
 		
 		_timer.set_wait_time(_stun_duration)

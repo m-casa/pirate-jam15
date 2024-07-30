@@ -88,6 +88,7 @@ texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_oswow")
 animation = &"idle"
 autoplay = "idle"
+frame = 1
 
 [node name="WorldCollider" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
