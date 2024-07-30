@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://rrs0cgwoevtb"]
+[gd_scene load_steps=17 format=3 uid="uid://rrs0cgwoevtb"]
 
 [ext_resource type="MeshLibrary" uid="uid://drprmxf6sb7u5" path="res://Scenes/Levels/Dungeon/DungeonMeshLib.tres" id="1_c4fos"]
 [ext_resource type="PackedScene" uid="uid://ce2c6kfbekmja" path="res://Scenes/Managers/DoorwayTeleporter.tscn" id="2_4oy6o"]
@@ -7,9 +7,12 @@
 [ext_resource type="MeshLibrary" uid="uid://c2dgq4p65llyv" path="res://Scenes/Levels/Basement/BasementMeshLib.tres" id="3_gwo8u"]
 [ext_resource type="MeshLibrary" uid="uid://b4u0l08osjd8n" path="res://Scenes/Levels/Dungeon/LibraryMeshLib.tres" id="4_mhidg"]
 [ext_resource type="MeshLibrary" uid="uid://cgqk1engqk8ho" path="res://Scenes/Levels/Dungeon/CavernsMeshLib.tres" id="5_cbia5"]
-[ext_resource type="PackedScene" uid="uid://chemh4hjosrg0" path="res://Scenes/Inventory/item_pickup.tscn" id="8_grm7h"]
-[ext_resource type="Resource" uid="uid://to85m1frdxal" path="res://Assets/Other/ItemData/green_slime.tres" id="9_g1pt1"]
-[ext_resource type="Resource" uid="uid://ca80cvqi2etsh" path="res://Assets/Other/ItemData/health_potion.tres" id="10_dnwe1"]
+[ext_resource type="PackedScene" uid="uid://c5fl3s6t1ht2i" path="res://Scenes/Enemies/spider.tscn" id="8_w5m8p"]
+[ext_resource type="PackedScene" uid="uid://dt42hpn8so4yf" path="res://Scenes/Enemies/bat.tscn" id="9_w3lhk"]
+[ext_resource type="PackedScene" uid="uid://dovmw5pn5i8ri" path="res://Scenes/Enemies/skull.tscn" id="10_icgys"]
+[ext_resource type="PackedScene" uid="uid://cdsqb1su14vcj" path="res://Scenes/Enemies/rat.tscn" id="11_2gx3j"]
+[ext_resource type="PackedScene" uid="uid://b0gf2ggn8vnrr" path="res://Scenes/Enemies/mob.tscn" id="12_g84re"]
+[ext_resource type="PackedScene" uid="uid://ts4uci2nwvse" path="res://Scenes/Enemies/book.tscn" id="13_0pwun"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_aucod"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -227,18 +230,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 14)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, 17.5)
 target_scene = "Basement/basement"
 
-[node name="ItemPickup" parent="." instance=ExtResource("8_grm7h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.58414, 1.14604, 27.0627)
-item_data = ExtResource("9_g1pt1")
+[node name="Spider" parent="." instance=ExtResource("8_w5m8p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.7759, 2.12685, 2.83266)
 
-[node name="ItemPickup2" parent="." instance=ExtResource("8_grm7h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.4386, 1.25278, 23.4791)
-item_data = ExtResource("9_g1pt1")
+[node name="Bat" parent="." instance=ExtResource("9_w3lhk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.60422, 1.50992, 1.44308)
 
-[node name="ItemPickup3" parent="." instance=ExtResource("8_grm7h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.4955, 3.16795, 26.4912)
-item_data = ExtResource("9_g1pt1")
+[node name="Skull" parent="." instance=ExtResource("10_icgys")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.1236, 0.555992, -4.42688)
 
-[node name="ItemPickup4" parent="." instance=ExtResource("8_grm7h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.51599, 5.2829, 20.3917)
-item_data = ExtResource("10_dnwe1")
+[node name="Rat" parent="." instance=ExtResource("11_2gx3j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.579335, 1.5097, -0.338362)
+
+[node name="Mob" parent="." instance=ExtResource("12_g84re")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.343934, 1.49828, -1.6155)
+
+[node name="Book" parent="." instance=ExtResource("13_0pwun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.0711, 2.00025, -0.916794)
