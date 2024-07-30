@@ -25,7 +25,9 @@ func set_base_info(title: String, text: String) -> void:
 	quest_intro_text.text = text
 	
 func update_quest_tracker() -> void:
+	if !GameManager.has_seen_intro: return
 	clear_ui()
+		
 	if GameManager.current_quest:
 		set_base_info(GameManager.current_quest.quest_name, GameManager.current_quest.quest_text)
 		

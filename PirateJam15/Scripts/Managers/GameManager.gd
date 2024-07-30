@@ -24,23 +24,25 @@ func play_audio(audio: AudioStream) -> void:
 
 #region global quest data
 func set_quest(quest: QuestData) -> void:
+	print("setting quest data")
 	current_quest = quest
 	print(quest.quest_name)
 	
 func update_quest() -> void:
 	# set initial quest if empty
-	if current_quest == null:
+	if current_quest == null and has_seen_intro:
 		if alchemist_quests.size() > 0:
 			set_quest(alchemist_quests[0])
 			
 
 	# loop over quests and set the quest data to the first uncompleted quest
 	for i in alchemist_quests.size():
-		if alchemist_quests[i].completed:
-			continue
-		if !alchemist_quests[i].completed:
-			set_quest(alchemist_quests[i])
-			return
+		if alchemist_quests[i]:
+			if alchemist_quests[i].completed:
+				continue
+			if !alchemist_quests[i].completed and has_seen_intro:
+				set_quest(alchemist_quests[i])
+				return
 
 	# up date inventory and quest hud
 	updateInventory.emit()
