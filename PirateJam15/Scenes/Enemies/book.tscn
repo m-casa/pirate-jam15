@@ -82,6 +82,7 @@ height = 1.15
 collision_layer = 2
 wall_min_slide_angle = 0.0872665
 script = ExtResource("1_hfn8p")
+_enemy_speed = 4
 drops = Array[ExtResource("3_2cme2")]([SubResource("Resource_foll3")])
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
@@ -118,6 +119,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0076313, -0.593311, 0)
 [node name="DetectionArea" parent="." instance=ExtResource("7_mdmx3")]
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+path_height_offset = -0.3
 
 [connection signal="animation_finished" from="AnimatedSprite3D" to="Health" method="_on_animated_sprite_3d_animation_finished"]
 [connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]

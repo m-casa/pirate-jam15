@@ -20,7 +20,6 @@ var _gravity: float
 
 # Called when a node and its children have entered the scene
 func _ready():
-	# Get the gravity from project settings to be synced with RigidBody nodes
 	_gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 	
 	attack = Attack.new()
