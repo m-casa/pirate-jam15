@@ -49,11 +49,13 @@ func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _unhandled_input(event):
+
 	if not input_enabled:
 		return
 	# Check for mouse motion and apply to camera
 	if event is InputEventMouseMotion:
 		var mouseMotion: InputEventMouseMotion = event
+
 		# Rotate self so that the player's body is rotating left and right;
 		#  Camera will also rotate left and right since it's a child
 		self.rotate_y(-mouseMotion.relative.x * _camera_sens)
@@ -63,6 +65,10 @@ func _unhandled_input(event):
 		
 		# Clamp the camera so that the player doesn't break their neck looking up and down
 		_camera.rotation_degrees.x = clampf(_camera.rotation_degrees.x, -70, 70)
+		
+		#if event.axis == 2 or event.axis == 3:
+			#print(event)
+			#var joystick = event.axis_value
 
 # Called every frame
 func _process(delta):
@@ -93,6 +99,17 @@ func _physics_process(delta):
 	#_throw()
 	
 	move_and_slide()
+	
+	
+	var right_joystick = Vector2(0, 0)
+	if Input.get_joy_axis(0, JOY_AXIS_RIGHT_X) > 0.2 or Input.get_joy_axis(0, JOY_AXIS_RIGHT_X) < -0.2:
+		right_joystick.x = Input.get_joy_axis(0, JOY_AXIS_RIGHT_X)
+	if Input.get_joy_axis(0, JOY_AXIS_RIGHT_Y) > 0.3 or Input.get_joy_axis(0, JOY_AXIS_RIGHT_Y) < -0.3:
+		right_joystick.y = Input.get_joy_axis(0, JOY_AXIS_RIGHT_Y)
+		
+	rotate_y(-right_joystick.x * 0.08)
+	_camera.rotate_x(-right_joystick.y * 0.04)
+	_camera.rotation_degrees.x = clampf(_camera.rotation_degrees.x, -70, 70)
 
 # Get the input direction to handle movement/deceleration
 func _get_input_dir():

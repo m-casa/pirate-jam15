@@ -2,6 +2,7 @@ extends Node3D
 
 
 @export var _knockback_force = -15
+@onready var audio_stream: AudioStreamPlayer3D = $AudioStreamPlayer3D
 
 var attack: Attack
 var _can_attack: bool
@@ -35,11 +36,14 @@ func _physics_process(_delta):
 
 # Attack area only looks for collision on layer 4
 func _attack():
-	if Input.is_action_just_released("action") && _can_attack:
+	if Input.is_action_just_pressed("action") && _can_attack:
 		# Start the attack
 		_can_attack = false
 		_slash_shape.set_disabled(false)
+
 		get_node("AnimationPlayer").play("slash")
+		audio_stream.pitch_scale = randf_range(0.8, 1.4)
+		audio_stream.play()
 		
 		# Attack cooldown
 		_timer.set_wait_time(_attack_time)
