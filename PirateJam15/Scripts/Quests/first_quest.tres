@@ -1,23 +1,19 @@
 [gd_resource type="Resource" script_class="QuestData" load_steps=7 format=3 uid="uid://cbjm3d2y0sejk"]
 
+[ext_resource type="Resource" uid="uid://d182k38r3twb2" path="res://Assets/Other/ItemData/bone.tres" id="1_apfox"]
 [ext_resource type="Script" path="res://Scripts/Quests/quest_data.gd" id="1_gnnvu"]
 [ext_resource type="Resource" uid="uid://d182k38r3twb2" path="res://Assets/Other/ItemData/bone.tres" id="1_xnup0"]
 [ext_resource type="Script" path="res://Scripts/Inventory/slot_data.gd" id="2_fldhf"]
 [ext_resource type="Resource" uid="uid://dj8p1crnpjs7y" path="res://Assets/Other/ItemData/bat_wings.tres" id="3_0w4vl"]
 
-[sub_resource type="Resource" id="Resource_uvqvg"]
+[sub_resource type="Resource" id="Resource_tbkda"]
 script = ExtResource("2_fldhf")
-item_data = ExtResource("1_xnup0")
-quantity = 1
-
-[sub_resource type="Resource" id="Resource_nvrpr"]
-script = ExtResource("2_fldhf")
-item_data = ExtResource("3_0w4vl")
-quantity = 1
+item_data = ExtResource("1_apfox")
+quantity = 5
 
 [resource]
 script = ExtResource("1_gnnvu")
-quest_name = "Kill Slimes"
-quest_text = "We need Slimes for green dye"
-quest_turn_in = Array[ExtResource("2_fldhf")]([SubResource("Resource_uvqvg"), SubResource("Resource_nvrpr")])
+quest_name = "Fetch me some bones!"
+quest_text = "\"Those pesky skeletons at the dungeon entrance should do the trick.\""
+quest_turn_in = Array[ExtResource("2_fldhf")]([SubResource("Resource_tbkda")])
 completed = false

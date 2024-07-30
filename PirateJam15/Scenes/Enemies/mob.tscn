@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://b0gf2ggn8vnrr"]
+[gd_scene load_steps=18 format=3 uid="uid://b0gf2ggn8vnrr"]
 
 [ext_resource type="Script" path="res://Scripts/Characters/enemy.gd" id="1_rpm01"]
 [ext_resource type="Texture2D" uid="uid://bsxte1qghnnji" path="res://Assets/SpriteSheets/Enemies/Mob.png" id="2_go605"]
@@ -6,35 +6,36 @@
 [ext_resource type="Script" path="res://Scripts/Items/drop_data.gd" id="3_lejx7"]
 [ext_resource type="Resource" uid="uid://d182k38r3twb2" path="res://Assets/Other/ItemData/bone.tres" id="4_7efui"]
 [ext_resource type="PackedScene" uid="uid://cwtuomrx5lja2" path="res://Scenes/Components/health.tscn" id="4_dj52m"]
+[ext_resource type="PackedScene" uid="uid://d0lftn2l3f0wv" path="res://Scenes/Components/detection_area.tscn" id="7_8tnmv"]
 
 [sub_resource type="Resource" id="Resource_foll3"]
 script = ExtResource("3_lejx7")
 item = ExtResource("4_7efui")
 drop_probability = 100.0
 min_items = 1
-max_items = 5
+max_items = 1
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ohc7d"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_0t6ds"]
 atlas = ExtResource("2_go605")
 region = Rect2(0, 48, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wvcdv"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_05fv3"]
 atlas = ExtResource("2_go605")
 region = Rect2(32, 48, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dknhm"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_xfhfo"]
 atlas = ExtResource("2_go605")
 region = Rect2(64, 48, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xw7fo"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_blhc4"]
 atlas = ExtResource("2_go605")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xnma3"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_giily"]
 atlas = ExtResource("2_go605")
 region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_72nex"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_v3m7m"]
 atlas = ExtResource("2_go605")
 region = Rect2(64, 0, 32, 32)
 
@@ -42,13 +43,13 @@ region = Rect2(64, 0, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ohc7d")
+"texture": SubResource("AtlasTexture_0t6ds")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_wvcdv")
+"texture": SubResource("AtlasTexture_05fv3")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_dknhm")
+"texture": SubResource("AtlasTexture_xfhfo")
 }],
 "loop": false,
 "name": &"death",
@@ -56,13 +57,13 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xw7fo")
+"texture": SubResource("AtlasTexture_blhc4")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xnma3")
+"texture": SubResource("AtlasTexture_giily")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_72nex")
+"texture": SubResource("AtlasTexture_v3m7m")
 }],
 "loop": true,
 "name": &"default",
@@ -75,7 +76,8 @@ height = 1.5
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ppljw"]
 
-[node name="Mob" type="CharacterBody3D"]
+[node name="Mob" type="CharacterBody3D" groups=["Enemy"]]
+collision_layer = 2
 wall_min_slide_angle = 0.0872665
 script = ExtResource("1_rpm01")
 drops = Array[ExtResource("3_lejx7")]([SubResource("Resource_foll3")])
@@ -86,7 +88,6 @@ billboard = 2
 shaded = true
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_oswow")
-animation = &"death"
 autoplay = "default"
 
 [node name="WorldCollider" type="CollisionShape3D" parent="."]
@@ -103,11 +104,16 @@ _is_enemy = true
 shape = SubResource("CapsuleShape3D_ppljw")
 
 [node name="Health" parent="." node_paths=PackedStringArray("_sprite") instance=ExtResource("4_dj52m")]
-_max_health = 20.0
+_max_health = 15.0
 _sprite = NodePath("../AnimatedSprite3D")
 
 [node name="LootSpawn" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0076313, -0.593311, 0)
 
+[node name="DetectionArea" parent="." instance=ExtResource("7_8tnmv")]
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
 [connection signal="animation_finished" from="AnimatedSprite3D" to="Health" method="_on_animated_sprite_3d_animation_finished"]
 [connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
+[connection signal="area_entered" from="DetectionArea" to="." method="_on_detection_area_entered"]

@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="QuestData" load_steps=7 format=3 uid="uid://3cwoj0t5mc1l"]
+
+[ext_resource type="Script" path="res://Scripts/Quests/quest_data.gd" id="1_7b4lh"]
+[ext_resource type="Resource" uid="uid://to85m1frdxal" path="res://Assets/Other/ItemData/green_slime.tres" id="1_lfjpf"]
+[ext_resource type="Script" path="res://Scripts/Inventory/slot_data.gd" id="2_vsrx3"]
+[ext_resource type="Resource" uid="uid://d182k38r3twb2" path="res://Assets/Other/ItemData/bone.tres" id="3_fkvhd"]
+
+[sub_resource type="Resource" id="Resource_mquc4"]
+script = ExtResource("2_vsrx3")
+item_data = ExtResource("1_lfjpf")
+quantity = 6
+
+[sub_resource type="Resource" id="Resource_47s1p"]
+script = ExtResource("2_vsrx3")
+item_data = ExtResource("3_fkvhd")
+quantity = 11
+
+[resource]
+script = ExtResource("1_7b4lh")
+quest_name = "It's gooey, but it's good!"
+quest_text = "\"West of the dungeon, I've planted a botany. Now Go!\""
+quest_turn_in = Array[ExtResource("2_vsrx3")]([SubResource("Resource_mquc4"), SubResource("Resource_47s1p")])
+completed = false
