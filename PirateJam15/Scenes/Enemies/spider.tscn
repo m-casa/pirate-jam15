@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://c5fl3s6t1ht2i"]
+[gd_scene load_steps=18 format=3 uid="uid://c5fl3s6t1ht2i"]
 
 [ext_resource type="Script" path="res://Scripts/Characters/enemy.gd" id="1_2dgnm"]
 [ext_resource type="Resource" uid="uid://to85m1frdxal" path="res://Assets/Other/ItemData/green_slime.tres" id="2_uurb2"]
 [ext_resource type="Script" path="res://Scripts/Items/drop_data.gd" id="3_y3nsn"]
 [ext_resource type="Texture2D" uid="uid://cqm1fvccu01hl" path="res://Assets/SpriteSheets/Enemies/Spider.png" id="6_1r7a7"]
+[ext_resource type="PackedScene" uid="uid://d0lftn2l3f0wv" path="res://Scenes/Components/detection_area.tscn" id="7_dpv78"]
 [ext_resource type="PackedScene" uid="uid://cchar4njta66r" path="res://Scenes/Components/hitbox.tscn" id="7_tx5y5"]
 [ext_resource type="PackedScene" uid="uid://cwtuomrx5lja2" path="res://Scenes/Components/health.tscn" id="8_ccm0f"]
 
@@ -76,7 +77,7 @@ height = 0.9
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ppljw"]
 height = 1.4
 
-[node name="Spider" type="CharacterBody3D"]
+[node name="Spider" type="CharacterBody3D" groups=["Enemy"]]
 collision_layer = 2
 wall_min_slide_angle = 0.0872665
 script = ExtResource("1_2dgnm")
@@ -112,6 +113,10 @@ _is_spider = true
 
 [node name="LootSpawn" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0076313, -0.593311, 0)
+
+[node name="DetectionArea" parent="." instance=ExtResource("7_dpv78")]
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 
 [connection signal="animation_finished" from="AnimatedSprite3D" to="Health" method="_on_animated_sprite_3d_animation_finished"]
 [connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
