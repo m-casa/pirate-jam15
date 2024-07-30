@@ -49,16 +49,18 @@ func damage_enemy(attack: Attack):
 func damage_player(attack: Attack):
 	
 	if player_data.current_health > 0 and not _stunned:
-		player_data.take_dmg(attack.attack_damage)
-		print_debug("Hit the player for 5!")
+		var player = get_parent()
 		
 		_stunned = true
+		player_data.take_dmg(attack.attack_damage)
+		player.setup_knockback(attack)
+		print_debug("Hit the player for 5!")
+		
+		if player_data.current_health <= 0:
+			print_debug("Game Over!")
+		
 		_timer.set_wait_time(_stun_duration)
 		_timer.start()
-	
-	if player_data.current_health <= 0:
-		print_debug("Game Over!")
-		
 
 func _on_timer_timeout():
 	_stunned = false

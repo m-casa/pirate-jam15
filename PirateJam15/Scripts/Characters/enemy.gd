@@ -2,6 +2,8 @@ extends CharacterBody3D
 
 const pickup = preload("res://Scenes/Inventory/item_pickup.tscn")
 
+@export var _knockback_force = -15
+
 var attack: Attack
 var _was_knocked_back: bool
 var _gravity: float
@@ -19,6 +21,8 @@ func _ready():
 	
 	attack = Attack.new()
 	attack.attack_damage = 5
+	attack.knockback_force = _knockback_force
+	attack.knockback_direction = Vector3.ZERO
 	
 	_was_knocked_back = false
 	
@@ -35,14 +39,14 @@ func _apply_gravity(delta):
 	if not is_on_floor():
 		velocity.y -= _gravity * delta
 
-func setup_knockback(kncokback_attack: Attack):
+func setup_knockback(knockback_attack: Attack):
 	# Normalize the knockback direction,
 	#  so that looking up or down doesn't change the force
-	var direction_normalized = kncokback_attack.knockback_direction
+	var direction_normalized = knockback_attack.knockback_direction
 	direction_normalized.y = 0
 	direction_normalized = direction_normalized.normalized()
 	
-	velocity = direction_normalized * -kncokback_attack.knockback_force
+	velocity = direction_normalized * -knockback_attack.knockback_force
 	_was_knocked_back = true
 
 func _apply_knockback():
@@ -57,6 +61,10 @@ func _apply_knockback():
 
 func _on_hit_box_area_entered(area):
 	if area.get_parent() is Player:
+		var enemy_position = global_transform.origin
+		var player_position = area.global_transform.origin
+		
+		attack.knockback_direction = enemy_position.direction_to(player_position)
 		area.damage_player(attack)
 
 func drop_items( position_data: Vector3) -> void:
