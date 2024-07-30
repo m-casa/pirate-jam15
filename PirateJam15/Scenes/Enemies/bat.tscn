@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dt42hpn8so4yf"]
+[gd_scene load_steps=18 format=3 uid="uid://dt42hpn8so4yf"]
 
 [ext_resource type="Script" path="res://Scripts/Characters/enemy.gd" id="1_t3cqw"]
 [ext_resource type="Resource" uid="uid://dj8p1crnpjs7y" path="res://Assets/Other/ItemData/bat_wings.tres" id="2_kdjws"]
@@ -6,35 +6,36 @@
 [ext_resource type="Texture2D" uid="uid://cj086k3dbo275" path="res://Assets/SpriteSheets/Enemies/Bat.png" id="4_48pej"]
 [ext_resource type="PackedScene" uid="uid://cchar4njta66r" path="res://Scenes/Components/hitbox.tscn" id="5_pngkv"]
 [ext_resource type="PackedScene" uid="uid://cwtuomrx5lja2" path="res://Scenes/Components/health.tscn" id="6_mb3lv"]
+[ext_resource type="PackedScene" uid="uid://d0lftn2l3f0wv" path="res://Scenes/Components/detection_area.tscn" id="7_mu6nv"]
 
 [sub_resource type="Resource" id="Resource_foll3"]
 script = ExtResource("3_3sfwy")
 item = ExtResource("2_kdjws")
 drop_probability = 100.0
 min_items = 1
-max_items = 3
+max_items = 1
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_cu1ux"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ewnt3"]
 atlas = ExtResource("4_48pej")
 region = Rect2(0, 64, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rnttf"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_7o10b"]
 atlas = ExtResource("4_48pej")
 region = Rect2(32, 64, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gyqf0"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_alpkh"]
 atlas = ExtResource("4_48pej")
 region = Rect2(64, 64, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qqmce"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_oyd24"]
 atlas = ExtResource("4_48pej")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_l7xhq"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_711a4"]
 atlas = ExtResource("4_48pej")
 region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_h510t"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_uq6u3"]
 atlas = ExtResource("4_48pej")
 region = Rect2(64, 0, 32, 32)
 
@@ -42,13 +43,13 @@ region = Rect2(64, 0, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_cu1ux")
+"texture": SubResource("AtlasTexture_ewnt3")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_rnttf")
+"texture": SubResource("AtlasTexture_7o10b")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_gyqf0")
+"texture": SubResource("AtlasTexture_alpkh")
 }],
 "loop": false,
 "name": &"death",
@@ -56,13 +57,13 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_qqmce")
+"texture": SubResource("AtlasTexture_oyd24")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_l7xhq")
+"texture": SubResource("AtlasTexture_711a4")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_h510t")
+"texture": SubResource("AtlasTexture_uq6u3")
 }],
 "loop": true,
 "name": &"idle",
@@ -71,11 +72,13 @@ animations = [{
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_o36yt"]
 radius = 0.4
-height = 1.5
+height = 1.8
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ppljw"]
+height = 1.3
 
-[node name="Bat" type="CharacterBody3D"]
+[node name="Bat" type="CharacterBody3D" groups=["Enemy"]]
+collision_layer = 2
 wall_min_slide_angle = 0.0872665
 script = ExtResource("1_t3cqw")
 drops = Array[ExtResource("3_3sfwy")]([SubResource("Resource_foll3")])
@@ -90,7 +93,7 @@ animation = &"idle"
 autoplay = "idle"
 
 [node name="WorldCollider" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.35, 0)
 shape = SubResource("CapsuleShape3D_o36yt")
 
 [node name="HitBox" parent="." node_paths=PackedStringArray("_health_component") instance=ExtResource("5_pngkv")]
@@ -103,11 +106,15 @@ _is_enemy = true
 shape = SubResource("CapsuleShape3D_ppljw")
 
 [node name="Health" parent="." node_paths=PackedStringArray("_sprite") instance=ExtResource("6_mb3lv")]
-_max_health = 20.0
 _sprite = NodePath("../AnimatedSprite3D")
 
 [node name="LootSpawn" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0076313, -0.593311, 0)
 
+[node name="DetectionArea" parent="." instance=ExtResource("7_mu6nv")]
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
 [connection signal="animation_finished" from="AnimatedSprite3D" to="Health" method="_on_animated_sprite_3d_animation_finished"]
 [connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
+[connection signal="area_entered" from="DetectionArea" to="." method="_on_detection_area_area_entered"]

@@ -12,37 +12,37 @@ script = ExtResource("3_m47tp")
 item = ExtResource("2_kq5mk")
 drop_probability = 100.0
 min_items = 1
-max_items = 3
+max_items = 1
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1a7le"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ng51k"]
 atlas = ExtResource("4_ryp0w")
 region = Rect2(0, 32, 32, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ppgmr"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_6rjgp"]
 atlas = ExtResource("4_ryp0w")
 region = Rect2(32, 32, 32, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_j1ttu"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_0qkqx"]
 atlas = ExtResource("4_ryp0w")
 region = Rect2(64, 32, 32, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vv4nu"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_68kjc"]
 atlas = ExtResource("4_ryp0w")
 region = Rect2(96, 32, 32, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6htjv"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_anu87"]
 atlas = ExtResource("4_ryp0w")
 region = Rect2(0, 0, 32, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_khah5"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ydgka"]
 atlas = ExtResource("4_ryp0w")
 region = Rect2(32, 0, 32, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_plh5m"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_8hgr2"]
 atlas = ExtResource("4_ryp0w")
 region = Rect2(64, 0, 32, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_myjtg"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_20yxb"]
 atlas = ExtResource("4_ryp0w")
 region = Rect2(96, 0, 32, 16)
 
@@ -50,16 +50,16 @@ region = Rect2(96, 0, 32, 16)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1a7le")
+"texture": SubResource("AtlasTexture_ng51k")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ppgmr")
+"texture": SubResource("AtlasTexture_6rjgp")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_j1ttu")
+"texture": SubResource("AtlasTexture_0qkqx")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vv4nu")
+"texture": SubResource("AtlasTexture_68kjc")
 }],
 "loop": false,
 "name": &"death",
@@ -67,16 +67,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_6htjv")
+"texture": SubResource("AtlasTexture_anu87")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_khah5")
+"texture": SubResource("AtlasTexture_ydgka")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_plh5m")
+"texture": SubResource("AtlasTexture_8hgr2")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_myjtg")
+"texture": SubResource("AtlasTexture_20yxb")
 }],
 "loop": true,
 "name": &"idle",
@@ -85,11 +85,13 @@ animations = [{
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_o36yt"]
 radius = 0.4
-height = 1.5
+height = 0.85
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ppljw"]
+height = 1.0
 
 [node name="Rat" type="CharacterBody3D"]
+collision_layer = 2
 wall_min_slide_angle = 0.0872665
 script = ExtResource("1_q7xg6")
 drops = Array[ExtResource("3_m47tp")]([SubResource("Resource_foll3")])
@@ -105,7 +107,7 @@ animation = &"idle"
 autoplay = "idle"
 
 [node name="WorldCollider" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.575, 0)
 shape = SubResource("CapsuleShape3D_o36yt")
 
 [node name="HitBox" parent="." node_paths=PackedStringArray("_health_component") instance=ExtResource("5_jp1m3")]
@@ -115,10 +117,11 @@ _health_component = NodePath("../Health")
 _is_enemy = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HitBox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 shape = SubResource("CapsuleShape3D_ppljw")
 
 [node name="Health" parent="." node_paths=PackedStringArray("_sprite") instance=ExtResource("6_66yxd")]
-_max_health = 20.0
+_max_health = 15.0
 _sprite = NodePath("../AnimatedSprite3D")
 
 [node name="LootSpawn" type="Node3D" parent="."]

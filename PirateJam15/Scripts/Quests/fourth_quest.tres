@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="QuestData" load_steps=7 format=3 uid="uid://oed20hb3452i"]
+
+[ext_resource type="Resource" uid="uid://dd34qlu4ns3uv" path="res://Assets/Other/ItemData/blood_ink.tres" id="1_dkpdv"]
+[ext_resource type="Script" path="res://Scripts/Quests/quest_data.gd" id="1_hyx3d"]
+[ext_resource type="Script" path="res://Scripts/Inventory/slot_data.gd" id="2_i7ui0"]
+[ext_resource type="Resource" uid="uid://cde81pvtku7p0" path="res://Assets/Other/ItemData/blue_dust.tres" id="3_nod6b"]
+
+[sub_resource type="Resource" id="Resource_r5i7i"]
+script = ExtResource("2_i7ui0")
+item_data = ExtResource("1_dkpdv")
+quantity = 7
+
+[sub_resource type="Resource" id="Resource_ohb10"]
+script = ExtResource("2_i7ui0")
+item_data = ExtResource("3_nod6b")
+quantity = 7
+
+[resource]
+script = ExtResource("1_hyx3d")
+quest_name = "Bring me their blood!"
+quest_text = "\"You can access my library through the botany... Oh, the books don't actually bleed... you'll see.\""
+quest_turn_in = Array[ExtResource("2_i7ui0")]([SubResource("Resource_r5i7i"), SubResource("Resource_ohb10")])
+completed = false
