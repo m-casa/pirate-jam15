@@ -52,13 +52,17 @@ func setup_knockback(knockback_attack: Attack):
 
 func _apply_knockback():
 	if _was_knocked_back:
-		# Apply friction or damping to gradually stop the knockback
-		velocity *= 0.9  # Adjust this value as needed
+		# Apply friction to gradually stop the knockback
+		var friction = 0.9
+		
+		velocity.x *= friction
+		velocity.z *= friction
 		
 		# Stop knockback when velocity is low
-		if velocity.length() < 0.1:
+		if velocity.length() < 0.7:
 			_was_knocked_back = false
-			velocity = Vector3.ZERO
+			velocity.x = 0
+			velocity.z = 0
 
 func _on_hit_box_area_entered(area):
 	if area.get_parent() is Player and health.health > 0:

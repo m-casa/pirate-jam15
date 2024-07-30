@@ -6,6 +6,7 @@
 size = Vector3(2, 1, 1)
 
 [node name="DoorwayTeleporter" type="Area3D"]
+collision_mask = 2
 script = ExtResource("1_pnwpr")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

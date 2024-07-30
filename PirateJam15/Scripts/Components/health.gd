@@ -6,6 +6,7 @@ class_name Health extends Node3D
 @export var _stun_duration = 0.3
 @export var _sprite: AnimatedSprite3D
 @export var _is_player: bool = false
+@export var _is_spider = false
 
 var _stunned: bool
 var health: float
@@ -27,14 +28,17 @@ func damage_enemy(attack: Attack):
 	# Check if stunned, or else enemy might be hit multiple times 
 	#  within a few frames of each other
 	if health > 0 and not _stunned:
-		var enemy = get_parent()
+		var enemy: CharacterBody3D = get_parent()
 		
 		_stunned = true
 		health -= attack.attack_damage
 		_sprite.modulate = Color.RED
-		enemy.setup_knockback(attack)
+		
+		if not _is_spider:
+			enemy.setup_knockback(attack)
 
 		if health <= 0:
+			enemy.set_collision_layer_value(2, false)
 			_sprite.play("death")
 		
 		_timer.set_wait_time(_stun_duration)

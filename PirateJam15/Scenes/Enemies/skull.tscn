@@ -12,29 +12,29 @@ script = ExtResource("3_g080a")
 item = ExtResource("2_da1mt")
 drop_probability = 100.0
 min_items = 1
-max_items = 3
+max_items = 1
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6regy"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_3q55i"]
 atlas = ExtResource("4_egtht")
-region = Rect2(0, 45, 32, 32)
+region = Rect2(0, 48, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ugw8f"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_vpkkj"]
 atlas = ExtResource("4_egtht")
-region = Rect2(32, 45, 32, 32)
+region = Rect2(32, 48, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8pfuh"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ofcis"]
 atlas = ExtResource("4_egtht")
-region = Rect2(64, 45, 32, 32)
+region = Rect2(64, 48, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wisi4"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_nvgot"]
 atlas = ExtResource("4_egtht")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jh44i"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_vivha"]
 atlas = ExtResource("4_egtht")
 region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_cdcye"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_lyp0m"]
 atlas = ExtResource("4_egtht")
 region = Rect2(64, 0, 32, 32)
 
@@ -42,13 +42,13 @@ region = Rect2(64, 0, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_6regy")
+"texture": SubResource("AtlasTexture_3q55i")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ugw8f")
+"texture": SubResource("AtlasTexture_vpkkj")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_8pfuh")
+"texture": SubResource("AtlasTexture_ofcis")
 }],
 "loop": false,
 "name": &"death",
@@ -56,13 +56,13 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_wisi4")
+"texture": SubResource("AtlasTexture_nvgot")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_jh44i")
+"texture": SubResource("AtlasTexture_vivha")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_cdcye")
+"texture": SubResource("AtlasTexture_lyp0m")
 }],
 "loop": true,
 "name": &"idle",
@@ -71,11 +71,13 @@ animations = [{
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_o36yt"]
 radius = 0.4
-height = 1.5
+height = 1.1
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ppljw"]
+height = 1.6
 
 [node name="Skull" type="CharacterBody3D"]
+collision_layer = 2
 wall_min_slide_angle = 0.0872665
 script = ExtResource("1_57u6q")
 drops = Array[ExtResource("3_g080a")]([SubResource("Resource_foll3")])
@@ -90,7 +92,7 @@ animation = &"idle"
 autoplay = "idle"
 
 [node name="WorldCollider" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.15, 0)
 shape = SubResource("CapsuleShape3D_o36yt")
 
 [node name="HitBox" parent="." node_paths=PackedStringArray("_health_component") instance=ExtResource("5_pe4c6")]
@@ -100,10 +102,11 @@ _health_component = NodePath("../Health")
 _is_enemy = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HitBox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
 shape = SubResource("CapsuleShape3D_ppljw")
 
 [node name="Health" parent="." node_paths=PackedStringArray("_sprite") instance=ExtResource("6_eihrm")]
-_max_health = 20.0
+_max_health = 15.0
 _sprite = NodePath("../AnimatedSprite3D")
 
 [node name="LootSpawn" type="Node3D" parent="."]

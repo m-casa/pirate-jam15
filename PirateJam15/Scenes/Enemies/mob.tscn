@@ -14,27 +14,27 @@ drop_probability = 100.0
 min_items = 1
 max_items = 1
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ohc7d"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_0t6ds"]
 atlas = ExtResource("2_go605")
 region = Rect2(0, 48, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wvcdv"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_05fv3"]
 atlas = ExtResource("2_go605")
 region = Rect2(32, 48, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dknhm"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_xfhfo"]
 atlas = ExtResource("2_go605")
 region = Rect2(64, 48, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xw7fo"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_blhc4"]
 atlas = ExtResource("2_go605")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xnma3"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_giily"]
 atlas = ExtResource("2_go605")
 region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_72nex"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_v3m7m"]
 atlas = ExtResource("2_go605")
 region = Rect2(64, 0, 32, 32)
 
@@ -42,13 +42,13 @@ region = Rect2(64, 0, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ohc7d")
+"texture": SubResource("AtlasTexture_0t6ds")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_wvcdv")
+"texture": SubResource("AtlasTexture_05fv3")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_dknhm")
+"texture": SubResource("AtlasTexture_xfhfo")
 }],
 "loop": false,
 "name": &"death",
@@ -56,13 +56,13 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xw7fo")
+"texture": SubResource("AtlasTexture_blhc4")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xnma3")
+"texture": SubResource("AtlasTexture_giily")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_72nex")
+"texture": SubResource("AtlasTexture_v3m7m")
 }],
 "loop": true,
 "name": &"default",
@@ -76,6 +76,7 @@ height = 1.5
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ppljw"]
 
 [node name="Mob" type="CharacterBody3D"]
+collision_layer = 2
 wall_min_slide_angle = 0.0872665
 script = ExtResource("1_rpm01")
 drops = Array[ExtResource("3_lejx7")]([SubResource("Resource_foll3")])
@@ -86,7 +87,6 @@ billboard = 2
 shaded = true
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_oswow")
-animation = &"death"
 autoplay = "default"
 
 [node name="WorldCollider" type="CollisionShape3D" parent="."]
@@ -103,7 +103,7 @@ _is_enemy = true
 shape = SubResource("CapsuleShape3D_ppljw")
 
 [node name="Health" parent="." node_paths=PackedStringArray("_sprite") instance=ExtResource("4_dj52m")]
-_max_health = 20.0
+_max_health = 15.0
 _sprite = NodePath("../AnimatedSprite3D")
 
 [node name="LootSpawn" type="Node3D" parent="."]
