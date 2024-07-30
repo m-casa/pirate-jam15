@@ -7,12 +7,8 @@ const quest_objective_label = preload("res://Scenes/QuestsTracker/quest_objectiv
 @export_category("Player Inventory Data")
 @export var data: InventoryData
 
-@export_category("Into Text for the Player")
-@export var intro_title: String
-@export_multiline var intro_text: String
-
 func _ready() -> void:
-	set_base_info(intro_title, intro_text)
+	set_base_info(GameManager.intro_title, GameManager.intro_text)
 	GameManager.updateQuest.connect(update_quest_tracker)
 
 func set_base_info(title: String, text: String) -> void:
@@ -27,6 +23,16 @@ func set_base_info(title: String, text: String) -> void:
 func update_quest_tracker() -> void:
 	if !GameManager.has_seen_intro: return
 	clear_ui()
+		
+	var completed_count = 0
+	for quest in GameManager.alchemist_quests:
+		if quest.completed:
+			completed_count += 1
+			
+	if completed_count == GameManager.alchemist_quests.size():
+		get_parent().visible = false
+		set_base_info(GameManager.win_title, GameManager.win_text)
+		return
 		
 	if GameManager.current_quest:
 		set_base_info(GameManager.current_quest.quest_name, GameManager.current_quest.quest_text)

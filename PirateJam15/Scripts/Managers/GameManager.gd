@@ -7,7 +7,18 @@ signal updateInventory
 signal updateQuest
 signal turnInQuest
 
+@export_category("Intro Quest Text")
+@export_group("Intro Quest Text")
+@export var intro_title: String
+@export_multiline var intro_text: String
+
+@export_category("Win Text")
+@export_group("Win Text")
+@export var win_title: String
+@export_multiline var win_text: String
+
 #region alachemist gameplay loop
+@export_category("Quest Chain")
 @export var alchemist_quests: Array[QuestData]
 var current_quest: QuestData:  set = set_quest
 var has_seen_intro: bool = false 
@@ -24,9 +35,7 @@ func play_audio(audio: AudioStream) -> void:
 
 #region global quest data
 func set_quest(quest: QuestData) -> void:
-	print("setting quest data")
 	current_quest = quest
-	print(quest.quest_name)
 	
 func update_quest() -> void:
 	# set initial quest if empty
@@ -35,19 +44,20 @@ func update_quest() -> void:
 	if current_quest == null and has_seen_intro:
 		if alchemist_quests.size() > 0:
 			set_quest(alchemist_quests[0])
-
+	
 	# loop over quests and set the quest data to the first uncompleted quest
 	for i in alchemist_quests.size():
 		if alchemist_quests[i]:
 			if alchemist_quests[i].completed:
 				completed_quests += 1
+				if completed_quests == alchemist_quests.size():
+					win_game()
+					return
 				continue
+
 			if !alchemist_quests[i].completed and has_seen_intro:
 				set_quest(alchemist_quests[i])
 				return
-
-	if completed_quests == alchemist_quests.size():
-		game_over()
 
 func complete_quest() -> void:
 	var completed_lines = 0
@@ -56,7 +66,7 @@ func complete_quest() -> void:
 		for item in player_inventory.slots:
 			if item and item.item_data == turnin.item_data and item.quantity >= turnin.quantity:
 				completed_lines += 1
-
+	
 	if completed_lines == current_quest.quest_turn_in.size():
 		current_quest.completed = true
 		steal_items()
@@ -67,6 +77,10 @@ func steal_items() -> void:
 		player_inventory.slots[i] = null
 
 func game_over() -> void:
+	pass
+	
+func win_game() -> void:
+	print("Win Game")
 	pass
 
 #region global alchemist state

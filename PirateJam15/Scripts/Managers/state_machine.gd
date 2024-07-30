@@ -12,8 +12,6 @@ func _ready() -> void:
 			child.TransitionState.connect(on_transition)
 	
 	if GameManager.current_alachemist_state_name.length() > 0:
-		print(GameManager.current_alachemist_state_name)
-		print("should not run first")
 		currect_state = states.get(GameManager.current_alachemist_state_name)
 	
 	if GameManager.current_alachemist_state_name.length() == 0:
