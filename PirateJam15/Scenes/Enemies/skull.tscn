@@ -71,7 +71,7 @@ animations = [{
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_o36yt"]
 radius = 0.4
-height = 1.1
+height = 1.8
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ppljw"]
 height = 1.6

@@ -71,7 +71,7 @@ animations = [{
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_o36yt"]
 radius = 0.3
-height = 1.0
+height = 1.8
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ppljw"]
 radius = 0.4
@@ -94,7 +94,7 @@ autoplay = "idle"
 frame_progress = 0.630008
 
 [node name="WorldCollider" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.025, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, 0)
 shape = SubResource("CapsuleShape3D_o36yt")
 
 [node name="HitBox" parent="." node_paths=PackedStringArray("_health_component") instance=ExtResource("5_0duty")]
