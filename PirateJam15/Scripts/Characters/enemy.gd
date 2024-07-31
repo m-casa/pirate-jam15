@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 const pickup = preload("res://Scenes/Inventory/item_pickup.tscn")
 
-@export var _enemy_speed = 3
+@export var _enemy_speed: float = 3
 @export var _knockback_force = -15
 @onready var _nav_agent = $NavigationAgent3D
 

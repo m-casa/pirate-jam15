@@ -4,10 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://dqt6ouv4vlu0q" path="res://Scenes/Characters/player.tscn" id="2_ktywg"]
 [ext_resource type="PackedScene" uid="uid://co4uv0apipk4j" path="res://Scenes/Characters/alchemist.tscn" id="3_ewlbq"]
 [ext_resource type="AudioStream" uid="uid://dpjlais600ve2" path="res://Assets/Audio/Safe_Place_Demo_v1.1.wav" id="5_5q5ql"]
-[ext_resource type="PackedScene" uid="uid://chemh4hjosrg0" path="res://Scenes/Inventory/item_pickup.tscn" id="6_1sjhe"]
-[ext_resource type="Resource" uid="uid://chdi4aqhp3ytc" path="res://Assets/Other/ItemData/speed_potion.tres" id="7_3yxnk"]
-[ext_resource type="Resource" uid="uid://ca80cvqi2etsh" path="res://Assets/Other/ItemData/health_potion.tres" id="7_5w15v"]
+[ext_resource type="PackedScene" uid="uid://chemh4hjosrg0" path="res://Scenes/Inventory/item_pickup.tscn" id="6_v4jk0"]
+[ext_resource type="Resource" uid="uid://chdi4aqhp3ytc" path="res://Assets/Other/ItemData/speed_potion.tres" id="7_1am30"]
 [ext_resource type="PackedScene" uid="uid://ce2c6kfbekmja" path="res://Scenes/Managers/DoorwayTeleporter.tscn" id="7_xqy7o"]
+[ext_resource type="Resource" uid="uid://ca80cvqi2etsh" path="res://Assets/Other/ItemData/health_potion.tres" id="8_sykpo"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cix0u"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -60,6 +60,56 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 2, 
 [node name="Alchemist" parent="." instance=ExtResource("3_ewlbq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 4)
 
+[node name="Pickups" type="Node3D" parent="."]
+
+[node name="SpeedPickup" parent="Pickups" instance=ExtResource("6_v4jk0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 2.5, -3.55)
+item_data = ExtResource("7_1am30")
+
+[node name="SpeedPickup2" parent="Pickups" instance=ExtResource("6_v4jk0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 2.5, -8.55)
+item_data = ExtResource("7_1am30")
+
+[node name="SpeedPickup3" parent="Pickups" instance=ExtResource("6_v4jk0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 2.5, 0.45)
+item_data = ExtResource("7_1am30")
+
+[node name="SpeedPickup4" parent="Pickups" instance=ExtResource("6_v4jk0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 2.5, 3.45)
+item_data = ExtResource("7_1am30")
+
+[node name="HealthPickup" parent="Pickups" instance=ExtResource("6_v4jk0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 2.5, -5.55)
+item_data = ExtResource("8_sykpo")
+
+[node name="HealthPickup2" parent="Pickups" instance=ExtResource("6_v4jk0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 2.5, -2.55)
+item_data = ExtResource("8_sykpo")
+
+[node name="HealthPickup3" parent="Pickups" instance=ExtResource("6_v4jk0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 2.5, 3.45)
+item_data = ExtResource("8_sykpo")
+
+[node name="HealthPickup5" parent="Pickups" instance=ExtResource("6_v4jk0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 2.5, 4.45)
+item_data = ExtResource("8_sykpo")
+
+[node name="HealthPickup6" parent="Pickups" instance=ExtResource("6_v4jk0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 2.5, 1.45)
+item_data = ExtResource("8_sykpo")
+
+[node name="HealthPickup8" parent="Pickups" instance=ExtResource("6_v4jk0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 2.5, -4.55)
+item_data = ExtResource("8_sykpo")
+
+[node name="HealthPickup9" parent="Pickups" instance=ExtResource("6_v4jk0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 2.5, -3.55)
+item_data = ExtResource("8_sykpo")
+
+[node name="HealthPickup10" parent="Pickups" instance=ExtResource("6_v4jk0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 2.5, -8.55)
+item_data = ExtResource("8_sykpo")
+
 [node name="DoorwayTeleporter" parent="." instance=ExtResource("7_xqy7o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -10.5)
 target_scene = "Dungeon/dungeon"
@@ -71,11 +121,3 @@ min_loading_time = 0.1
 stream = ExtResource("5_5q5ql")
 volume_db = -2.0
 autoplay = true
-
-[node name="ItemPickup" parent="." instance=ExtResource("6_1sjhe")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.581381, 1.47391, -0.144651)
-item_data = ExtResource("7_3yxnk")
-
-[node name="ItemPickup2" parent="." instance=ExtResource("6_1sjhe")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.74812, 1.47391, -0.144651)
-item_data = ExtResource("7_5w15v")
