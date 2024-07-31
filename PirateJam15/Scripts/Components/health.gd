@@ -1,6 +1,5 @@
 class_name Health extends Node3D
 
-@export var player_data: PlayerData
 
 @export var _max_health = 10.0
 @export var _stun_duration = 0.3
@@ -18,9 +17,9 @@ signal died
 func _ready():
 	_stunned = false
 	if _is_player:
-		health = player_data.current_health
+		health = PlayerData.get_current_health()
 	else:
-		health = _max_health 
+		health = _max_health
 	
 	_timer = $Timer
 
@@ -49,16 +48,16 @@ func damage_enemy(attack: Attack):
 		_sprite.modulate = Color.WHITE
 
 func damage_player(attack: Attack):
-	
-	if player_data.current_health > 0 and not _stunned:
+	print("player got hit")
+	if PlayerData.get_current_health() > 0 and not _stunned:
 		var player = get_parent()
 		
 		_stunned = true
-		player_data.take_dmg(attack.attack_damage)
+		PlayerData.take_dmg(attack)
 		player.setup_knockback(attack)
 		print_debug("Hit the player for 5!")
 		
-		if player_data.current_health <= 0:
+		if PlayerData.get_current_health() <= 0:
 			print_debug("Game Over!")
 		
 		_timer.set_wait_time(_stun_duration)

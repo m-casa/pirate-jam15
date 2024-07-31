@@ -1,0 +1,9 @@
+extends Control
+
+var basementScene = preload("res://Scenes/Levels/Basement/basement.tscn")
+
+func _on_button_button_down():
+	print("pressed")
+	get_tree().paused = false
+	get_tree().change_scene_to_packed(basementScene)
+	UiControls.hide_game_over()
