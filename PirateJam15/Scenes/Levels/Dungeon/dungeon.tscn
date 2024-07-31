@@ -60,42 +60,36 @@ light_color = Color(1, 0, 0, 1)
 light_energy = 10.0
 light_bake_mode = 1
 omni_range = 25.0
-omni_attenuation = 0.7
 
 [node name="RedLight2" type="OmniLight3D" parent="Lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 5, 11.5)
 light_color = Color(1, 0, 0, 1)
 light_energy = 10.0
 omni_range = 25.0
-omni_attenuation = 0.7
 
 [node name="GreenLight" type="OmniLight3D" parent="Lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23, 6, 22.5)
 light_color = Color(0.313726, 1, 0, 1)
 light_energy = 10.0
 omni_range = 25.0
-omni_attenuation = 1.3
 
 [node name="GreenLight2" type="OmniLight3D" parent="Lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23, 6, 0.5)
 light_color = Color(0.313726, 1, 0, 1)
 light_energy = 10.0
 omni_range = 25.0
-omni_attenuation = 1.3
 
 [node name="BlueLight2" type="OmniLight3D" parent="Lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.60061, 10, -12.456)
 light_color = Color(0, 1, 1, 1)
-light_energy = 16.0
+light_energy = 10.0
 omni_range = 25.0
-omni_attenuation = 0.65
 
 [node name="BlueLight3" type="OmniLight3D" parent="Lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.9617, 9.51876, -20.6793)
 light_color = Color(0, 1, 1, 1)
-light_energy = 16.0
+light_energy = 10.0
 omni_range = 25.0
-omni_attenuation = 0.65
 
 [node name="PurpleLight2" type="OmniLight3D" parent="Lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.429, 2.9579, -2.5)
@@ -103,7 +97,6 @@ light_color = Color(0.215686, 0.215686, 1, 1)
 light_energy = 10.0
 light_bake_mode = 1
 omni_range = 25.0
-omni_attenuation = 0.7
 
 [node name="PurpleLight3" type="OmniLight3D" parent="Lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38, -0.024345, -2.5)
@@ -111,7 +104,6 @@ light_color = Color(0.215686, 0.215686, 1, 1)
 light_energy = 10.0
 light_bake_mode = 1
 omni_range = 25.0
-omni_attenuation = 0.7
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_vsxh3")
