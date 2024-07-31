@@ -9,6 +9,7 @@ font = ExtResource("2_2xme6")
 font_size = 51
 
 [node name="WinScreen" type="Control"]
+process_mode = 3
 visible = false
 layout_mode = 3
 anchors_preset = 15

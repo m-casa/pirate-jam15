@@ -86,11 +86,12 @@ func game_over() -> void:
 	updateInventory.emit()
 	updateQuest.emit()
 	UiControls.show_game_over()
-	PlayerData.current_health = PlayerData.max_health
+	get_tree().paused = true
 	pass
 	
 func win_game() -> void:
 	UiControls.show_win_screen()
+	get_tree().paused = true
 	pass
 	
 func reset_game() -> void:
