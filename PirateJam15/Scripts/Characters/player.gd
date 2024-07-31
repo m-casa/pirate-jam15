@@ -77,6 +77,10 @@ func _process(delta):
 	if not input_enabled:
 		return
 	
+	if Input.is_action_just_pressed("action"):
+		if Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE:
+			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	
 	_get_input_dir()
 	
 	_update_coyote_timer(delta)
@@ -115,7 +119,10 @@ func _physics_process(delta):
 
 # Get the input direction to handle movement/deceleration
 func _get_input_dir():
-	_input_dir = Input.get_vector("move_left", "move_right", "move_forwards", "move_backwards")
+	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
+		_input_dir = Input.get_vector("move_left", "move_right", "move_forwards", "move_backwards")
+	else:
+		_input_dir = Vector2.ZERO
 
 func _jump():
 	if Input.is_action_just_pressed("jump") and (is_on_floor() or _coyote_timer < COYOTE_TIME):

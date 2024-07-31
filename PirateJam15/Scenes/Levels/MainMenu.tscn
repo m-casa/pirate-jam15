@@ -73,13 +73,14 @@ color = Color(0.0352941, 0.0352941, 0.0352941, 0.411765)
 
 [node name="Credits" type="VBoxContainer" parent="CanvasLayer/ColorRect2"]
 layout_mode = 1
-anchors_preset = -1
+anchors_preset = 3
+anchor_left = 1.0
 anchor_top = 1.0
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 20.0
-offset_top = -180.0
-offset_right = 255.0
-offset_bottom = -20.0
+offset_left = -522.0
+offset_top = -234.0
+grow_horizontal = 0
 grow_vertical = 0
 theme_override_constants/separation = 15
 
@@ -103,15 +104,11 @@ vertical_alignment = 1
 
 [node name="Controls" type="VBoxContainer" parent="CanvasLayer/ColorRect2"]
 layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
+anchors_preset = 2
 anchor_top = 1.0
-anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -429.0
-offset_top = -240.0
-offset_bottom = -16.9995
-grow_horizontal = 0
+offset_top = -320.0
+offset_right = 429.0
 grow_vertical = 0
 theme_override_constants/separation = 15
 
@@ -127,10 +124,11 @@ vertical_alignment = 1
 layout_mode = 2
 text = "WASD - Move
 Mouse - Look
+Spacebar - Jump
 LMB - Attack
 E - Interact
 F - Toggle Quest
-Esc - Pause"
+Tab - Pause"
 label_settings = SubResource("LabelSettings_dbbnt")
 horizontal_alignment = 1
 vertical_alignment = 1
