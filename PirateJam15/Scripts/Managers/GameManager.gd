@@ -90,7 +90,18 @@ func game_over() -> void:
 	pass
 	
 func win_game() -> void:
-	print("Win Game")
+	UiControls.show_win_screen()
+	pass
+	
+func reset_game() -> void:
+	has_seen_intro = false
+	
+	for quest in alchemist_quests:
+		quest.completed = false
+	
+	current_quest = null
+	
+	PlayerData.current_health = PlayerData.max_health
 	pass
 
 #region global alchemist state

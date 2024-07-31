@@ -21,7 +21,10 @@ func set_base_info(title: String, text: String) -> void:
 	quest_intro_text.text = text
 	
 func update_quest_tracker() -> void:
-	if !GameManager.has_seen_intro: return
+	if !GameManager.has_seen_intro:
+		clear_ui()
+		set_base_info(GameManager.intro_title, GameManager.intro_text)
+		return
 	clear_ui()
 		
 	var completed_count = 0
@@ -30,7 +33,6 @@ func update_quest_tracker() -> void:
 			completed_count += 1
 			
 	if completed_count == GameManager.alchemist_quests.size():
-		get_parent().visible = false
 		set_base_info(GameManager.win_title, GameManager.win_text)
 		return
 		

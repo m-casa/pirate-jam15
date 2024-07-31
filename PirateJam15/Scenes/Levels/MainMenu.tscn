@@ -168,7 +168,6 @@ text = "Quit"
 
 [node name="DoorwayTeleporter" parent="." instance=ExtResource("3_d1xrm")]
 fade_duration = 0.5
-min_loading_time = 0.1
 
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/VBoxContainer2/PlayBtn" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/VBoxContainer2/QuitBtn" to="." method="_on_quit_pressed"]

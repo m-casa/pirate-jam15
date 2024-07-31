@@ -18,7 +18,7 @@ var _was_knocked_back: bool
 var _gravity: float
 var _coyote_timer: float
 var _input_dir: Vector2
-var input_enabled: bool = true  # Mickplouffe: Added this flag to control input handling
+var input_enabled: bool = false  # Mickplouffe: Added this flag to control input handling
 
 var _camera: Camera3D
 var _interact_ray: RayCast3D

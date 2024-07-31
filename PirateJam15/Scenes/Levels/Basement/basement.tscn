@@ -55,7 +55,7 @@ data = {
 metadata/_editor_floor_ = Vector3(0, 4, 0)
 
 [node name="Player" parent="." instance=ExtResource("2_ktywg")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 2, -7)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 2, -6.26977)
 
 [node name="Alchemist" parent="." instance=ExtResource("3_ewlbq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 4)
@@ -114,8 +114,7 @@ item_data = ExtResource("8_sykpo")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -10.5)
 target_scene = "Dungeon/dungeon"
 teleport_position = Vector3(50, 0, 50)
-fade_duration = 0.3
-min_loading_time = 0.1
+fade_duration = 0.4
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_5q5ql")
