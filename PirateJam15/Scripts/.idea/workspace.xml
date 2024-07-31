@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="34fa0fe4-f23a-40d0-a8b7-3281750c1a80" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../Assets/Other/ItemData/bone.tres" beforeDir="false" afterPath="$PROJECT_DIR$/../Assets/Other/ItemData/bone.tres" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Assets/Other/ItemData/green_slime.tres" beforeDir="false" afterPath="$PROJECT_DIR$/../Assets/Other/ItemData/green_slime.tres" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Assets/Other/ItemData/health_potion.tres" beforeDir="false" afterPath="$PROJECT_DIR$/../Assets/Other/ItemData/health_potion.tres" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Assets/Other/ItemData/speed_potion.tres" beforeDir="false" afterPath="$PROJECT_DIR$/../Assets/Other/ItemData/speed_potion.tres" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Scenes/Characters/player.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/../Scenes/Characters/player.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Scenes/Levels/Basement/BasementMeshLib.tres" beforeDir="false" afterPath="$PROJECT_DIR$/../Scenes/Levels/Basement/BasementMeshLib.tres" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Scenes/Levels/Basement/basement.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/../Scenes/Levels/Basement/basement.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Scenes/Managers/InGameHud.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/../Scenes/Managers/InGameHud.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Characters/player_data.gd" beforeDir="false" afterPath="$PROJECT_DIR$/Characters/player_data.gd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Components/health.gd" beforeDir="false" afterPath="$PROJECT_DIR$/Components/health.gd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Items/item_effect_heal.gd" beforeDir="false" afterPath="$PROJECT_DIR$/Items/item_effect_heal.gd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Managers/GameManager.gd" beforeDir="false" afterPath="$PROJECT_DIR$/Managers/GameManager.gd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project.godot" beforeDir="false" afterPath="$PROJECT_DIR$/../project.godot" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;mickplouffe&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/m-casa/pirate-jam15.git&quot;,
+    &quot;accountId&quot;: &quot;a34e8dd3-ab7e-4575-881f-a97fad63fca1&quot;
+  }
+}</component>
+  <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="2jdC1uz2mPmNsF82bYi4URd5elg" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="34fa0fe4-f23a-40d0-a8b7-3281750c1a80" name="Changes" comment="" />
+      <created>1721707355938</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1721707355938</updated>
+      <workItem from="1721707357882" duration="8494000" />
+      <workItem from="1721947812133" duration="5578000" />
+      <workItem from="1722321130341" duration="1430000" />
+      <workItem from="1722324937310" duration="1074000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
+  <component name="VcsManagerConfiguration">
+    <option name="LOCAL_CHANGES_DETAILS_PREVIEW_SHOWN" value="false" />
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+</project>

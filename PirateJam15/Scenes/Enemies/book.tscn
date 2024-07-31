@@ -1,0 +1,138 @@
+[gd_scene load_steps=19 format=3 uid="uid://ts4uci2nwvse"]
+
+[ext_resource type="Script" path="res://Scripts/Characters/enemy.gd" id="1_hfn8p"]
+[ext_resource type="Resource" uid="uid://dd34qlu4ns3uv" path="res://Assets/Other/ItemData/blood_ink.tres" id="2_ql664"]
+[ext_resource type="Script" path="res://Scripts/Items/drop_data.gd" id="3_2cme2"]
+[ext_resource type="Texture2D" uid="uid://d02s85xr4mnif" path="res://Assets/SpriteSheets/Enemies/Book.png" id="4_520g0"]
+[ext_resource type="PackedScene" uid="uid://cchar4njta66r" path="res://Scenes/Components/hitbox.tscn" id="5_0duty"]
+[ext_resource type="PackedScene" uid="uid://cwtuomrx5lja2" path="res://Scenes/Components/health.tscn" id="6_omxkf"]
+[ext_resource type="PackedScene" uid="uid://d0lftn2l3f0wv" path="res://Scenes/Components/detection_area.tscn" id="7_mdmx3"]
+[ext_resource type="AudioStream" uid="uid://cymohgqimroar" path="res://Assets/Audio/Combat/pain2.wav" id="8_tbv0k"]
+
+[sub_resource type="Resource" id="Resource_foll3"]
+script = ExtResource("3_2cme2")
+item = ExtResource("2_ql664")
+drop_probability = 100.0
+min_items = 1
+max_items = 1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yhm2x"]
+atlas = ExtResource("4_520g0")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lmtqq"]
+atlas = ExtResource("4_520g0")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ngsqj"]
+atlas = ExtResource("4_520g0")
+region = Rect2(64, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sdeo5"]
+atlas = ExtResource("4_520g0")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r6awc"]
+atlas = ExtResource("4_520g0")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y3eul"]
+atlas = ExtResource("4_520g0")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oswow"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yhm2x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lmtqq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ngsqj")
+}],
+"loop": false,
+"name": &"death",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sdeo5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r6awc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y3eul")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 4.0
+}]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_o36yt"]
+radius = 0.3
+height = 1.8
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ppljw"]
+radius = 0.4
+height = 1.15
+
+[node name="Book" type="CharacterBody3D" groups=["Enemy"]]
+collision_layer = 0
+wall_min_slide_angle = 0.0872665
+script = ExtResource("1_hfn8p")
+_enemy_speed = 4
+drops = Array[ExtResource("3_2cme2")]([SubResource("Resource_foll3")])
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+pixel_size = 0.042
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_oswow")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.630008
+
+[node name="WorldCollider" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, 0)
+shape = SubResource("CapsuleShape3D_o36yt")
+
+[node name="HitBox" parent="." node_paths=PackedStringArray("_health_component") instance=ExtResource("5_0duty")]
+collision_layer = 8
+collision_mask = 2
+_health_component = NodePath("../Health")
+_is_enemy = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HitBox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+shape = SubResource("CapsuleShape3D_ppljw")
+
+[node name="Health" parent="." node_paths=PackedStringArray("_sprite") instance=ExtResource("6_omxkf")]
+_max_health = 20.0
+_sprite = NodePath("../AnimatedSprite3D")
+
+[node name="LootSpawn" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0076313, -0.593311, 0)
+
+[node name="DetectionArea" parent="." instance=ExtResource("7_mdmx3")]
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+path_height_offset = -0.3
+
+[node name="Pain" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("8_tbv0k")
+max_db = -6.0
+pitch_scale = 1.5
+bus = &"SFX"
+
+[node name="Death" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("8_tbv0k")
+max_db = -6.0
+bus = &"SFX"
+
+[connection signal="animation_finished" from="AnimatedSprite3D" to="Health" method="_on_animated_sprite_3d_animation_finished"]
+[connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
+[connection signal="area_entered" from="DetectionArea" to="." method="_on_detection_area_entered"]

@@ -1,0 +1,22 @@
+[gd_scene load_steps=7 format=3 uid="uid://drxxb01bf1f0a"]
+
+[ext_resource type="Script" path="res://Scripts/Managers/GameManager.gd" id="1_xxp7u"]
+[ext_resource type="Resource" uid="uid://cbjm3d2y0sejk" path="res://Scripts/Quests/first_quest.tres" id="2_tpuhs"]
+[ext_resource type="Resource" uid="uid://cts8arckkt2aj" path="res://Scripts/Quests/second_quest.tres" id="3_132sp"]
+[ext_resource type="Resource" uid="uid://3cwoj0t5mc1l" path="res://Scripts/Quests/third_quest.tres" id="4_xvmeg"]
+[ext_resource type="Resource" uid="uid://oed20hb3452i" path="res://Scripts/Quests/fourth_quest.tres" id="5_0tdmj"]
+[ext_resource type="AudioStream" uid="uid://dqrb8xmmdbc3f" path="res://Assets/Audio/UI_Sounds/UI_03.mp3" id="6_eo87p"]
+
+[node name="GameManager" type="Node"]
+script = ExtResource("1_xxp7u")
+intro_title = "Speak with the Alchemist!"
+intro_text = "The shady alchemist beckons you forth. Looks like another day in that shadowy dungeon... See what he wants this time."
+alchemist_quests = Array[Resource("res://Scripts/Quests/quest_data.gd")]([ExtResource("2_tpuhs"), ExtResource("3_132sp"), ExtResource("4_xvmeg"), ExtResource("5_0tdmj")])
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+max_polyphony = 4
+
+[node name="Interact" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_eo87p")
+volume_db = 6.0
+pitch_scale = 0.9

@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=3 uid="uid://bax23imhhrv5a"]
+
+[ext_resource type="Texture2D" uid="uid://c4fjfxlrextlh" path="res://Assets/SpriteSheets/Loot/items.png" id="1_rp4hy"]
+[ext_resource type="Script" path="res://Scripts/Inventory/inventory_ui.gd" id="2_l543m"]
+[ext_resource type="Resource" uid="uid://cvshv37nu7w7c" path="res://Assets/PlayerData/player_inventory.tres" id="3_1ymy8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t10xg"]
+atlas = ExtResource("1_rp4hy")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rn8yv"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+texture = SubResource("AtlasTexture_t10xg")
+texture_margin_left = 14.0
+texture_margin_top = 14.0
+texture_margin_right = 14.0
+texture_margin_bottom = 14.0
+
+[node name="Inventory" type="Control"]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 8
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -212.0
+offset_top = -84.0
+offset_right = 212.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_rn8yv")
+
+[node name="GridContainer" type="GridContainer" parent="PanelContainer"]
+layout_direction = 2
+layout_mode = 2
+columns = 6
+script = ExtResource("2_l543m")
+data = ExtResource("3_1ymy8")

@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://ks34h1g2syrx"]
+
+[ext_resource type="Script" path="res://Scripts/Items/book.gd" id="1_ts313"]
+[ext_resource type="PackedScene" uid="uid://bpvtclx8jqbhg" path="res://Scenes/Components/interactable.tscn" id="1_waplu"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_68615"]
+size = Vector3(0.165, 0.052, 0.222)
+
+[node name="Book" type="MeshInstance3D"]
+mesh = SubResource("BoxMesh_68615")
+script = ExtResource("1_ts313")
+
+[node name="Interactable" parent="." instance=ExtResource("1_waplu")]
+
+[connection signal="interacted_with" from="Interactable" to="." method="_on_interactable_interacted_with"]

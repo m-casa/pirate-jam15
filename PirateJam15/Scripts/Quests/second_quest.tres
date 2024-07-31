@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="QuestData" load_steps=7 format=3 uid="uid://cts8arckkt2aj"]
+
+[ext_resource type="Resource" uid="uid://cde81pvtku7p0" path="res://Assets/Other/ItemData/blue_dust.tres" id="1_5wn7o"]
+[ext_resource type="Script" path="res://Scripts/Quests/quest_data.gd" id="1_u4k6w"]
+[ext_resource type="Script" path="res://Scripts/Inventory/slot_data.gd" id="2_layd2"]
+[ext_resource type="Resource" uid="uid://dj8p1crnpjs7y" path="res://Assets/Other/ItemData/bat_wings.tres" id="3_usthg"]
+
+[sub_resource type="Resource" id="Resource_33bub"]
+script = ExtResource("2_layd2")
+item_data = ExtResource("1_5wn7o")
+quantity = 4
+
+[sub_resource type="Resource" id="Resource_4smcq"]
+script = ExtResource("2_layd2")
+item_data = ExtResource("3_usthg")
+quantity = 4
+
+[resource]
+script = ExtResource("1_u4k6w")
+quest_name = "I require some sparkly stuff!"
+quest_text = "\"The mines, east of the dungeon... And fetch some wings while you're at it!\""
+quest_turn_in = Array[ExtResource("2_layd2")]([SubResource("Resource_33bub"), SubResource("Resource_4smcq")])
+completed = false

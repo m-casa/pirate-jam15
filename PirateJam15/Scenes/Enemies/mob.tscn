@@ -1,0 +1,135 @@
+[gd_scene load_steps=20 format=3 uid="uid://b0gf2ggn8vnrr"]
+
+[ext_resource type="Script" path="res://Scripts/Characters/enemy.gd" id="1_rpm01"]
+[ext_resource type="Texture2D" uid="uid://bsxte1qghnnji" path="res://Assets/SpriteSheets/Enemies/Mob.png" id="2_go605"]
+[ext_resource type="PackedScene" uid="uid://cchar4njta66r" path="res://Scenes/Components/hitbox.tscn" id="3_8l3jd"]
+[ext_resource type="Script" path="res://Scripts/Items/drop_data.gd" id="3_lejx7"]
+[ext_resource type="Resource" uid="uid://d182k38r3twb2" path="res://Assets/Other/ItemData/bone.tres" id="4_7efui"]
+[ext_resource type="PackedScene" uid="uid://cwtuomrx5lja2" path="res://Scenes/Components/health.tscn" id="4_dj52m"]
+[ext_resource type="PackedScene" uid="uid://d0lftn2l3f0wv" path="res://Scenes/Components/detection_area.tscn" id="7_8tnmv"]
+[ext_resource type="AudioStream" uid="uid://bq2tr0wsc1tkx" path="res://Assets/Audio/Combat/pain1.wav" id="8_y2ulx"]
+[ext_resource type="AudioStream" uid="uid://cwnp06qhcsx2" path="res://Assets/Audio/Combat/death1.wav" id="9_8nqqp"]
+
+[sub_resource type="Resource" id="Resource_foll3"]
+script = ExtResource("3_lejx7")
+item = ExtResource("4_7efui")
+drop_probability = 100.0
+min_items = 1
+max_items = 1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0t6ds"]
+atlas = ExtResource("2_go605")
+region = Rect2(0, 48, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_05fv3"]
+atlas = ExtResource("2_go605")
+region = Rect2(32, 48, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xfhfo"]
+atlas = ExtResource("2_go605")
+region = Rect2(64, 48, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_blhc4"]
+atlas = ExtResource("2_go605")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_giily"]
+atlas = ExtResource("2_go605")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v3m7m"]
+atlas = ExtResource("2_go605")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oswow"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0t6ds")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_05fv3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xfhfo")
+}],
+"loop": false,
+"name": &"death",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_blhc4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_giily")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v3m7m")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_o36yt"]
+radius = 0.4
+height = 1.5
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ppljw"]
+
+[node name="Mob" type="CharacterBody3D" groups=["Enemy"]]
+collision_layer = 0
+wall_min_slide_angle = 0.0872665
+script = ExtResource("1_rpm01")
+_enemy_speed = 4.5
+drops = Array[ExtResource("3_lejx7")]([SubResource("Resource_foll3")])
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+pixel_size = 0.062
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_oswow")
+autoplay = "default"
+
+[node name="WorldCollider" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+shape = SubResource("CapsuleShape3D_o36yt")
+
+[node name="HitBox" parent="." node_paths=PackedStringArray("_health_component") instance=ExtResource("3_8l3jd")]
+collision_layer = 8
+collision_mask = 2
+_health_component = NodePath("../Health")
+_is_enemy = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HitBox"]
+shape = SubResource("CapsuleShape3D_ppljw")
+
+[node name="Health" parent="." node_paths=PackedStringArray("_sprite") instance=ExtResource("4_dj52m")]
+_max_health = 15.0
+_sprite = NodePath("../AnimatedSprite3D")
+
+[node name="LootSpawn" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0076313, -0.593311, 0)
+
+[node name="DetectionArea" parent="." instance=ExtResource("7_8tnmv")]
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+path_height_offset = -0.25
+
+[node name="Pain" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("8_y2ulx")
+max_db = -6.0
+pitch_scale = 0.3
+bus = &"SFX"
+
+[node name="Death" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("9_8nqqp")
+max_db = -6.0
+pitch_scale = 0.3
+bus = &"SFX"
+
+[connection signal="animation_finished" from="AnimatedSprite3D" to="Health" method="_on_animated_sprite_3d_animation_finished"]
+[connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
+[connection signal="area_entered" from="DetectionArea" to="." method="_on_detection_area_entered"]

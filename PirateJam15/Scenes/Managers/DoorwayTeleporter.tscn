@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://ce2c6kfbekmja"]
+
+[ext_resource type="Script" path="res://Scripts/Managers/SceneTransitioner.gd" id="1_pnwpr"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o4s5u"]
+size = Vector3(2, 1, 1)
+
+[node name="DoorwayTeleporter" type="Area3D"]
+collision_mask = 2
+script = ExtResource("1_pnwpr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_o4s5u")

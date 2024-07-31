@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=7 format=3 uid="uid://chdi4aqhp3ytc"]
+
+[ext_resource type="Script" path="res://Scripts/Items/ItemData.gd" id="1_eptlf"]
+[ext_resource type="Script" path="res://Scripts/Items/item_effect_speed.gd" id="1_h40qi"]
+[ext_resource type="AudioStream" uid="uid://imundqppb42s" path="res://Assets/Audio/UI_Sounds/effect_pick_up.mp3" id="2_7hmqs"]
+[ext_resource type="Texture2D" uid="uid://0kdingpjpcdn" path="res://Assets/SpriteSheets/Loot/potion-sprites.png" id="2_onvqi"]
+
+[sub_resource type="Resource" id="Resource_ieg58"]
+script = ExtResource("1_h40qi")
+speed_amount = 1
+speed_sound = ExtResource("2_7hmqs")
+use_description = ""
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p8sp0"]
+atlas = ExtResource("2_onvqi")
+region = Rect2(64, 0, 64, 64)
+
+[resource]
+script = ExtResource("1_eptlf")
+name = "Speed Potion"
+texture = SubResource("AtlasTexture_p8sp0")
+effects = Array[Resource("res://Scripts/Items/item_effect.gd")]([SubResource("Resource_ieg58")])

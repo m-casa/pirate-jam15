@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://qn0wfvg2msmb"]
+
+[ext_resource type="Script" path="res://Scripts/Items/ItemData.gd" id="1_akpnt"]
+[ext_resource type="Texture2D" uid="uid://0kdingpjpcdn" path="res://Assets/SpriteSheets/Loot/potion-sprites.png" id="2_o4aej"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pi80c"]
+atlas = ExtResource("2_o4aej")
+region = Rect2(192, 0, 64, 64)
+
+[resource]
+script = ExtResource("1_akpnt")
+name = ""
+texture = SubResource("AtlasTexture_pi80c")
+effects = Array[Resource("res://Scripts/Items/item_effect.gd")]([])

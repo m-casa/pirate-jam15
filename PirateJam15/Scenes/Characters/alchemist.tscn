@@ -1,0 +1,117 @@
+[gd_scene load_steps=24 format=3 uid="uid://co4uv0apipk4j"]
+
+[ext_resource type="Script" path="res://Scripts/Characters/alchemist.gd" id="1_a6gd3"]
+[ext_resource type="Texture2D" uid="uid://b48tvg73682g7" path="res://Assets/SpriteSheets/Characters/Alchemist.png" id="2_2xvm3"]
+[ext_resource type="Resource" uid="uid://to85m1frdxal" path="res://Assets/Other/ItemData/green_slime.tres" id="2_r2a2x"]
+[ext_resource type="PackedScene" uid="uid://bpvtclx8jqbhg" path="res://Scenes/Components/interactable.tscn" id="3_7nyq2"]
+[ext_resource type="Script" path="res://Scripts/Inventory/slot_data.gd" id="3_lt52h"]
+[ext_resource type="Script" path="res://Scripts/Quests/quest_data.gd" id="4_w11i0"]
+[ext_resource type="Resource" uid="uid://d182k38r3twb2" path="res://Assets/Other/ItemData/bone.tres" id="5_iw24p"]
+[ext_resource type="Resource" uid="uid://dj8p1crnpjs7y" path="res://Assets/Other/ItemData/bat_wings.tres" id="5_tolk5"]
+[ext_resource type="Script" path="res://Scripts/Managers/state_machine.gd" id="9_3kf5b"]
+[ext_resource type="Script" path="res://Scripts/Characters/intro_state.gd" id="10_ji6mw"]
+[ext_resource type="Script" path="res://Scripts/Characters/on_quest_state.gd" id="11_bop47"]
+
+[sub_resource type="Resource" id="Resource_2vile"]
+script = ExtResource("3_lt52h")
+item_data = ExtResource("2_r2a2x")
+quantity = 5
+
+[sub_resource type="Resource" id="Resource_adonp"]
+script = ExtResource("4_w11i0")
+quest_name = "Kill Slimes"
+quest_text = "kill slimes for the slime"
+quest_turn_in = Array[ExtResource("3_lt52h")]([SubResource("Resource_2vile")])
+completed = true
+
+[sub_resource type="Resource" id="Resource_ma8oo"]
+script = ExtResource("3_lt52h")
+item_data = ExtResource("5_tolk5")
+quantity = 10
+
+[sub_resource type="Resource" id="Resource_krhnj"]
+script = ExtResource("3_lt52h")
+item_data = ExtResource("5_iw24p")
+quantity = 2
+
+[sub_resource type="Resource" id="Resource_1a0sj"]
+script = ExtResource("4_w11i0")
+quest_name = "Bones and all"
+quest_text = "We have an new order ill need bat wings and bones"
+quest_turn_in = Array[ExtResource("3_lt52h")]([SubResource("Resource_ma8oo"), SubResource("Resource_krhnj")])
+completed = false
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_heftq"]
+atlas = ExtResource("2_2xvm3")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_14i6w"]
+atlas = ExtResource("2_2xvm3")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1kag"]
+atlas = ExtResource("2_2xvm3")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ag1r5"]
+atlas = ExtResource("2_2xvm3")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lcspc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_heftq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_14i6w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f1kag")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ag1r5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_o36yt"]
+radius = 0.4
+height = 1.5
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_upsi2"]
+
+[node name="Alchemist" type="CharacterBody3D"]
+script = ExtResource("1_a6gd3")
+quests = Array[ExtResource("4_w11i0")]([SubResource("Resource_adonp"), SubResource("Resource_1a0sj")])
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+pixel_size = 0.062
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_lcspc")
+autoplay = "default"
+
+[node name="WorldCollider" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+shape = SubResource("CapsuleShape3D_o36yt")
+
+[node name="Interactable" parent="." instance=ExtResource("3_7nyq2")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactable"]
+shape = SubResource("CapsuleShape3D_upsi2")
+
+[node name="State Machine" type="Node" parent="." node_paths=PackedStringArray("inital_state")]
+script = ExtResource("9_3kf5b")
+inital_state = NodePath("IntroState")
+
+[node name="IntroState" type="Node" parent="State Machine"]
+script = ExtResource("10_ji6mw")
+
+[node name="OnQuestState" type="Node" parent="State Machine"]
+script = ExtResource("11_bop47")
+
+[connection signal="interacted_with" from="Interactable" to="." method="_on_interactable_interacted_with"]
