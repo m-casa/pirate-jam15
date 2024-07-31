@@ -65,11 +65,13 @@ func disable_controls() -> void:
 	var player_in_scene = get_tree().get_nodes_in_group("Player")
 	get_tree()
 	if player_in_scene:
+		GameManager.can_pause = false
 		player_in_scene[0].input_enabled = false
 
 func enable_controls() -> void:
 	var player_in_scene = get_tree().get_nodes_in_group("Player")
 	if player_in_scene:
+		GameManager.can_pause = true
 		print("found player")
 		player_in_scene[0].input_enabled = true
 

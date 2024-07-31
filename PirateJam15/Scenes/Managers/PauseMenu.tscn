@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://cxrgw18xhucqo"]
+[gd_scene load_steps=10 format=3 uid="uid://cxrgw18xhucqo"]
 
 [ext_resource type="Script" path="res://Scripts/Managers/PauseMenu.gd" id="1_r7pec"]
 [ext_resource type="FontFile" uid="uid://d1hclnq7y54ni" path="res://Assets/PixelOperator8-Bold.ttf" id="2_4yll3"]
 [ext_resource type="FontFile" uid="uid://d3mxcacciie02" path="res://Assets/PixelOperator8.ttf" id="3_as5xi"]
+[ext_resource type="AudioStream" uid="uid://da3xilsl50tph" path="res://Assets/Audio/UI_Sounds/UI_Cancel_01.mp3" id="4_vrarw"]
+[ext_resource type="AudioStream" uid="uid://dtnck2f17p7u3" path="res://Assets/Audio/UI_Sounds/UI_02.mp3" id="5_ub8vf"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_w4pkf"]
 font = ExtResource("2_4yll3")
@@ -220,6 +222,14 @@ visible = false
 layout_mode = 2
 theme = SubResource("Theme_v20xn")
 text = "Quit"
+
+[node name="PauseSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_vrarw")
+volume_db = 9.0
+
+[node name="UnPauseSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_ub8vf")
+volume_db = 9.0
 
 [connection signal="toggled" from="OptionsPanel/TabContainer/Options/Control2/VBoxContainer/FullscreenToggle" to="." method="set_fullscreen"]
 [connection signal="pressed" from="OptionsPanel/BackBtn" to="." method="toggle_options_panel"]

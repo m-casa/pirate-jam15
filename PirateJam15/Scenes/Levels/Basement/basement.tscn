@@ -115,6 +115,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -10.5)
 target_scene = "Dungeon/dungeon"
 teleport_position = Vector3(50, 0, 50)
 fade_duration = 0.4
+min_loading_time = 0.4
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_5q5ql")

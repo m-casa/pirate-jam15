@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dt42hpn8so4yf"]
+[gd_scene load_steps=20 format=3 uid="uid://dt42hpn8so4yf"]
 
 [ext_resource type="Script" path="res://Scripts/Characters/enemy.gd" id="1_t3cqw"]
 [ext_resource type="Resource" uid="uid://dj8p1crnpjs7y" path="res://Assets/Other/ItemData/bat_wings.tres" id="2_kdjws"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://cchar4njta66r" path="res://Scenes/Components/hitbox.tscn" id="5_pngkv"]
 [ext_resource type="PackedScene" uid="uid://cwtuomrx5lja2" path="res://Scenes/Components/health.tscn" id="6_mb3lv"]
 [ext_resource type="PackedScene" uid="uid://d0lftn2l3f0wv" path="res://Scenes/Components/detection_area.tscn" id="7_mu6nv"]
+[ext_resource type="AudioStream" uid="uid://bq2tr0wsc1tkx" path="res://Assets/Audio/Combat/pain1.wav" id="8_x5ppy"]
+[ext_resource type="AudioStream" uid="uid://cwnp06qhcsx2" path="res://Assets/Audio/Combat/death1.wav" id="9_h4g44"]
 
 [sub_resource type="Resource" id="Resource_foll3"]
 script = ExtResource("3_3sfwy")
@@ -116,6 +118,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0076313, -0.593311, 0)
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 path_height_offset = -0.35
+
+[node name="Pain" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("8_x5ppy")
+max_db = -6.0
+pitch_scale = 1.8
+bus = &"SFX"
+
+[node name="Death" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("9_h4g44")
+max_db = -6.0
+pitch_scale = 1.8
+bus = &"SFX"
 
 [connection signal="animation_finished" from="AnimatedSprite3D" to="Health" method="_on_animated_sprite_3d_animation_finished"]
 [connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]

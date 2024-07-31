@@ -9,6 +9,9 @@ const COYOTE_TIME: float = 0.2
 @export var _player_speed = 5
 @export var _jump_velocity = 4.5
 @export var _camera_sens = 0.001
+@onready var pain = $Pain
+@onready var death = $Death
+
 #@export var _throw_force_fwrd = -18
 #@export var _throw_force_upwrd = 3.5
 
@@ -191,6 +194,12 @@ func _interact():
 		#get_tree().current_scene.add_child(throwable)
 		
 		#throwable.apply_central_impulse(_camera.global_transform.basis.z * _throw_force_fwrd + Vector3(0, _throw_force_upwrd, 0))
+
+func play_pain():
+	pain.play()
+
+func play_death():
+	death.play()
 
 func _quit_game():
 	if Input.is_action_just_pressed("quit"):
