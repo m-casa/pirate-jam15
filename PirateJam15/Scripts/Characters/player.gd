@@ -80,7 +80,7 @@ func _process(delta):
 	
 	_jump()
 	
-	_quit_game()
+	#_quit_game()
 
 # Called every physics tick; 60 times per sec by default
 func _physics_process(delta):

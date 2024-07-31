@@ -1,7 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://cxrgw18xhucqo"]
+[gd_scene load_steps=8 format=3 uid="uid://cxrgw18xhucqo"]
 
 [ext_resource type="Script" path="res://Scripts/Managers/PauseMenu.gd" id="1_r7pec"]
 [ext_resource type="FontFile" uid="uid://d1hclnq7y54ni" path="res://Assets/PixelOperator8-Bold.ttf" id="2_4yll3"]
+[ext_resource type="FontFile" uid="uid://d3mxcacciie02" path="res://Assets/PixelOperator8.ttf" id="3_as5xi"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_w4pkf"]
+font = ExtResource("2_4yll3")
+font_size = 52
+
+[sub_resource type="Theme" id="Theme_uyniv"]
+default_font = ExtResource("3_as5xi")
+
+[sub_resource type="Theme" id="Theme_s0oq3"]
+default_font = ExtResource("3_as5xi")
+
+[sub_resource type="Theme" id="Theme_v20xn"]
+default_font = ExtResource("3_as5xi")
 
 [node name="PauseMenu" type="Control"]
 process_mode = 3
@@ -159,7 +173,6 @@ theme_override_fonts/font = ExtResource("2_4yll3")
 text = "Back"
 
 [node name="BaseButtons" type="Control" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -186,20 +199,26 @@ theme_override_constants/separation = 17
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "PAUSE"
+label_settings = SubResource("LabelSettings_w4pkf")
 horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
 
 [node name="ResumeBtn" type="Button" parent="BaseButtons/VBoxContainer"]
 layout_mode = 2
+theme = SubResource("Theme_uyniv")
 text = "Resume"
 
 [node name="OptionsBtn" type="Button" parent="BaseButtons/VBoxContainer"]
+visible = false
 layout_mode = 2
+theme = SubResource("Theme_s0oq3")
 text = "Options"
 
 [node name="QuitBtn" type="Button" parent="BaseButtons/VBoxContainer"]
+visible = false
 layout_mode = 2
+theme = SubResource("Theme_v20xn")
 text = "Quit"
 
 [connection signal="toggled" from="OptionsPanel/TabContainer/Options/Control2/VBoxContainer/FullscreenToggle" to="." method="set_fullscreen"]

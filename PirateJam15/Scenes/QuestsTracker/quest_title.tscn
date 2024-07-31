@@ -4,6 +4,7 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_5ko6d"]
 font = ExtResource("1_htwxa")
+font_size = 18
 
 [node name="QuestTitle" type="Label"]
 custom_minimum_size = Vector2(200, 0)
