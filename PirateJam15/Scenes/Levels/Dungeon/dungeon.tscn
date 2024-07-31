@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://rrs0cgwoevtb"]
+[gd_scene load_steps=21 format=3 uid="uid://rrs0cgwoevtb"]
 
 [ext_resource type="MeshLibrary" uid="uid://drprmxf6sb7u5" path="res://Scenes/Levels/Dungeon/DungeonMeshLib.tres" id="1_c4fos"]
 [ext_resource type="PackedScene" uid="uid://ce2c6kfbekmja" path="res://Scenes/Managers/DoorwayTeleporter.tscn" id="2_4oy6o"]
@@ -14,6 +14,9 @@
 [ext_resource type="PackedScene" uid="uid://b0gf2ggn8vnrr" path="res://Scenes/Enemies/mob.tscn" id="12_g84re"]
 [ext_resource type="PackedScene" uid="uid://ts4uci2nwvse" path="res://Scenes/Enemies/book.tscn" id="13_0pwun"]
 [ext_resource type="AudioStream" uid="uid://khvnldr1npo4" path="res://Assets/Audio/Dungeon_Full-Track_v1.41.wav" id="14_4e861"]
+[ext_resource type="PackedScene" uid="uid://chemh4hjosrg0" path="res://Scenes/Inventory/item_pickup.tscn" id="15_eusos"]
+[ext_resource type="Resource" uid="uid://ca80cvqi2etsh" path="res://Assets/Other/ItemData/health_potion.tres" id="16_di545"]
+[ext_resource type="Resource" uid="uid://chdi4aqhp3ytc" path="res://Assets/Other/ItemData/speed_potion.tres" id="17_iedfi"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_aucod"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -253,3 +256,31 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.0711, 2.00025, -0.916794)
 stream = ExtResource("14_4e861")
 autoplay = true
 bus = &"Music"
+
+[node name="ItemPickup" parent="." instance=ExtResource("15_eusos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.21911, 1.47391, 3.23354)
+item_data = ExtResource("16_di545")
+
+[node name="ItemPickup6" parent="." instance=ExtResource("15_eusos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5238, 1.47391, 3.23354)
+item_data = ExtResource("16_di545")
+
+[node name="ItemPickup7" parent="." instance=ExtResource("15_eusos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.83877, 1.47391, 3.23354)
+item_data = ExtResource("16_di545")
+
+[node name="ItemPickup2" parent="." instance=ExtResource("15_eusos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.33386, 1.70677, 4.09371)
+item_data = ExtResource("16_di545")
+
+[node name="ItemPickup3" parent="." instance=ExtResource("15_eusos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.09039, 1.22499, 1.89432)
+item_data = ExtResource("17_iedfi")
+
+[node name="ItemPickup4" parent="." instance=ExtResource("15_eusos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.84587, 1.22499, 1.89432)
+item_data = ExtResource("17_iedfi")
+
+[node name="ItemPickup5" parent="." instance=ExtResource("15_eusos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.84043, 1.22499, 1.89432)
+item_data = ExtResource("17_iedfi")

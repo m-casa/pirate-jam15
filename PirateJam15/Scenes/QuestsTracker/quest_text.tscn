@@ -1,6 +1,9 @@
-[gd_scene format=3 uid="uid://budedig8oa7ws"]
+[gd_scene load_steps=2 format=3 uid="uid://budedig8oa7ws"]
+
+[ext_resource type="FontFile" uid="uid://d3mxcacciie02" path="res://Assets/PixelOperator8.ttf" id="1_yx21i"]
 
 [node name="QuestText" type="RichTextLabel"]
 custom_minimum_size = Vector2(200, 0)
+theme_override_fonts/normal_font = ExtResource("1_yx21i")
 text = "Our Customers are in need green dye. fetch me some slime from the dungeon "
 fit_content = true

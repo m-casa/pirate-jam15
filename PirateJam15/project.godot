@@ -11,15 +11,17 @@ config_version=5
 [application]
 
 config/name="PirateJam15"
-run/main_scene="res://Scenes/Levels/Basement/basement.tscn"
+run/main_scene="res://Scenes/Levels/MainMenu.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
 GameManager="*res://Scenes/Managers/GameManager.tscn"
+PlayerData="*res://Scripts/Characters/player_data.gd"
 LoadingScreen="*res://Scenes/Managers/LoadScreen.tscn"
 UiControls="*res://Scenes/Managers/ui_controls.tscn"
+GameOverScreen="*res://Scenes/GameOverScreen.tscn"
 
 [display]
 

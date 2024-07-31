@@ -11,5 +11,5 @@ func damage_target(attack: Attack):
 
 func damage_player(attack: Attack):
 	# Check if our health component is set
-	if _health_component:
-		_health_component.damage_player(attack)
+	if PlayerData:
+		PlayerData.take_dmg(attack.attack_damage)

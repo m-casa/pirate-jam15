@@ -1,7 +1,14 @@
-[gd_scene format=3 uid="uid://ccu3ufigwhcgm"]
+[gd_scene load_steps=3 format=3 uid="uid://ccu3ufigwhcgm"]
+
+[ext_resource type="FontFile" uid="uid://d1hclnq7y54ni" path="res://Assets/PixelOperator8-Bold.ttf" id="1_brj60"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vxee4"]
+font = ExtResource("1_brj60")
+font_size = 14
 
 [node name="Objective" type="Label"]
 custom_minimum_size = Vector2(200, 0)
 size_flags_horizontal = 8
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "- Green Slime 5/5"
+label_settings = SubResource("LabelSettings_vxee4")

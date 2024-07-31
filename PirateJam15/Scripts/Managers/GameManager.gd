@@ -7,6 +7,10 @@ signal updateInventory
 signal updateQuest
 signal turnInQuest
 
+# Game State Signals
+signal health_updated(new_health: int)
+signal onReset()
+
 #region alachemist gameplay loop
 @export var alchemist_quests: Array[QuestData]
 var current_quest: QuestData:  set = set_quest
@@ -17,7 +21,7 @@ var current_alachemist_state_name: String: set = set_alachemist_state
 func _ready()-> void:
 	updateQuest.connect( update_quest )
 	turnInQuest.connect( complete_quest )
-
+	
 func play_audio(audio: AudioStream) -> void:
 	audio_stream_player.stream = audio
 	audio_stream_player.play()

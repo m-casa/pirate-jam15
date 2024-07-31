@@ -1,11 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://dqt6ouv4vlu0q"]
+[gd_scene load_steps=9 format=3 uid="uid://dqt6ouv4vlu0q"]
 
 [ext_resource type="Script" path="res://Scripts/Characters/player.gd" id="1_5anf2"]
-[ext_resource type="PackedScene" uid="uid://cwtuomrx5lja2" path="res://Scenes/Components/health.tscn" id="2_ildgs"]
 [ext_resource type="PackedScene" uid="uid://b653o6e45dnd" path="res://Scenes/Effects/slash.tscn" id="3_4vjuc"]
 [ext_resource type="Script" path="res://Scripts/Components/slash.gd" id="3_axx46"]
 [ext_resource type="PackedScene" uid="uid://cchar4njta66r" path="res://Scenes/Components/hitbox.tscn" id="5_8qkoa"]
-[ext_resource type="Resource" uid="uid://bdw6ers08vrso" path="res://Scenes/Characters/player_stats.tres" id="6_77dva"]
 [ext_resource type="AudioStream" uid="uid://cubyh7c1nh0mi" path="res://Assets/Audio/UI_Sounds/Slash_01.mp3" id="7_vjscb"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vslgp"]
@@ -17,7 +15,7 @@ size = Vector3(2.5, 0.45, 1.3)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6ed5f"]
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" groups=["Player"]]
 floor_constant_speed = true
 floor_max_angle = 0.872665
 script = ExtResource("1_5anf2")
@@ -62,16 +60,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, 0.5)
 stream = ExtResource("7_vjscb")
 bus = &"SFX"
 
-[node name="HitBox" parent="." node_paths=PackedStringArray("_health_component") instance=ExtResource("5_8qkoa")]
+[node name="HitBox" parent="." instance=ExtResource("5_8qkoa")]
 collision_layer = 2
-_health_component = NodePath("../Health")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HitBox"]
 shape = SubResource("CapsuleShape3D_6ed5f")
-
-[node name="Health" parent="." instance=ExtResource("2_ildgs")]
-player_data = ExtResource("6_77dva")
-_stun_duration = 1.0
-_is_player = true
 
 [connection signal="timeout" from="Camera/Slash/AttackArea/Timer" to="Camera/Slash" method="_on_timer_timeout"]

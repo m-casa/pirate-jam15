@@ -6,7 +6,6 @@ class_name Player extends CharacterBody3D
 
 #region FIELDS
 const COYOTE_TIME: float = 0.2
-
 @export var _player_speed = 5
 @export var _jump_velocity = 4.5
 @export var _camera_sens = 0.001
