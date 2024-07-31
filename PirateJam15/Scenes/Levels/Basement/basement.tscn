@@ -1,9 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://cr7nyl23q24aw"]
+[gd_scene load_steps=12 format=3 uid="uid://cr7nyl23q24aw"]
 
 [ext_resource type="MeshLibrary" uid="uid://c2dgq4p65llyv" path="res://Scenes/Levels/Basement/BasementMeshLib.tres" id="1_rw3kt"]
 [ext_resource type="PackedScene" uid="uid://dqt6ouv4vlu0q" path="res://Scenes/Characters/player.tscn" id="2_ktywg"]
 [ext_resource type="PackedScene" uid="uid://co4uv0apipk4j" path="res://Scenes/Characters/alchemist.tscn" id="3_ewlbq"]
 [ext_resource type="AudioStream" uid="uid://dpjlais600ve2" path="res://Assets/Audio/Safe_Place_Demo_v1.1.wav" id="5_5q5ql"]
+[ext_resource type="PackedScene" uid="uid://chemh4hjosrg0" path="res://Scenes/Inventory/item_pickup.tscn" id="6_1sjhe"]
+[ext_resource type="Resource" uid="uid://chdi4aqhp3ytc" path="res://Assets/Other/ItemData/speed_potion.tres" id="7_3yxnk"]
+[ext_resource type="Resource" uid="uid://ca80cvqi2etsh" path="res://Assets/Other/ItemData/health_potion.tres" id="7_5w15v"]
 [ext_resource type="PackedScene" uid="uid://ce2c6kfbekmja" path="res://Scenes/Managers/DoorwayTeleporter.tscn" id="7_xqy7o"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cix0u"]
@@ -61,9 +64,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 4)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -10.5)
 target_scene = "Dungeon/dungeon"
 teleport_position = Vector3(50, 0, 50)
-min_loading_time = 1.0
+fade_duration = 0.3
+min_loading_time = 0.1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_5q5ql")
 volume_db = -2.0
 autoplay = true
+
+[node name="ItemPickup" parent="." instance=ExtResource("6_1sjhe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.581381, 1.47391, -0.144651)
+item_data = ExtResource("7_3yxnk")
+
+[node name="ItemPickup2" parent="." instance=ExtResource("6_1sjhe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.74812, 1.47391, -0.144651)
+item_data = ExtResource("7_5w15v")

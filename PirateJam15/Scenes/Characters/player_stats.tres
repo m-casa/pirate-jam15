@@ -1,8 +1,0 @@
-[gd_resource type="Resource" script_class="PlayerData" load_steps=2 format=3 uid="uid://bdw6ers08vrso"]
-
-[ext_resource type="Script" path="res://Scripts/Characters/player_data.gd" id="1_1gvxn"]
-
-[resource]
-script = ExtResource("1_1gvxn")
-max_health = 100
-current_health = 100

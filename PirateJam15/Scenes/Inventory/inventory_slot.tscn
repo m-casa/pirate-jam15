@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://oe6ivhwwqiwv"]
+[gd_scene load_steps=4 format=3 uid="uid://oe6ivhwwqiwv"]
 
 [ext_resource type="Script" path="res://Scripts/Inventory/inventory_slot.gd" id="1_005fj"]
+[ext_resource type="FontFile" uid="uid://d3mxcacciie02" path="res://Assets/PixelOperator8.ttf" id="2_gg8py"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_cmrt6"]
+font = ExtResource("2_gg8py")
 
 [node name="InventorySlot" type="Button"]
 custom_minimum_size = Vector2(64, 64)
@@ -28,4 +32,5 @@ layout_mode = 0
 offset_right = 64.0
 offset_bottom = 23.0
 theme_override_font_sizes/font_size = 16
+label_settings = SubResource("LabelSettings_cmrt6")
 horizontal_alignment = 2

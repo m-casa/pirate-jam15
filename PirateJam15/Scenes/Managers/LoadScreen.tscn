@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://dh6f0ii4sm0ur"]
+[gd_scene load_steps=3 format=3 uid="uid://dh6f0ii4sm0ur"]
 
 [ext_resource type="Script" path="res://Scripts/Managers/LoadingScreen.gd" id="1_aipey"]
+[ext_resource type="Texture2D" uid="uid://ssvtbwwi687e" path="res://Assets/Textures/banner.png" id="2_ju141"]
 
 [node name="LoadScreen" type="CanvasLayer"]
+process_mode = 3
 script = ExtResource("1_aipey")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -12,7 +14,20 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-color = Color(0.133333, 0.133333, 0.133333, 1)
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -200.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ju141")
+expand_mode = 2
+stretch_mode = 4
+flip_v = true
 
 [node name="LoadingTxt" type="Label" parent="."]
 anchors_preset = 3
@@ -26,5 +41,9 @@ offset_right = -25.0
 offset_bottom = -25.0
 grow_horizontal = 0
 grow_vertical = 0
-theme_override_font_sizes/font_size = 31
-text = "Loading ..."
+theme_override_colors/font_color = Color(1, 0, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.0117647, 0, 0.501961, 1)
+theme_override_font_sizes/font_size = 33
+text = "○"
+horizontal_alignment = 2
+vertical_alignment = 1

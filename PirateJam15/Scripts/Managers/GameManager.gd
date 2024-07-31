@@ -3,9 +3,12 @@ extends Node
 @onready var audio_stream_player = $AudioStreamPlayer
 const player_inventory: InventoryData = preload("res://Assets/PlayerData/player_inventory.tres")
 
+signal health_updated(new_health: int)
+signal onReset()
 signal updateInventory
 signal updateQuest
 signal turnInQuest
+
 
 @export_category("Intro Quest Text")
 @export_group("Intro Quest Text")
@@ -16,6 +19,8 @@ signal turnInQuest
 @export_group("Win Text")
 @export var win_title: String
 @export_multiline var win_text: String
+
+# Game State Signals
 
 #region alachemist gameplay loop
 @export_category("Quest Chain")
@@ -28,7 +33,7 @@ var current_alachemist_state_name: String: set = set_alachemist_state
 func _ready()-> void:
 	updateQuest.connect( update_quest )
 	turnInQuest.connect( complete_quest )
-
+	
 func play_audio(audio: AudioStream) -> void:
 	audio_stream_player.stream = audio
 	audio_stream_player.play()
@@ -77,6 +82,11 @@ func steal_items() -> void:
 		player_inventory.slots[i] = null
 
 func game_over() -> void:
+	steal_items()
+	updateInventory.emit()
+	updateQuest.emit()
+	UiControls.show_game_over()
+	PlayerData.current_health = PlayerData.max_health
 	pass
 	
 func win_game() -> void:

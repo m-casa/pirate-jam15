@@ -77,7 +77,7 @@ height = 1.5
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ppljw"]
 
 [node name="Mob" type="CharacterBody3D" groups=["Enemy"]]
-collision_layer = 2
+collision_layer = 0
 wall_min_slide_angle = 0.0872665
 script = ExtResource("1_rpm01")
 _enemy_speed = 4

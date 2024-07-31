@@ -83,7 +83,7 @@ func _on_hit_box_area_entered(area):
 		var player_position = area.global_transform.origin
 		
 		attack.knockback_direction = enemy_position.direction_to(player_position)
-		area.damage_player(attack)
+		PlayerData.take_dmg(attack)
 
 func drop_items() -> void:
 	if drops.size() == 0: return
