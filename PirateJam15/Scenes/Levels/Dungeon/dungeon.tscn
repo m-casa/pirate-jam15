@@ -417,6 +417,7 @@ item_data = ExtResource("10_sbjj4")
 [node name="DoorwayTeleporter" parent="." instance=ExtResource("2_4oy6o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, 17.5)
 target_scene = "Basement/basement"
+fade_duration = 0.4
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_4e861")

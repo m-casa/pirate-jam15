@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c238vwdd6sjlx" path="res://Scenes/QuestsTracker/quest_panel.tscn" id="2_wexnt"]
 [ext_resource type="PackedScene" uid="uid://bax23imhhrv5a" path="res://Scenes/Inventory/inventory.tscn" id="3_j6ibv"]
 [ext_resource type="PackedScene" uid="uid://de0iej6y7hqep" path="res://Scenes/GameOverScreen.tscn" id="5_88kjv"]
-[ext_resource type="PackedScene" uid="uid://8n40v6s5mxa4" path="res://Scenes/WinScreen.tscn" id="7_h1iw3"]
+[ext_resource type="PackedScene" uid="uid://8n40v6s5mxa4" path="res://Scenes/WinScreen.tscn" id="6_kt7mh"]
 
 [node name="UI Controls" type="Control"]
 layout_mode = 3
@@ -28,6 +28,9 @@ layout_mode = 1
 layout_mode = 1
 
 [node name="GameOverScreen" parent="." instance=ExtResource("5_88kjv")]
+layout_mode = 1
+
+[node name="WinScreen" parent="." instance=ExtResource("6_kt7mh")]
 layout_mode = 1
 
 [node name="PauseMenu" parent="." instance=ExtResource("2_grx63")]

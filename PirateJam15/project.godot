@@ -21,7 +21,6 @@ GameManager="*res://Scenes/Managers/GameManager.tscn"
 PlayerData="*res://Scripts/Characters/player_data.gd"
 LoadingScreen="*res://Scenes/Managers/LoadScreen.tscn"
 UiControls="*res://Scenes/Managers/ui_controls.tscn"
-GameOverScreen="*res://Scenes/GameOverScreen.tscn"
 
 [display]
 

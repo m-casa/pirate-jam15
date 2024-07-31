@@ -44,14 +44,15 @@ func _teleport_player() -> void:
 #             new_player.global_transform.origin = teleport_position
 
 func transition_to_scene(target_scene_from_button: String) -> void:
-	target_scene = target_scene_from_button
+	if target_scene_from_button:
+		target_scene = target_scene_from_button
 	
 	if target_scene:		
 		disable_controls()
 		fade_effect.fade_in_with_text(fade_duration)  # Fade to black with loading text
 
-		await get_tree().create_timer(fade_duration).timeout  # Wait for the fade-in to complete
-		await get_tree().create_timer(min_loading_time).timeout  # Minimum loading time
+		get_tree().create_timer(fade_duration).timeout  # Wait for the fade-in to complete
+		#await get_tree().create_timer(min_loading_time).timeout  # Minimum loading time
 		
 		var target_scene_instance = load("Scenes/Levels/" + target_scene + ".tscn").instantiate()
 		get_tree().root.add_child(target_scene_instance)
@@ -61,12 +62,16 @@ func transition_to_scene(target_scene_from_button: String) -> void:
 		fade_effect.fade_out_with_text(fade_duration)
 	
 func disable_controls() -> void:
-	if player:
-		player.input_enabled = false
+	var player_in_scene = get_tree().get_nodes_in_group("Player")
+	get_tree()
+	if player_in_scene:
+		player_in_scene[0].input_enabled = false
 
 func enable_controls() -> void:
-	if player:
-		player.input_enabled = true
+	var player_in_scene = get_tree().get_nodes_in_group("Player")
+	if player_in_scene:
+		print("found player")
+		player_in_scene[0].input_enabled = true
 
 func _on_fade_complete() -> void:
 	enable_controls()
