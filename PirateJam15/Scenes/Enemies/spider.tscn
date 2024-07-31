@@ -81,6 +81,7 @@ height = 1.4
 collision_layer = 2
 wall_min_slide_angle = 0.0872665
 script = ExtResource("1_2dgnm")
+_enemy_speed = 1.0
 drops = Array[ExtResource("3_y3nsn")]([SubResource("Resource_foll3")])
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]

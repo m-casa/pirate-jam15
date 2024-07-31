@@ -27,11 +27,8 @@ layout_mode = 1
 [node name="Inventory" parent="." instance=ExtResource("3_j6ibv")]
 layout_mode = 1
 
-[node name="PauseMenu" parent="." instance=ExtResource("2_grx63")]
-layout_mode = 1
-
 [node name="GameOverScreen" parent="." instance=ExtResource("5_88kjv")]
 layout_mode = 1
 
-[node name="WinScreen" parent="." instance=ExtResource("7_h1iw3")]
+[node name="PauseMenu" parent="." instance=ExtResource("2_grx63")]
 layout_mode = 1

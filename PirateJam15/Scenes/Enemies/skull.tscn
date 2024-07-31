@@ -81,7 +81,7 @@ height = 1.6
 collision_layer = 0
 wall_min_slide_angle = 0.0872665
 script = ExtResource("1_57u6q")
-_enemy_speed = 4
+_enemy_speed = 5.0
 drops = Array[ExtResource("3_g080a")]([SubResource("Resource_foll3")])
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
@@ -100,8 +100,8 @@ shape = SubResource("CapsuleShape3D_o36yt")
 [node name="HitBox" parent="." node_paths=PackedStringArray("_health_component") instance=ExtResource("5_pe4c6")]
 collision_layer = 8
 collision_mask = 2
-_is_enemy = true
 _health_component = NodePath("../Health")
+_is_enemy = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HitBox"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
