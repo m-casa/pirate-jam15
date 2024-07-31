@@ -20,7 +20,6 @@ var _gravity: float
 
 # Called when a node and its children have entered the scene
 func _ready():
-	# Get the gravity from project settings to be synced with RigidBody nodes
 	_gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 	
 	attack = Attack.new()
@@ -34,11 +33,11 @@ func _ready():
 	health.died.connect( drop_items )
 
 func _physics_process(delta):
-	var current_location = global_transform.origin
-	var next_location = _nav_agent.get_next_path_position()
-	var new_velocity = (next_location - current_location).normalized() * _enemy_speed
-	
 	if not _was_knocked_back && _player_detected && health.health > 0:
+		var current_location = global_transform.origin
+		var next_location = _nav_agent.get_next_path_position()
+		var new_velocity = (next_location - current_location).normalized() * _enemy_speed
+		
 		velocity = new_velocity
 	
 	_apply_gravity(delta)
