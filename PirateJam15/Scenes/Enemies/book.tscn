@@ -102,8 +102,8 @@ shape = SubResource("CapsuleShape3D_o36yt")
 [node name="HitBox" parent="." node_paths=PackedStringArray("_health_component") instance=ExtResource("5_0duty")]
 collision_layer = 8
 collision_mask = 2
-_is_enemy = true
 _health_component = NodePath("../Health")
+_is_enemy = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HitBox"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
