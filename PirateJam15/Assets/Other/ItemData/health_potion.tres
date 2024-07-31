@@ -19,4 +19,4 @@ region = Rect2(128, 0, 64, 64)
 script = ExtResource("4_6adrt")
 name = "Health Potion"
 texture = SubResource("AtlasTexture_6pymo")
-effects = Array[Resource("res://Scripts/Items/item_effect.gd")]([SubResource("Resource_ylcxn")])
+effects = Array[Resource("res://Scripts/Items/item_effect.gd")]([SubResource("Resource_ylcxn"), null])
