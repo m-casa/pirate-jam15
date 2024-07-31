@@ -4,7 +4,7 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_vxee4"]
 font = ExtResource("1_brj60")
-font_size = 14
+font_size = 18
 
 [node name="Objective" type="Label"]
 custom_minimum_size = Vector2(200, 0)

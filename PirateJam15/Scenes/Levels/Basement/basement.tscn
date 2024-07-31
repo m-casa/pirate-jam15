@@ -118,5 +118,4 @@ fade_duration = 0.4
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_5q5ql")
-volume_db = -2.0
 autoplay = true

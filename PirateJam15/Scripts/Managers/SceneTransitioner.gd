@@ -51,7 +51,7 @@ func transition_to_scene(target_scene_from_button: String) -> void:
 		disable_controls()
 		fade_effect.fade_in_with_text(fade_duration)  # Fade to black with loading text
 
-		get_tree().create_timer(fade_duration).timeout  # Wait for the fade-in to complete
+		#get_tree().create_timer(fade_duration).timeout  # Wait for the fade-in to complete
 		#await get_tree().create_timer(min_loading_time).timeout  # Minimum loading time
 		
 		var target_scene_instance = load("Scenes/Levels/" + target_scene + ".tscn").instantiate()

@@ -19,7 +19,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	if Input.is_action_just_pressed("escape") and not get_tree().root.get_node("MainMenu"):
+	if Input.is_action_just_pressed("escape") and get_tree().root.name != "MainMenu":
 		toggle_pause_menu()
 	pass
 		
