@@ -10,9 +10,11 @@ config_version=5
 
 [application]
 
-config/name="PirateJam15"
+config/name="Back to the Dungeon with You!"
 run/main_scene="res://Scenes/Levels/MainMenu.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
+boot_splash/bg_color=Color(0.140075, 0.141055, 0.132194, 1)
+boot_splash/image="res://Assets/Textures/banner.png"
 config/icon="res://icon.svg"
 
 [autoload]
