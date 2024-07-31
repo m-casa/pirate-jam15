@@ -1,6 +1,8 @@
 extends Node
 
 @onready var audio_stream_player = $AudioStreamPlayer
+@onready var interact = $Interact
+
 const player_inventory: InventoryData = preload("res://Assets/PlayerData/player_inventory.tres")
 
 signal health_updated(new_health: int)
@@ -30,9 +32,12 @@ var has_seen_intro: bool = false
 var current_alachemist_state_name: String: set = set_alachemist_state
 #endregion
 
+var can_pause: bool
+
 func _ready()-> void:
 	updateQuest.connect( update_quest )
 	turnInQuest.connect( complete_quest )
+	can_pause = false
 	
 func play_audio(audio: AudioStream) -> void:
 	audio_stream_player.stream = audio
@@ -56,6 +61,7 @@ func update_quest() -> void:
 			if alchemist_quests[i].completed:
 				completed_quests += 1
 				if completed_quests == alchemist_quests.size():
+					can_pause = false
 					win_game()
 					return
 				continue
@@ -74,6 +80,7 @@ func complete_quest() -> void:
 	
 	if completed_lines == current_quest.quest_turn_in.size():
 		current_quest.completed = true
+		interact.play()
 		steal_items()
 #endregion
 
@@ -108,6 +115,7 @@ func reset_game() -> void:
 #region global alchemist state
 func update_intro_bool() -> void:
 	has_seen_intro = true
+	interact.play()
 
 func set_alachemist_state(state_name: String) -> void:
 	current_alachemist_state_name = state_name

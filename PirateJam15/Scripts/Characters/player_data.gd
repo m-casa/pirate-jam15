@@ -60,16 +60,21 @@ func take_dmg(attack: Attack) -> void:
 	if current_health > 0 and not stunned:
 		stunned = true
 		current_health -= attack.attack_damage
+		update_hud()
 		FindPlayer()
 		player.setup_knockback(attack)
+		player.play_pain()
 		
 	
 		if current_health <= 0:
+			GameManager.can_pause = false
 			current_health = 0
+			player.play_death()
+			player.input_enabled = false
+			await get_tree().create_timer(.8).timeout
 			GameManager.game_over()
 			
 		stunTimer.start()
-		update_hud()
 
 func reset_stun() -> void:
 	print("reset stunned")

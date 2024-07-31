@@ -34,17 +34,17 @@ environment = SubResource("Environment_4jwmk")
 [node name="YellowLight" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 2)
 light_color = Color(0.882353, 0.745098, 0, 1)
-light_energy = 16.0
+light_energy = 10.0
 shadow_enabled = true
 omni_range = 15.0
-omni_attenuation = 0.7
+omni_attenuation = 0.69
 
 [node name="RedLight" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -10)
 light_color = Color(1, 0, 0, 1)
 light_energy = 10.0
 shadow_enabled = true
-omni_attenuation = 0.7
+omni_attenuation = 0.69
 
 [node name="BasementBlocks" type="GridMap" parent="."]
 mesh_library = ExtResource("1_rw3kt")
@@ -115,6 +115,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -10.5)
 target_scene = "Dungeon/dungeon"
 teleport_position = Vector3(50, 0, 50)
 fade_duration = 0.4
+min_loading_time = 0.4
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_5q5ql")

@@ -9,6 +9,9 @@ const COYOTE_TIME: float = 0.2
 @export var _player_speed = 5
 @export var _jump_velocity = 4.5
 @export var _camera_sens = 0.001
+@onready var pain = $Pain
+@onready var death = $Death
+
 #@export var _throw_force_fwrd = -18
 #@export var _throw_force_upwrd = 3.5
 
@@ -74,6 +77,10 @@ func _process(delta):
 	if not input_enabled:
 		return
 	
+	if Input.is_action_just_pressed("action"):
+		if Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE:
+			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	
 	_get_input_dir()
 	
 	_update_coyote_timer(delta)
@@ -112,7 +119,10 @@ func _physics_process(delta):
 
 # Get the input direction to handle movement/deceleration
 func _get_input_dir():
-	_input_dir = Input.get_vector("move_left", "move_right", "move_forwards", "move_backwards")
+	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
+		_input_dir = Input.get_vector("move_left", "move_right", "move_forwards", "move_backwards")
+	else:
+		_input_dir = Vector2.ZERO
 
 func _jump():
 	if Input.is_action_just_pressed("jump") and (is_on_floor() or _coyote_timer < COYOTE_TIME):
@@ -191,6 +201,12 @@ func _interact():
 		#get_tree().current_scene.add_child(throwable)
 		
 		#throwable.apply_central_impulse(_camera.global_transform.basis.z * _throw_force_fwrd + Vector3(0, _throw_force_upwrd, 0))
+
+func play_pain():
+	pain.play()
+
+func play_death():
+	death.play()
 
 func _quit_game():
 	if Input.is_action_just_pressed("quit"):

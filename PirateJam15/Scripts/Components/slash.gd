@@ -3,6 +3,8 @@ extends Node3D
 
 @export var _knockback_force = -15
 @onready var audio_stream: AudioStreamPlayer3D = $AudioStreamPlayer3D
+@onready var player = $"../.."
+
 
 var attack: Attack
 var _can_attack: bool
@@ -30,6 +32,9 @@ func _ready():
 
 # Called every physics tick; 60 times per sec by default
 func _physics_process(_delta):
+	if not player.input_enabled:
+		return
+	
 	_attack()
 	
 	_check_attack_area()

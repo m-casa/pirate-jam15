@@ -3,6 +3,9 @@ extends Node
 var pause_menu: Control
 var baseButtons: Control
 var optionsPanel: Control
+@onready var pause_sfx = $PauseSFX
+@onready var un_pause_sfx = $UnPauseSFX
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pause_menu = $"."
@@ -19,17 +22,19 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	if Input.is_action_just_pressed("escape") and get_tree().root.name != "MainMenu":
+	if Input.is_action_just_pressed("escape") and GameManager.can_pause:
 		toggle_pause_menu()
 	pass
 		
 func toggle_pause_menu():
 	if pause_menu.visible:
+		pause_sfx.play()
 		pause_menu.hide()
 		get_tree().paused = false
 		get_window().grab_focus()
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	else:
+		un_pause_sfx.play()
 		pause_menu.show()	
 		optionsPanel.hide()
 		baseButtons.show()		
